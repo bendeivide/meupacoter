@@ -1,0 +1,86 @@
+---
+title: "Construindo o esqueleto de um pacote R"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Construindo o esqueleto de um pacote R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Nessa seção, veremos como construir um pacote R usando o [RStudio](https://rstudio.com/). Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando para para esse momento.
+
+```{r pkg_construir, eval=FALSE}
+install.packages(c("knitr", "devtools", "roxygen2", "usethis",
+                   "pkgdown"))
+```
+
+Descriminaremos a importância de cada pacote na tabela a seguir. Para essa primeira versão, deixaremos claro que o desenvolvimento de pacotes será usado de acordo com as configurações do sistema operacional Windows. Assim, precisaremos instalar uma outra ferramenta que é o [rtools](https://cran.r-project.org/bin/windows/Rtools/).
+
+|Pacote     | Funções |  Objetivo|
+|--------   |---------|----------|
+|`knitr`    |         |          |
+|`devtools` |         |          | 
+|`roxygen2` |         |          |
+| `usethis` |         |          |
+| `pkgdown` |         |          |
+
+Para carregar esses pacotes use a linha de código a seguir.
+
+```{r pkg_carregar, eval=FALSE}
+# No RStudio (Instalar pacotes necessarios)
+pkgs <- c("devtools", "usethis", "roxygen2", "pkgdown")
+
+### Funcao carregar
+carregar <- function(package){
+  return(suppressMessages(require(package, character.only = TRUE)))
+}
+
+### Carregando
+pkgs <- cbind(pkgs)
+sapply(pkgs, carregar)
+```
+
+
+## Esqueleto básico de um pacote R {#sec-esqueleto}
+
+A estrutura básica de um pacote pode ser apresentado a seguir.
+
+![**Esqueleto de um pacote R**](img/esqueleto.png){width=200}
+
+
+
+Os arquivos e diretórios básicos são: 
+
+- *DESCRIPTION*: Arquivo que contém as informações básicas do pacote, tais como:
+  - Nome do pacote;
+  - Título do pacote;
+  - Data;
+  - Autor e mantenedor;
+  - Descrição do pacote;
+  - Licença;
+  - Pacotes dependentes;
+  - Pacotes sugeridos;
+- *NAMESPACE*: Esse arquivo informa quais as funções do seu pacote que serão exportadas, visíveis aos usuários do pacote.
+- *R/*: Esse diretório armazena as rotinas ".R" do seu pacote.
+- *man/*: esse diretório armazena os arquivos de ajuda do pacote. Descreve e exemplifica as funções do pacote.
+
+
+## Construindo o pacote R pelo RStudio
+Para construir o esqueleto básico de um pacote, usando o **RStudio**, siga os passos pelo vídeo abaixo.
+
+
+<p align="center">
+<iframe width="560" height="315"  src="https://www.youtube.com/embed/aq4OL8IDRJ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+
+Passos no **RStudio**: `File` >  `New Project...` > `New Directory` > `R package`. Insira o nome do pacote e armazene o projeto em um diretório desejado.
+
+

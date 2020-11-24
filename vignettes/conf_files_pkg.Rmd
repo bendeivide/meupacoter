@@ -1,0 +1,18 @@
+---
+title: "Configurando os arquivos básicos"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Configurando os arquivos básicos}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+Para configurar os arquivos observados na Seção [Esqueleto básico de um pacote R](construindo_pacote.html#sec-esqueleto)

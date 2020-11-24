@@ -10,3 +10,7 @@ Description: Este pacote auxiliará os iniciantes na linguagem R, a
 License: GPL (>= 2)
 Encoding: UTF-8
 RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

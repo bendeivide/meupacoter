@@ -1,0 +1,8 @@
+pandoc: 2.7.3
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  conf_files_pkg: conf_files_pkg.html
+  construindo_pacote: construindo_pacote.html
+last_built: 2020-11-24T22:04Z
+
