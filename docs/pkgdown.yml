@@ -4,5 +4,9 @@ pkgdown_sha: ~
 articles:
   conf_files_pkg: conf_files_pkg.html
   construindo_pacote: construindo_pacote.html
-last_built: 2020-11-24T22:04Z
+  construindo_website: construindo_website.html
+last_built: 2020-11-25T07:47Z
+urls:
+  reference: https://bendeivide.github.io/meupacote//reference
+  article: https://bendeivide.github.io/meupacote//articles
 

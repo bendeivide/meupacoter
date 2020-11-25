@@ -1,0 +1,27 @@
+---
+title: "Desenvolvendo o site do pacote"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Desenvolvendo o site do pacote}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Passos iniciais para a renderização do site
+
+## Como construir o site
+
+## Configurações posteriores
+
+## Internacionalização
+
+## Problemas na renderização do site
+
+Alguns problemas surgem quando inserimos imagens nos "vignettes", do qual a renderização pelo `pkgdown::build_site()` insere todo o caminho da imagem, e daí, esta acaba não sendo reconhecida. Uma solução simples encontrada foi apagar todos os arquivos em `doc/articles`, e renderizar novamente o site por `pkgdown::build_site()`. Creio que isso resolverá o problema. Apesar disso, o problema não ocorre se você renderizar apenas o arquivo "vignette" específico pelo botão **Knit** no RStudio. 

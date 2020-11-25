@@ -38,7 +38,7 @@ use_readme_rmd()
 use_news_md()
 
 ## Criando Vignettes
-use_vignette("conf_files_pkg")
+use_vignette("construindo_website")
 
 
 # Criando o site

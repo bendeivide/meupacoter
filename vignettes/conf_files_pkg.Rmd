@@ -1,8 +1,8 @@
 ---
-title: "Configurando os arquivos básicos"
+title: "Configurando os arquivos básicos do pacote"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Configurando os arquivos básicos}
+  %\VignetteIndexEntry{Configurando os arquivos básicos do pacote}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -23,6 +23,7 @@ install.packages(c("knitr", "devtools", "roxygen2", "usethis",
 
 Descriminaremos a importância de cada pacote na tabela a seguir. Para essa primeira versão, deixaremos claro que o desenvolvimento de pacotes será usado de acordo com as configurações do sistema operacional Windows. Assim, precisaremos instalar uma outra ferramenta que é o [rtools](https://cran.r-project.org/bin/windows/Rtools/).
 
+<p align="center">
 |Pacote     | Funções |  Objetivo|
 |--------   |---------|----------|
 |`knitr`    |         |          |
@@ -30,6 +31,7 @@ Descriminaremos a importância de cada pacote na tabela a seguir. Para essa prim
 |`roxygen2` |         |          |
 | `usethis` |         |          |
 | `pkgdown` |         |          |
+</p>
 
 Para carregar esses pacotes use a linha de código a seguir.
 
@@ -52,8 +54,14 @@ sapply(pkgs, carregar)
 
 A estrutura básica de um pacote pode ser apresentado a seguir.
 
-![**Esqueleto de um pacote R**](img/esqueleto.png){width=200}
 
+<p align="center">
+<img src="esqueleto.png" alt="Esqueleto de um pacote R" width="30%">
+</p>
+
+<!--
+![](esqueleto.png)
+-->
 
 
 Os arquivos e diretórios básicos são: 

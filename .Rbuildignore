@@ -1,6 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^comandos_importantes\.R$
+comandos_importantes\.R
 ^README\.Rmd$
 ^_pkgdown\.yml$
 ^docs$
