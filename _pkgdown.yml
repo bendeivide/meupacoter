@@ -3,3 +3,4 @@ url: https://bendeivide.github.io/meupacote/
 template:
   params:
     bootswatch: cosmo
+    ganalytics: UA-183980834-1
