@@ -5,3 +5,4 @@ comandos_importantes\.R
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^logo$

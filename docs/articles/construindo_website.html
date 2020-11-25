@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Construindo o esqueleto de um pacote R • meupacote</title>
+<title>Desenvolvendo o site do pacote • meupacote</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Construindo o esqueleto de um pacote R">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Desenvolvendo o site do pacote">
 <meta property="og:description" content="meupacote">
 <meta property="og:image" content="https://bendeivide.github.io/meupacote/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -82,112 +82,39 @@
 
       
 
-      </header><script src="construindo_pacote_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="construindo_website_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Construindo o esqueleto de um pacote R</h1>
+      <h1 data-toc-skip>Desenvolvendo o site do pacote</h1>
             
       
       
-      <div class="hidden name"><code>construindo_pacote.Rmd</code></div>
+      <div class="hidden name"><code>construindo_website.Rmd</code></div>
 
     </div>
 
     
     
-<p>Nessa seção, veremos como construir um pacote R usando o <a href="https://rstudio.com/">RStudio</a>. Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando para para esse momento.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"knitr"</span>, <span class="st">"devtools"</span>, <span class="st">"roxygen2"</span>, <span class="st">"usethis"</span>,
-                   <span class="st">"pkgdown"</span>))</pre></body></html></div>
-<p>Descriminaremos a importância de cada pacote na tabela a seguir. Para essa primeira versão, deixaremos claro que o desenvolvimento de pacotes será usado de acordo com as configurações do sistema operacional Windows. Assim, precisaremos instalar uma outra ferramenta que é o <a href="https://cran.r-project.org/bin/windows/Rtools/">rtools</a>.</p>
-<p align="center">
-</p>
-<table class="table">
-<thead><tr class="header">
-<th>Pacote</th>
-<th>Funções</th>
-<th>Objetivo</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td><code>knitr</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>devtools</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>roxygen2</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><code>usethis</code></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><code>pkgdown</code></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Para carregar esses pacotes use a linha de código a seguir.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># No RStudio (Instalar pacotes necessarios)</span>
-<span class="no">pkgs</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"devtools"</span>, <span class="st">"usethis"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgdown"</span>)
-
-<span class="co">### Funcao carregar</span>
-<span class="no">carregar</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">package</span>){
-  <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="no">package</span>, <span class="kw">character.only</span> <span class="kw">=</span> <span class="fl">TRUE</span>)))
-}
-
-<span class="co">### Carregando</span>
-<span class="no">pkgs</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span>(<span class="no">pkgs</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="no">pkgs</span>, <span class="no">carregar</span>)</pre></body></html></div>
-<div id="sec-esqueleto" class="section level2">
+<div id="passos-iniciais-para-a-renderização-do-site" class="section level2">
 <h2 class="hasAnchor">
-<a href="#sec-esqueleto" class="anchor"></a>Esqueleto básico de um pacote R</h2>
-<p>A estrutura básica de um pacote pode ser apresentado a seguir.</p>
-<p align="center">
-<img src="esqueleto.png" alt="Esqueleto de um pacote R" width="30%"></p>
-<!--
-![](esqueleto.png)
--->
-<p>Os arquivos e diretórios básicos são:</p>
-<ul>
-<li>
-<em>DESCRIPTION</em>: Arquivo que contém as informações básicas do pacote, tais como:
-<ul>
-<li>Nome do pacote;</li>
-<li>Título do pacote;</li>
-<li>Data;</li>
-<li>Autor e mantenedor;</li>
-<li>Descrição do pacote;</li>
-<li>Licença;</li>
-<li>Pacotes dependentes;</li>
-<li>Pacotes sugeridos;</li>
-</ul>
-</li>
-<li>
-<em>NAMESPACE</em>: Esse arquivo informa quais as funções do seu pacote que serão exportadas, visíveis aos usuários do pacote.</li>
-<li>
-<em>R/</em>: Esse diretório armazena as rotinas “.R” do seu pacote.</li>
-<li>
-<em>man/</em>: esse diretório armazena os arquivos de ajuda do pacote. Descreve e exemplifica as funções do pacote.</li>
-</ul>
+<a href="#passos-iniciais-para-a-renderiza%C3%A7%C3%A3o-do-site" class="anchor"></a>Passos iniciais para a renderização do site</h2>
 </div>
-<div id="construindo-o-pacote-r-pelo-rstudio" class="section level2">
+<div id="como-construir-o-site" class="section level2">
 <h2 class="hasAnchor">
-<a href="#construindo-o-pacote-r-pelo-rstudio" class="anchor"></a>Construindo o pacote R pelo RStudio</h2>
-<p>Para construir o esqueleto básico de um pacote, usando o <strong>RStudio</strong>, siga os passos pelo vídeo abaixo.</p>
-<p align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aq4OL8IDRJ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-</p>
-<p>Passos no <strong>RStudio</strong>: <code>File</code> &gt; <code>New Project...</code> &gt; <code>New Directory</code> &gt; <code>R package</code>. Insira o nome do pacote e armazene o projeto em um diretório desejado.</p>
+<a href="#como-construir-o-site" class="anchor"></a>Como construir o site</h2>
+</div>
+<div id="configurações-posteriores" class="section level2">
+<h2 class="hasAnchor">
+<a href="#configura%C3%A7%C3%B5es-posteriores" class="anchor"></a>Configurações posteriores</h2>
+</div>
+<div id="internacionalização" class="section level2">
+<h2 class="hasAnchor">
+<a href="#internacionaliza%C3%A7%C3%A3o" class="anchor"></a>Internacionalização</h2>
+</div>
+<div id="problemas-na-renderização-do-site" class="section level2">
+<h2 class="hasAnchor">
+<a href="#problemas-na-renderiza%C3%A7%C3%A3o-do-site" class="anchor"></a>Problemas na renderização do site</h2>
+<p>Alguns problemas surgem quando inserimos imagens nos “vignettes”, do qual a renderização pelo <code><a href="https://pkgdown.r-lib.org/reference/build_site.html">pkgdown::build_site()</a></code> insere todo o caminho da imagem, e daí, esta acaba não sendo reconhecida. Uma solução simples encontrada foi apagar todos os arquivos em <code>doc/articles</code>, e renderizar novamente o site por <code><a href="https://pkgdown.r-lib.org/reference/build_site.html">pkgdown::build_site()</a></code>. Creio que isso resolverá o problema. Apesar disso, o problema não ocorre se você renderizar apenas o arquivo “vignette” específico pelo botão <strong>Knit</strong> no RStudio.</p>
 </div>
   </div>
 

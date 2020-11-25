@@ -1,2 +1,5 @@
 title: meupacote
 url: https://bendeivide.github.io/meupacote/
+template:
+  params:
+    bootswatch: cosmo
