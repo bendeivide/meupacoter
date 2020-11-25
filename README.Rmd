@@ -18,43 +18,44 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of meupacote is to ...
+O objetivo do pacote `meupacote` é ensinar a como desenvolver pacotes R usando o [RStudio](http://rstudio.com). Mostraremos muitas ferramentas úteis para o desenvolvimento de pacotes, como desenvolver insterfaces gráficas ao usuário, a internacionalização de pacotes para outros idiomas, criação de websites, criação de vignettes, e muito mais.
 
-## Installation
+## Onde `meupacote` já foi apresentado?
 
+O `meupacote` já foi apresentado em palestras, seminários e minicursos sobre desenvolvimento de pacotes. Contudo, só a partir de 24 de novembro de 2020 é que o pacote ficou disponível no [repositório Github](http:://github.com/bendeivide/meupacote/).
+
+Vejam alguns locais que o `meupacote` já foi apresentado:
+
+| Data      |  Local | Tema da apresentação|
+|-----------|--------|---------------------|
+|08/12/2020 | UFJF - Juiz de Fora/MG (Brasil)  | Ainda a acontecer! |
+|20/08/2020 | UFSJ - São João del-Rei/MG (Brasil) | [Seminário: Desenvolvimento de pacotes em R](https://ufsj.edu.br/demat/scm2020.php) |
+|26/08/2013 | UFLA - Lavras/MG (Brasil)           | [Seminário: Desenvolvimento de pacotes em R](http://www.des.ufla.br/) |
+|05/02/2013 | UFLA - Lavras/MG (Brasil)           | [Minicurso: Desenvolvimento de pacotes em R](http://www.des.ufla.br/) |
+
+## Instalação
+
+O `meupacote` ainda não está disponível no [CRAN](https://CRAN.R-project.org).
+
+<!--
 You can install the released version of meupacote from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("meupacote")
 ```
+-->
 
-And the development version from [GitHub](https://github.com/) with:
+Mas a versão em desenvolvimento no [GitHub](https://github.com/) pode ser instado como segue:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("bendeivide/meupacote")
 ```
-## Example
+## Livros em desenvolvimento
 
-This is a basic example which shows you how to solve a common problem:
+O estudo em desenvolvimento de pacotes R tem nos gerado esforços para repassarmos essas experiências. Isso porque em algumas situações, a solução de alguns problemas não foram encontrados facilmente. Diante disso, apresentamos alguns projetos de livros em desenvolvimento, ainda não disponíveis.
 
-```{r example}
-library(meupacote)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
+<p align="center">
+<img src="man/figures/dper.png" alt="" width="30%">
+<img src="man/figures/livroGUI2.png" alt="" width="30%">
+</p>

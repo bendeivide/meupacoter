@@ -91,35 +91,70 @@
 </h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>The goal of meupacote is to …</p>
-<div id="installation" class="section level2">
+<p>O objetivo do pacote <code>meupacote</code> é ensinar a como desenvolver pacotes R usando o <a href="http://rstudio.com">RStudio</a>. Mostraremos muitas ferramentas úteis para o desenvolvimento de pacotes, como desenvolver insterfaces gráficas ao usuário, a internacionalização de pacotes para outros idiomas, criação de websites, criação de vignettes, e muito mais.</p>
+<div id="onde-meupacote-já-foi-apresentado" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of meupacote from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"meupacote"</span>)</pre></div>
-<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="co"># install.packages("devtools")</span>
+<a href="#onde-meupacote-j%C3%A1-foi-apresentado" class="anchor"></a>Onde <code>meupacote</code> já foi apresentado?</h2>
+<p>O <code>meupacote</code> já foi apresentado em palestras, seminários e minicursos sobre desenvolvimento de pacotes. Contudo, só a partir de 24 de novembro de 2020 é que o pacote ficou disponível no <a href="http:://github.com/bendeivide/meupacote/">repositório Github</a>.</p>
+<p>Vejam alguns locais que o <code>meupacote</code> já foi apresentado:</p>
+<table class="table">
+<colgroup>
+<col width="7%">
+<col width="27%">
+<col width="64%">
+</colgroup>
+<thead><tr class="header">
+<th>Data</th>
+<th>Local</th>
+<th>Tema da apresentação</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>08/12/2020</td>
+<td>UFJF - Juiz de Fora/MG (Brasil)</td>
+<td>Ainda a acontecer!</td>
+</tr>
+<tr class="even">
+<td>20/08/2020</td>
+<td>UFSJ - São João del-Rei/MG (Brasil)</td>
+<td><a href="https://ufsj.edu.br/demat/scm2020.php">Seminário: Desenvolvimento de pacotes em R</a></td>
+</tr>
+<tr class="odd">
+<td>26/08/2013</td>
+<td>UFLA - Lavras/MG (Brasil)</td>
+<td><a href="http://www.des.ufla.br/">Seminário: Desenvolvimento de pacotes em R</a></td>
+</tr>
+<tr class="even">
+<td>05/02/2013</td>
+<td>UFLA - Lavras/MG (Brasil)</td>
+<td><a href="http://www.des.ufla.br/">Minicurso: Desenvolvimento de pacotes em R</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="instalação" class="section level2">
+<h2 class="hasAnchor">
+<a href="#instala%C3%A7%C3%A3o" class="anchor"></a>Instalação</h2>
+<p>O <code>meupacote</code> ainda não está disponível no <a href="https://CRAN.R-project.org">CRAN</a>.</p>
+<!--
+You can install the released version of meupacote from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("meupacote")
+```
+-->
+<p>Mas a versão em desenvolvimento no <a href="https://github.com/">GitHub</a> pode ser instado como segue:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="co"># install.packages("devtools")</span>
 <span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"bendeivide/meupacote"</span>)</pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="livros-em-desenvolvimento" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">meupacote</span>)
-<span class="co">## basic example code</span></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(<span class="no">cars</span>)
-<span class="co">#&gt;      speed           dist       </span>
-<span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span>
-<span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span>
-<span class="co">#&gt;  Median :15.0   Median : 36.00  </span>
-<span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span>
-<span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span>
-<span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></pre></div>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date.</p>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub!</p>
+<a href="#livros-em-desenvolvimento" class="anchor"></a>Livros em desenvolvimento</h2>
+<p>O estudo em desenvolvimento de pacotes R tem nos gerado esforços para repassarmos essas experiências. Isso porque em algumas situações, a solução de alguns problemas não foram encontrados facilmente. Diante disso, apresentamos alguns projetos de livros em desenvolvimento, ainda não disponíveis.</p>
+<p align="center">
+</p>
+<p><img src="reference/figures/dper.png" alt="" width="30%"><img src="reference/figures/livroGUI2.png" alt="" width="30%"></p>
+
 </div>
 </div>
   </div>
