@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Configurando os arquivos básicos do pacote • meupacote</title>
+<title>Configurando os arquivos básicos de um pacote • meupacote</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Configurando os arquivos básicos do pacote">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Configurando os arquivos básicos de um pacote">
 <meta property="og:description" content="meupacote">
 <meta property="og:image" content="https://bendeivide.github.io/meupacote/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -52,33 +52,75 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa fa fa-home"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/conf_files_pkg.html">
+    <span class="fa fa-question-circle-o"></span>
+     
+    Problemas frequentes
+  </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    <span class="fas fa fas fa-book"></span>
+     
+    Passos para construir um pacote
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/conf_files_pkg.html">Configurando os arquivos básicos do pacote</a>
+      <a href="../articles/construindo_pacote.html">Passo 1 - Construindo o esqueleto de um pacote</a>
     </li>
     <li>
-      <a href="../articles/construindo_pacote.html">Construindo o esqueleto de um pacote R</a>
-    </li>
-    <li>
-      <a href="../articles/construindo_website.html">Desenvolvendo o site do pacote</a>
+      <a href="../articles/conf_files_pkg.html">Passo 2 - Configurando os arquivos básicos de um pacote</a>
     </li>
   </ul>
 </li>
+<li>
+  <a href="../articles/conf_files_pkg.html">
+    <span class="fa fa-newspaper-o"></span>
+     
+    Atualizações
+  </a>
+</li>
+<li>
+  <a href="../reference/index.html">
+    <span class="fa fa-file-code-o"></span>
+     
+    Função do pacote
+  </a>
+</li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/bendeivide/meupacote">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.facebook.com/bendeivide/">
+    <span class="fab fa fab fa-facebook"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.instagram.com/bendeivide/">
+    <span class="fab fa fab fa-instagram"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://benalana.blogspot.com/">
+    <span class="fab fa fab fa-blogger"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -91,7 +133,7 @@
       </header><script src="conf_files_pkg_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Configurando os arquivos básicos do pacote</h1>
+      <h1 data-toc-skip>Configurando os arquivos básicos de um pacote</h1>
             
       
       
@@ -101,7 +143,54 @@
 
     
     
-<p>Para configurar os arquivos observados na Seção <a href="construindo_pacote.html#sec-esqueleto">Esqueleto básico de um pacote R</a></p>
+<p>Os arquivos do pacote, mencionados na Subseção <a href="construindo_pacote.html#sec-esqueleto">Esqueleto básico de um pacote R</a>, serão agora editados, uma vez que o <a href="https://rstudio.com/">RStudio</a> constroi apenas um modelo para os arquivos.</p>
+<p>Inicialmente, iremos apresentar duas rotinas para a construção do pacote:</p>
+<ul>
+<li><a href="https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R">aritmetica.R</a></li>
+</ul>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="co"># Sem edição do pacote `roxygen2`</span>
+<span class="no">aritmetica</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>, <span class="no">op</span>) {
+  <span class="co"># op: divisi, multi, soma, subtra</span>
+  <span class="kw">if</span> (<span class="no">op</span> <span class="kw">==</span> <span class="st">"divisi"</span>) <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu">divisi</span>(<span class="no">a</span>, <span class="no">b</span>)
+  <span class="kw">if</span> (<span class="no">op</span> <span class="kw">==</span> <span class="st">"multi"</span>) <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu">multi</span>(<span class="no">a</span>,<span class="no">b</span>)
+  <span class="kw">if</span> (<span class="no">op</span> <span class="kw">==</span> <span class="st">"soma"</span>) <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu">soma</span>(<span class="no">a</span>,<span class="no">b</span>)
+  <span class="kw">if</span> (<span class="no">op</span> <span class="kw">==</span> <span class="st">"subtra"</span>) <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu">subtra</span>(<span class="no">a</span>,<span class="no">b</span>)
+  <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">x</span>)
+}</pre></body></html></div>
+<ul>
+<li><a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a></li>
+</ul>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># Funcoes auxiliares</span>
+
+<span class="co"># Soma</span>
+<span class="no">soma</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>) {
+          <span class="no">calculo</span> <span class="kw">&lt;-</span> <span class="no">a</span> + <span class="no">b</span>
+          <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">calculo</span>)
+}
+
+<span class="co">#Subtracao</span>
+<span class="no">subtra</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>) {
+            <span class="no">calculo</span> <span class="kw">&lt;-</span> <span class="no">a</span> - <span class="no">b</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">calculo</span>)
+}
+
+<span class="co"># Multiplicacao</span>
+<span class="no">multi</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>) {
+           <span class="no">calculo</span> <span class="kw">&lt;-</span> <span class="no">a</span> * <span class="no">b</span>
+           <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">calculo</span>)
+}
+
+<span class="co"># Divisao</span>
+<span class="no">divisi</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>) {
+            <span class="no">calculo</span> <span class="kw">&lt;-</span> <span class="no">a</span> / <span class="no">b</span>
+            <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">calculo</span>)
+}</pre></body></html></div>
+<p>A ideia dessas funções é muito simples, apresentar as quatro operações básicas entre dois números. Claro que não faz sentido desenvolver um pacote para algo trivial. Contudo, o enfoque é entender as peculiaridades do processo de construção de um pacote.</p>
+<p>E um passo muito interessante ocorre sobre essas duas rotinas, pois uma iremos exportar e a outra não. Isto significa que ao carregar o pacote, funções do pacote que não são exportáveis, tornam-se invisíveis, podendo ser observadas apenas abrindo o arquivo <strong>nome_pacote.tar.gz</strong>. Às vezes, desejamos omitir algumas funções que são auxiliares para o nosso código. Isso significa, que elas sozinhas não terão utilidades. Dessa forma, não se faz necessário apresentá-las. Em outras situações, o que fazemos é omitir ou dificultar a visualização de determinadas funções, por algum interesse, mesmo sabendo que o código é aberto.</p>
+<p>No nosso caso, apenas a função <code>aritmetica</code> será exportável. Perceba, que o cerne do pacote está na rotina <a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a>, pois é nela que temos as quatro funções para as operações aritméticas. Veremos mais a frente como definir a exportação de funções em um pacote.</p>
+Dessa forma, como já falado na Seção <a href="construindo_pacote.html">Construindo o esqueleto de um pacote R</a>
+<p align="center">
+<img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%"></p>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

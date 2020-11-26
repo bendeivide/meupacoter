@@ -6,3 +6,5 @@ comandos_importantes\.R
 ^docs$
 ^pkgdown$
 ^logo$
+^Index\.md$
+^Index\.Rmd$

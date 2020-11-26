@@ -4,3 +4,41 @@ template:
   params:
     bootswatch: cosmo
     ganalytics: UA-183980834-1
+reference:
+  - title: Função exportável
+    desc: >
+      Função exportável do pacote meupacote
+    contents:
+      - '`aritmetica`'
+
+navbar:
+  type:
+  left:
+    - icon: fa fa-home
+      href: index.html
+    - text: "Problemas frequentes"
+      icon: fa-question-circle-o
+      href: articles/conf_files_pkg.html
+    - text: "Passos para construir um pacote"
+      icon: fas fa-book
+      menu:
+       - text: Passo 1 - Construindo o esqueleto de um pacote
+         href: articles/construindo_pacote.html
+       - text: Passo 2 - Configurando os arquivos básicos de um pacote
+         href: articles/conf_files_pkg.html
+    - icon: fa-newspaper-o
+      text: "Atualizações"
+      href: articles/conf_files_pkg.html
+    - icon: fa-file-code-o
+      text: "Função do pacote"
+      href: reference/index.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/bendeivide/meupacote
+    - icon: fab fa-facebook
+      href: https://www.facebook.com/bendeivide/
+    - icon: fab fa-instagram
+      href: https://www.instagram.com/bendeivide/
+    - icon: fab fa-blogger
+      href: https://benalana.blogspot.com/
+

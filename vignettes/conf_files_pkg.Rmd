@@ -1,8 +1,8 @@
 ---
-title: "Configurando os arquivos básicos do pacote"
+title: "Configurando os arquivos básicos de um pacote"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Configurando os arquivos básicos do pacote}
+  %\VignetteIndexEntry{Configurando os arquivos básicos de um pacote}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,4 +15,62 @@ knitr::opts_chunk$set(
 ```
 
 
-Para configurar os arquivos observados na Seção [Esqueleto básico de um pacote R](construindo_pacote.html#sec-esqueleto)
+Os arquivos do pacote, mencionados na Subseção [Esqueleto básico de um pacote R](construindo_pacote.html#sec-esqueleto), serão agora editados, uma vez que o [RStudio](https://rstudio.com/) constroi apenas um modelo para os arquivos.
+
+Inicialmente, iremos apresentar duas rotinas para a construção do pacote:
+
+* [aritmetica.R](https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R)
+
+```{r aritmetica, eval = FALSE}
+# Sem edição do pacote `roxygen2`
+aritmetica <- function (a, b, op) {
+  # op: divisi, multi, soma, subtra
+  if (op == "divisi") x <- divisi(a, b)
+  if (op == "multi") x <- multi(a,b)
+  if (op == "soma") x <- soma(a,b)
+  if (op == "subtra") x <- subtra(a,b)
+  return(x)
+}
+```
+
+* [auxiliar.R](https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R)
+
+```{r auxiliar, eval=FALSE}
+# Funcoes auxiliares
+
+# Soma
+soma <- function (a, b) {
+          calculo <- a + b
+          return(calculo)
+}
+
+#Subtracao
+subtra <- function (a, b) {
+            calculo <- a - b
+            return(calculo)
+}
+
+# Multiplicacao
+multi <- function (a, b) {
+           calculo <- a * b
+           return(calculo)
+}
+
+# Divisao
+divisi <- function (a, b) {
+            calculo <- a / b
+            return(calculo)
+}
+
+```
+
+A ideia dessas funções é muito simples, apresentar as quatro operações básicas entre dois números. Claro que não faz sentido desenvolver um pacote para algo trivial. Contudo, o enfoque é entender as peculiaridades do processo de construção de um pacote.
+
+E um passo muito interessante ocorre sobre essas duas rotinas, pois uma iremos exportar e a outra não. Isto significa que ao carregar o pacote, funções do pacote que não são exportáveis, tornam-se invisíveis, podendo ser observadas apenas abrindo o arquivo **nome_pacote.tar.gz**. Às vezes, desejamos omitir algumas funções que são auxiliares para o nosso código. Isso significa, que elas sozinhas não terão utilidades. Dessa forma, não se faz necessário apresentá-las. Em outras situações, o que fazemos é omitir ou dificultar a visualização de determinadas funções, por algum interesse, mesmo sabendo que o código é aberto. 
+
+No nosso caso, apenas a função `aritmetica` será exportável. Perceba, que o cerne do pacote está na rotina  [auxiliar.R](https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R), pois é nela que temos as quatro funções para as operações aritméticas.  Veremos mais a frente como definir a exportação de funções em um pacote.
+
+Dessa forma, como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_pacote.html)
+<p align="center">
+<img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%">
+</p>

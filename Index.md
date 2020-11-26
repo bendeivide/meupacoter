@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# meupacote <img src='man/figures/logo.png' align="right" height="139" />
+# <i class="fas fa-box-open"></i> meupacote <img src='man/figures/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 
@@ -15,7 +15,7 @@ como desenvolver insterfaces gráficas ao usuário, a internacionalização
 de pacotes para outros idiomas, criação de websites, criação de
 vignettes, e muito mais.
 
-## Onde [meupacote](https://bendeivide.github.io/meupacote/) já foi apresentado?
+## <i class="fas fa-map-marker-alt"></i> Onde [meupacote](https://bendeivide.github.io/meupacote/) já foi apresentado?
 
 O [meupacote](https://bendeivide.github.io/meupacote/) já foi
 apresentado em palestras, seminários e minicursos sobre desenvolvimento
@@ -33,7 +33,7 @@ Vejam alguns locais que o
 | 26/08/2013 | UFLA - Lavras/MG (Brasil)           | [Seminário: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)               |
 | 05/02/2013 | UFLA - Lavras/MG (Brasil)           | [Minicurso: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)               |
 
-## Instalação
+## <i class="fas fa-arrow-alt-circle-down"></i> Instalação
 
 O meupacote\](<https://bendeivide.github.io/meupacote/>) ainda não está
 disponível no [CRAN](https://CRAN.R-project.org).
@@ -54,7 +54,7 @@ ser instado como segue:
 devtools::install_github("bendeivide/meupacote")
 ```
 
-## Exemplos de pacotes que podem ser estudados
+## <i class="fas fa-cubes"></i> Exemplos de pacotes que podem ser estudados
 
 Estamos em fase de desenvolvimento de alguns pacotes que já apresentam
 algumas opções avançadas, tais como, interface gráfica ao usuário,
@@ -72,7 +72,7 @@ Nossos pacotes sobre o [CRAN](https://CRAN.R-project.org):
   - [cppcor](http://cran.r-project.org/package=cppcor)
   - [MCPtests](http://cran.r-project.org/package=MCPtests)
 
-## Livros em desenvolvimento
+## <i class="fas fa-book"></i> Livros em desenvolvimento
 
 O estudo em desenvolvimento de pacotes R tem nos gerado esforços para
 repassarmos essas experiências. Isso porque em algumas situações, a
@@ -86,3 +86,30 @@ não disponíveis.
 <img src="man/figures/livroGUI2.png" alt="" width="30%">
 
 </p>
+
+<footer>
+
+<div class="copyright">
+
+<p>
+
+Desenvolvido por Ben Deivide.
+
+</p>
+
+</div>
+
+<div class="pkgdown">
+
+<p>
+
+Site construído com <a href="https://pkgdown.r-lib.org/">pkgdown</a>
+1.5.1.
+
+</p>
+
+</div>
+
+``` 
+  </footer>
+```

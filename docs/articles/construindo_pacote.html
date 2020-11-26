@@ -52,33 +52,75 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fa fa fa fa-home"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/conf_files_pkg.html">
+    <span class="fa fa-question-circle-o"></span>
+     
+    Problemas frequentes
+  </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
+    <span class="fas fa fas fa-book"></span>
+     
+    Passos para construir um pacote
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/conf_files_pkg.html">Configurando os arquivos básicos do pacote</a>
+      <a href="../articles/construindo_pacote.html">Passo 1 - Construindo o esqueleto de um pacote</a>
     </li>
     <li>
-      <a href="../articles/construindo_pacote.html">Construindo o esqueleto de um pacote R</a>
-    </li>
-    <li>
-      <a href="../articles/construindo_website.html">Desenvolvendo o site do pacote</a>
+      <a href="../articles/conf_files_pkg.html">Passo 2 - Configurando os arquivos básicos de um pacote</a>
     </li>
   </ul>
 </li>
+<li>
+  <a href="../articles/conf_files_pkg.html">
+    <span class="fa fa-newspaper-o"></span>
+     
+    Atualizações
+  </a>
+</li>
+<li>
+  <a href="../reference/index.html">
+    <span class="fa fa-file-code-o"></span>
+     
+    Função do pacote
+  </a>
+</li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/bendeivide/meupacote">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.facebook.com/bendeivide/">
+    <span class="fab fa fab fa-facebook"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.instagram.com/bendeivide/">
+    <span class="fab fa fab fa-instagram"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://benalana.blogspot.com/">
+    <span class="fab fa fab fa-blogger"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -115,34 +157,178 @@
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><code>knitr</code></td>
+<td><a href="https://yihui.org/knitr/">knitr</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><code>devtools</code></td>
+<td><a href="https://devtools.r-lib.org/">devtools</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><code>roxygen2</code></td>
+<td></td>
+<td><code>release</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>uses_testthat</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>test</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>test_coverage</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>test_coverage_file</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>create</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>install_github</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a href="https://roxygen2.r-lib.org/">roxygen2</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a href="https://usethis.r-lib.org/">usethis</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><code>usethis</code></td>
+<td></td>
+<td><code>use_pkgdown</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>use_build_ignore</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>use_cran_comments</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>use_badge</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>use_cran_badge</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>use_coverage</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>use_data_raw</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>use_data</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>use_description</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>use_git</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>use_travis_badge</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>use_git</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>use_version</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>use_vignette</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>github_actions</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>github_token</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><a href="https://pkgdown.r-lib.org/">pkgdown</a></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><code>pkgdown</code></td>
+<td></td>
+<td><code>build_site</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>build_favicons</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><code>build_article</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>build_articles</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><a href="https://cran.r-project.org/package=pkgbuilg">pkgbuild</a></td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
+<p>Por fim, precisamos fazer o download para o <a href="http://miktex.org/download"><span class="math inline">\(\LaTeX\)</span></a>, para desenvolvermos a documentação do pacote. Caso não deseje fazer essa instalação, uma alternativa é instalar o pacote <a href="http://cran.r-project.org/package=tinytex">tinytex</a>, usando o código:</p>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># Instalando</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"tinytex"</span>)
+<span class="co"># Carregando</span></pre></body></html></div>
 <p>Para carregar esses pacotes use a linha de código a seguir.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># No RStudio (Instalar pacotes necessarios)</span>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="co"># No RStudio (Instalar pacotes necessarios)</span>
 <span class="no">pkgs</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"devtools"</span>, <span class="st">"usethis"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgdown"</span>)
 
 <span class="co">### Funcao carregar</span>
@@ -188,12 +374,12 @@
 <div id="construindo-o-pacote-r-pelo-rstudio" class="section level2">
 <h2 class="hasAnchor">
 <a href="#construindo-o-pacote-r-pelo-rstudio" class="anchor"></a>Construindo o pacote R pelo RStudio</h2>
-<p>Para construir o esqueleto básico de um pacote, usando o <strong>RStudio</strong>, siga os passos pelo vídeo abaixo.</p>
+<p>Para construir o esqueleto básico de um pacote, usando o <a href="https://rstudio.com/">RStudio</a>, siga os passos pelo vídeo abaixo.</p>
 <p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aq4OL8IDRJ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </p>
-<p>Passos no <strong>RStudio</strong>: <code>File</code> &gt; <code>New Project...</code> &gt; <code>New Directory</code> &gt; <code>R package</code>. Insira o nome do pacote e armazene o projeto em um diretório desejado.</p>
+<p>Passos no <a href="https://rstudio.com/">RStudio</a>: <code>File</code> &gt; <code>New Project...</code> &gt; <code>New Directory</code> &gt; <code>R package</code>. Insira o nome do pacote e armazene o projeto em um diretório desejado.</p>
 </div>
   </div>
 

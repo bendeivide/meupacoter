@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
+
 Nessa seção, veremos como construir um pacote R usando o [RStudio](https://rstudio.com/). Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando para para esse momento.
 
 ```{r pkg_construir, eval=FALSE}
@@ -24,14 +25,49 @@ install.packages(c("knitr", "devtools", "roxygen2", "usethis",
 Descriminaremos a importância de cada pacote na tabela a seguir. Para essa primeira versão, deixaremos claro que o desenvolvimento de pacotes será usado de acordo com as configurações do sistema operacional Windows. Assim, precisaremos instalar uma outra ferramenta que é o [rtools](https://cran.r-project.org/bin/windows/Rtools/).
 
 <p align="center">
-|Pacote     | Funções |  Objetivo|
-|--------   |---------|----------|
-|`knitr`    |         |          |
-|`devtools` |         |          | 
-|`roxygen2` |         |          |
-| `usethis` |         |          |
-| `pkgdown` |         |          |
+|Pacote     | Funções          |  Objetivo|
+|-----------|---------------|----------|
+| [knitr](https://yihui.org/knitr/)    |               |          |
+|[devtools](https://devtools.r-lib.org/) |               |          |
+|           | `release`       |          |
+|           | `uses_testthat` |          |
+|           | `test` |          |
+|           | `test_coverage`      |          |
+|           | `test_coverage_file` |          |
+|           | `create`             |          |
+|           | `install_github`     |          |
+|[roxygen2](https://roxygen2.r-lib.org/) |                      |          |
+| [usethis](https://usethis.r-lib.org/) |                      |          |
+|           | `use_pkgdown`        |          |
+|           | `use_build_ignore` |          |
+|           | `use_cran_comments`    |          |
+|           | `use_badge`    |          |
+|           | `use_cran_badge`    |          |
+|           | `use_coverage`    |          |
+|           | `use_data_raw`    |          |
+|           | `use_data`    |          |
+|           | `use_description`    |          |
+|           | `use_git`    |          |
+|           | `use_travis_badge`    |          |
+|           | `use_git`    |          |
+|           | `use_version`    |          |
+|           | `use_vignette`    |          |
+|           | `github_actions`    |          |
+|           | `github_token`    |          |
+| [pkgdown](https://pkgdown.r-lib.org/) |         |          |
+|           | `build_site`    |          |
+|           | `build_favicons`    |          |
+|           | `build_article`    |          |
+|           | `build_articles`    |          |
+| [pkgbuild](https://cran.r-project.org/package=pkgbuilg)          |     |          |
 </p>
+
+Por fim, precisamos fazer o download para o [$\LaTeX$](http://miktex.org/download), para desenvolvermos a documentação do pacote. Caso não deseje fazer essa instalação, uma alternativa é instalar o pacote [tinytex](http://cran.r-project.org/package=tinytex), usando o código:
+```{r tinytex, eval=FALSE}
+# Instalando
+install.packages("tinytex")
+# Carregando
+```
 
 Para carregar esses pacotes use a linha de código a seguir.
 
@@ -81,7 +117,7 @@ Os arquivos e diretórios básicos são:
 
 
 ## Construindo o pacote R pelo RStudio
-Para construir o esqueleto básico de um pacote, usando o **RStudio**, siga os passos pelo vídeo abaixo.
+Para construir o esqueleto básico de um pacote, usando o [RStudio](https://rstudio.com/), siga os passos pelo vídeo abaixo.
 
 
 <p align="center">
@@ -89,6 +125,6 @@ Para construir o esqueleto básico de um pacote, usando o **RStudio**, siga os p
 </p>
 
 
-Passos no **RStudio**: `File` >  `New Project...` > `New Directory` > `R package`. Insira o nome do pacote e armazene o projeto em um diretório desejado.
+Passos no [RStudio](https://rstudio.com/): `File` >  `New Project...` > `New Directory` > `R package`. Insira o nome do pacote e armazene o projeto em um diretório desejado.
 
 

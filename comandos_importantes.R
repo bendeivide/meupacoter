@@ -29,13 +29,13 @@ sapply(pkgs, carregar)
 # Divulgacao do pacote
 
 ## Pacote necessario
-require(devtools)
+require(usethis)
 
 ## Criando o arquivo README
 use_readme_rmd()
 
 ## Criando o arquivo NEWS
-use_news_md()
+?use_news_md()
 
 ## Criando Vignettes
 use_vignette("construindo_website")
