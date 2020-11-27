@@ -1,11 +1,11 @@
 pandoc: 2.7.3
-pkgdown: 1.5.1
+pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   conf_files_pkg: conf_files_pkg.html
   construindo_pacote: construindo_pacote.html
   construindo_website: construindo_website.html
-last_built: 2020-11-27T07:23Z
+last_built: 2020-11-27T07:29Z
 urls:
   reference: https://bendeivide.github.io/meupacote//reference
   article: https://bendeivide.github.io/meupacote//articles

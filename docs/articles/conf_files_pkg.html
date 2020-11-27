@@ -148,43 +148,45 @@
 <ul>
 <li><a href="https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R">aritmetica.R</a></li>
 </ul>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="co"># Sem edição do pacote `roxygen2`</span>
-<span class="no">aritmetica</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>, <span class="no">op</span>) {
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Sem edição do pacote `roxygen2`</span>
+<span class="va">aritmetica</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">op</span><span class="op">)</span> <span class="op">{</span>
   <span class="co"># op: divisi, multi, soma, subtra</span>
-  <span class="kw">if</span> (<span class="no">op</span> <span class="kw">==</span> <span class="st">"divisi"</span>) <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu">divisi</span>(<span class="no">a</span>, <span class="no">b</span>)
-  <span class="kw">if</span> (<span class="no">op</span> <span class="kw">==</span> <span class="st">"multi"</span>) <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu">multi</span>(<span class="no">a</span>,<span class="no">b</span>)
-  <span class="kw">if</span> (<span class="no">op</span> <span class="kw">==</span> <span class="st">"soma"</span>) <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu">soma</span>(<span class="no">a</span>,<span class="no">b</span>)
-  <span class="kw">if</span> (<span class="no">op</span> <span class="kw">==</span> <span class="st">"subtra"</span>) <span class="no">x</span> <span class="kw">&lt;-</span> <span class="fu">subtra</span>(<span class="no">a</span>,<span class="no">b</span>)
-  <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">x</span>)
-}</pre></body></html></div>
+  <span class="kw">if</span> <span class="op">(</span><span class="va">op</span> <span class="op">==</span> <span class="st">"divisi"</span><span class="op">)</span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">divisi</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="va">op</span> <span class="op">==</span> <span class="st">"multi"</span><span class="op">)</span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">multi</span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="va">op</span> <span class="op">==</span> <span class="st">"soma"</span><span class="op">)</span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">soma</span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="va">op</span> <span class="op">==</span> <span class="st">"subtra"</span><span class="op">)</span> <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu">subtra</span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 <ul>
 <li><a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a></li>
 </ul>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="co"># Funcoes auxiliares</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Funcoes auxiliares</span>
 
 <span class="co"># Soma</span>
-<span class="no">soma</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>) {
-          <span class="no">calculo</span> <span class="kw">&lt;-</span> <span class="no">a</span> + <span class="no">b</span>
-          <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">calculo</span>)
-}
+<span class="va">soma</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
+          <span class="va">calculo</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">+</span> <span class="va">b</span>
+          <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">calculo</span><span class="op">)</span>
+<span class="op">}</span>
 
 <span class="co">#Subtracao</span>
-<span class="no">subtra</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>) {
-            <span class="no">calculo</span> <span class="kw">&lt;-</span> <span class="no">a</span> - <span class="no">b</span>
-            <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">calculo</span>)
-}
+<span class="va">subtra</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
+            <span class="va">calculo</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">-</span> <span class="va">b</span>
+            <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">calculo</span><span class="op">)</span>
+<span class="op">}</span>
 
 <span class="co"># Multiplicacao</span>
-<span class="no">multi</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>) {
-           <span class="no">calculo</span> <span class="kw">&lt;-</span> <span class="no">a</span> * <span class="no">b</span>
-           <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">calculo</span>)
-}
+<span class="va">multi</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
+           <span class="va">calculo</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">*</span> <span class="va">b</span>
+           <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">calculo</span><span class="op">)</span>
+<span class="op">}</span>
 
 <span class="co"># Divisao</span>
-<span class="no">divisi</span> <span class="kw">&lt;-</span> <span class="kw">function</span> (<span class="no">a</span>, <span class="no">b</span>) {
-            <span class="no">calculo</span> <span class="kw">&lt;-</span> <span class="no">a</span> / <span class="no">b</span>
-            <span class="fu"><a href="https://rdrr.io/r/base/function.html">return</a></span>(<span class="no">calculo</span>)
-}</pre></body></html></div>
+<span class="va">divisi</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">a</span>, <span class="va">b</span><span class="op">)</span> <span class="op">{</span>
+            <span class="va">calculo</span> <span class="op">&lt;-</span> <span class="va">a</span> <span class="op">/</span> <span class="va">b</span>
+            <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">calculo</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
 <p>A ideia dessas funções é muito simples, apresentar as quatro operações básicas entre dois números. Claro que não faz sentido desenvolver um pacote para algo trivial. Contudo, o enfoque é entender as peculiaridades do processo de construção de um pacote.</p>
 <p>E um passo muito interessante ocorre sobre essas duas rotinas, pois uma iremos exportar e a outra não. Isto significa que ao carregar o pacote, funções do pacote que não são exportáveis, tornam-se invisíveis, podendo ser observadas apenas abrindo o arquivo <strong>nome_pacote.tar.gz</strong>. Às vezes, desejamos omitir algumas funções que são auxiliares para o nosso código. Isso significa, que elas sozinhas não terão utilidades. Dessa forma, não se faz necessário apresentá-las. Em outras situações, o que fazemos é omitir ou dificultar a visualização de determinadas funções, por algum interesse, mesmo sabendo que o código é aberto.</p>
 <p>No nosso caso, apenas a função <code>aritmetica</code> será exportável. Perceba, que o cerne do pacote está na rotina <a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a>, pois é nela que temos as quatro funções para as operações aritméticas. Veremos mais a frente como definir a exportação de funções em um pacote.</p>
@@ -206,7 +208,7 @@ Dessa forma, como já falado na Seção <a href="construindo_pacote.html">Constr
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
