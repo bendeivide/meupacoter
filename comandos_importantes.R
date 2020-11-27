@@ -38,7 +38,12 @@ use_readme_rmd()
 ?use_news_md()
 
 ## Criando Vignettes
-use_vignette("construindo_website")
+use_vignette("introd_pkg")
+
+
+## Boas praticas
+goodpractice::gp()
+
 
 
 # Criando o site
@@ -49,3 +54,5 @@ pkgdown::build_site()
 
 ## Depois de criado e para atualização
 pkgdown::build_site()
+
+

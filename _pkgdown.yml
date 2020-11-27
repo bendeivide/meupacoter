@@ -1,5 +1,5 @@
-title: meupacote
-url: https://bendeivide.github.io/meupacote/
+title: meupacoter
+url: https://bendeivide.github.io/meupacoter/
 template:
   params:
     bootswatch: cosmo
@@ -7,7 +7,7 @@ template:
 reference:
   - title: Função exportável
     desc: >
-      Função exportável do pacote meupacote
+      Função exportável do pacote meupacoter
     contents:
       - '`aritmetica`'
 
@@ -22,6 +22,8 @@ navbar:
     - text: "Passos para construir um pacote"
       icon: fas fa-book
       menu:
+       - text: Passo 0 - Introdução a desenvolvimento de pacotes
+         href: articles/introd_pkg.html
        - text: Passo 1 - Construindo o esqueleto de um pacote
          href: articles/construindo_pacote.html
        - text: Passo 2 - Configurando os arquivos básicos de um pacote

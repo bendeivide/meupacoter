@@ -1,8 +1,8 @@
 ---
-title: "Configurando os arquivos basicos de um pacote"
+title: "Configurando os arquivos básicos de um pacote"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Configurando os arquivos basicos de um pacote}
+  %\VignetteIndexEntry{Configurando os arquivos básicos de um pacote}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
+## Introdução
 
 Os arquivos do pacote, mencionados na Subseção [Esqueleto básico de um pacote R](construindo_pacote.html#sec-esqueleto), serão agora editados, uma vez que o [RStudio](https://rstudio.com/) constroi apenas um modelo para os arquivos.
 
@@ -70,7 +71,15 @@ E um passo muito interessante ocorre sobre essas duas rotinas, pois uma iremos e
 
 No nosso caso, apenas a função `aritmetica` será exportável. Perceba, que o cerne do pacote está na rotina  [auxiliar.R](https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R), pois é nela que temos as quatro funções para as operações aritméticas.  Veremos mais a frente como definir a exportação de funções em um pacote.
 
-Dessa forma, como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_pacote.html)
+## Atualizando as funções do pacote
+
+Como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_pacote.html), o subdiretório *R/* é o local para armazenar as rotinas do pacote. Dessa forma, vamos fazer as atualizações retirando os arquivos *.R* criados pelo [RStudio](https://rstudio.com/), e inserindo as rotinas do pacote ([aritmetica.R](https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R) e [auxiliar.R](https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R))
 <p align="center">
 <img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%">
 </p>
+
+## Editando o arquivo *DESCRIPTION*
+
+## Editando o arquivo *NAMESPACE*
+
+## Documentando as funções do pacote

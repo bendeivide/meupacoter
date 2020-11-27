@@ -1,30 +1,31 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# <i class="fas fa-box-open"></i> meupacote <img src='man/figures/logo.png' align="right" height="139" />
+# <i class="fas fa-box-open"></i> meupacoter <img src='man/figures/logo.png' align="right" height="139" />
 
 <!-- badges: start -->
 
 <!-- badges: end -->
 
 O objetivo do pacote
-[meupacote](https://bendeivide.github.io/meupacote/) é ensinar a como
+[meupacoter](https://bendeivide.github.io/meupacoter/) é ensinar a como
 desenvolver pacotes R usando o [RStudio](http://rstudio.com).
 Mostraremos muitas ferramentas úteis para o desenvolvimento de pacotes,
 como desenvolver insterfaces gráficas ao usuário, a internacionalização
 de pacotes para outros idiomas, criação de websites, criação de
 vignettes, e muito mais.
 
-## <i class="fas fa-map-marker-alt"></i> Onde [meupacote](https://bendeivide.github.io/meupacote/) já foi apresentado?
+## <i class="fas fa-map-marker-alt"></i> Onde [meupacoter](https://bendeivide.github.io/meupacoter/) já foi apresentado?
 
-O [meupacote](https://bendeivide.github.io/meupacote/) já foi
+O [meupacoter](https://bendeivide.github.io/meupacoter/) já foi
 apresentado em palestras, seminários e minicursos sobre desenvolvimento
 de pacotes. Contudo, só a partir de 24 de novembro de 2020 é que o
 pacote ficou disponível no [repositório
-Github](http:://github.com/bendeivide/meupacote/).
+Github](http:://github.com/bendeivide/meupacoter/).
 
 Vejam alguns locais que o
-[meupacote](https://bendeivide.github.io/meupacote/) já foi apresentado:
+[meupacoter](https://bendeivide.github.io/meupacoter/) já foi
+apresentado:
 
 | Data       | Local                               | Tema da apresentação                                                                |
 | ---------- | ----------------------------------- | ----------------------------------------------------------------------------------- |
@@ -35,14 +36,14 @@ Vejam alguns locais que o
 
 ## <i class="fas fa-arrow-alt-circle-down"></i> Instalação
 
-O meupacote\](<https://bendeivide.github.io/meupacote/>) ainda não está
-disponível no [CRAN](https://CRAN.R-project.org).
+O meupacoter\](<https://bendeivide.github.io/meupacoter/>) ainda não
+está disponível no [CRAN](https://CRAN.R-project.org).
 
 <!--
-You can install the released version of meupacote from [CRAN](https://CRAN.R-project.org) with:
+You can install the released version of meupacoter from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("meupacote")
+install.packages("meupacoter")
 ```
 -->
 
@@ -51,7 +52,7 @@ ser instado como segue:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("bendeivide/meupacote")
+devtools::install_github("bendeivide/meupacoter")
 ```
 
 ## <i class="fas fa-cubes"></i> Exemplos de pacotes que podem ser estudados
@@ -86,30 +87,3 @@ não disponíveis.
 <img src="man/figures/livroGUI2.png" alt="" width="30%">
 
 </p>
-
-<footer>
-
-<div class="copyright">
-
-<p>
-
-Desenvolvido por Ben Deivide.
-
-</p>
-
-</div>
-
-<div class="pkgdown">
-
-<p>
-
-Site construído com <a href="https://pkgdown.r-lib.org/">pkgdown</a>
-1.5.1.
-
-</p>
-
-</div>
-
-``` 
-  </footer>
-```

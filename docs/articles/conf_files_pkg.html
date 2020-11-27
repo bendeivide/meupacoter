@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Configurando os arquivos basicos de um pacote • meupacote</title>
+<title>Configurando os arquivos básicos de um pacote • meupacoter</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,9 +17,9 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Configurando os arquivos basicos de um pacote">
-<meta property="og:description" content="meupacote">
-<meta property="og:image" content="https://bendeivide.github.io/meupacote/logo.png">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Configurando os arquivos básicos de um pacote">
+<meta property="og:description" content="meupacoter">
+<meta property="og:image" content="https://bendeivide.github.io/meupacoter/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -43,7 +43,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">meupacote</a>
+        <a class="navbar-link" href="../index.html">meupacoter</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0</span>
       </span>
     </div>
@@ -73,6 +73,9 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
+      <a href="../articles/introd_pkg.html">Passo 0 - Introdução a desenvolvimento de pacotes</a>
+    </li>
+    <li>
       <a href="../articles/construindo_pacote.html">Passo 1 - Construindo o esqueleto de um pacote</a>
     </li>
     <li>
@@ -133,16 +136,19 @@
       </header><script src="conf_files_pkg_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Configurando os arquivos basicos de um pacote</h1>
+      <h1 data-toc-skip>Configurando os arquivos básicos de um pacote</h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/bendeivide/meupacote/blob/master/vignettes/conf_files_pkg.Rmd"><code>vignettes/conf_files_pkg.Rmd</code></a></small>
       <div class="hidden name"><code>conf_files_pkg.Rmd</code></div>
 
     </div>
 
     
     
+<div id="introdução" class="section level2">
+<h2 class="hasAnchor">
+<a href="#introdu%C3%A7%C3%A3o" class="anchor"></a>Introdução</h2>
 <p>Os arquivos do pacote, mencionados na Subseção <a href="construindo_pacote.html#sec-esqueleto">Esqueleto básico de um pacote R</a>, serão agora editados, uma vez que o <a href="https://rstudio.com/">RStudio</a> constroi apenas um modelo para os arquivos.</p>
 <p>Inicialmente, iremos apresentar duas rotinas para a construção do pacote:</p>
 <ul>
@@ -190,14 +196,35 @@
 <p>A ideia dessas funções é muito simples, apresentar as quatro operações básicas entre dois números. Claro que não faz sentido desenvolver um pacote para algo trivial. Contudo, o enfoque é entender as peculiaridades do processo de construção de um pacote.</p>
 <p>E um passo muito interessante ocorre sobre essas duas rotinas, pois uma iremos exportar e a outra não. Isto significa que ao carregar o pacote, funções do pacote que não são exportáveis, tornam-se invisíveis, podendo ser observadas apenas abrindo o arquivo <strong>nome_pacote.tar.gz</strong>. Às vezes, desejamos omitir algumas funções que são auxiliares para o nosso código. Isso significa, que elas sozinhas não terão utilidades. Dessa forma, não se faz necessário apresentá-las. Em outras situações, o que fazemos é omitir ou dificultar a visualização de determinadas funções, por algum interesse, mesmo sabendo que o código é aberto.</p>
 <p>No nosso caso, apenas a função <code>aritmetica</code> será exportável. Perceba, que o cerne do pacote está na rotina <a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a>, pois é nela que temos as quatro funções para as operações aritméticas. Veremos mais a frente como definir a exportação de funções em um pacote.</p>
-Dessa forma, como já falado na Seção <a href="construindo_pacote.html">Construindo o esqueleto de um pacote R</a>
+</div>
+<div id="atualizando-as-funções-do-pacote" class="section level2">
+<h2 class="hasAnchor">
+<a href="#atualizando-as-fun%C3%A7%C3%B5es-do-pacote" class="anchor"></a>Atualizando as funções do pacote</h2>
+Como já falado na Seção <a href="construindo_pacote.html">Construindo o esqueleto de um pacote R</a>, o subdiretório <em>R/</em> é o local para armazenar as rotinas do pacote. Dessa forma, vamos fazer as atualizações retirando os arquivos <em>.R</em> criados pelo <a href="https://rstudio.com/">RStudio</a>, e inserindo as rotinas do pacote (<a href="https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R">aritmetica.R</a> e <a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a>)
 <p align="center">
 <img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%"></p>
+</div>
+<div id="editando-o-arquivo-description" class="section level2">
+<h2 class="hasAnchor">
+<a href="#editando-o-arquivo-description" class="anchor"></a>Editando o arquivo <em>DESCRIPTION</em>
+</h2>
+</div>
+<div id="editando-o-arquivo-namespace" class="section level2">
+<h2 class="hasAnchor">
+<a href="#editando-o-arquivo-namespace" class="anchor"></a>Editando o arquivo <em>NAMESPACE</em>
+</h2>
+</div>
+<div id="documentando-as-funções-do-pacote" class="section level2">
+<h2 class="hasAnchor">
+<a href="#documentando-as-fun%C3%A7%C3%B5es-do-pacote" class="anchor"></a>Documentando as funções do pacote</h2>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

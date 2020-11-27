@@ -1,8 +1,8 @@
-Package: meupacote
+Package: meupacoter
 Type: Package
 Title: Como desenvolver meu primeiro pacote R
+Data:
 Version: 1.0
-Date: 2020-11-24
 Author: Ben Deivide
 Maintainer: Ben Deivide <ben.deivide@gmail.com>
 Description: Este pacote auxiliará os iniciantes na linguagem R, a
@@ -10,6 +10,8 @@ Description: Este pacote auxiliará os iniciantes na linguagem R, a
 License: GPL (>= 2)
 Encoding: UTF-8
 RoxygenNote: 7.1.1
+URL: https://bendeivide.github.io/meupacote
+BugReports: https://github.com/bendeivide/meupacote/issues
 Suggests: 
     knitr,
     rmarkdown

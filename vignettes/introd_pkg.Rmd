@@ -1,0 +1,127 @@
+---
+title: "Introdução a desenvolvimento de pacotes"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{introd_pkg}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Todo esse material se baseia em três referências, que eu recomendo a todos:
+
+* [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Creating-R-packages)
+* [R packages](https://r-pkgs.org/index.html)
+* [Advanced R](https://adv-r.hadley.nz/)
+
+Eu acredito que a linguagem [R](http://r-project.org), conseguiu caminhar com suas próprias pernas, devido a sua versatilidade e contribuição computacional estatística para ciência. Hoje as áreas de atuação da linguagem são aplicadas nas mais diversas áreas da ciência. 
+
+Entretanto, eu creio que a facilidade de utilização dessa linguagem, exitem dois marcos, um antes e outro depois de [Hadley Wickham](http://hadley.nz/), o Cientista Chefe do [RStudio](http://rstudio.com), que por sinal, os dois livros citados acima são deles. Entendo, que para alguns programadores haja rejeição da utilização do auxílio de interfaces gráficas para o [R](http://r-project.org), como o [RStudio](http://rstudio.com), as famosas *GUI*. Mas é notório que os recursos que alguns pacotes, inclusive desenvolvidos pelo próprio [Hadley Wickham](http://hadley.nz/), sendo utilizados com o [RStudio](http://rstudio.com), nos economiza um bom tempo de como programar ou desenvolver determinadas atividades. E daí, podemos tornar o nosso tempo de trabalho mais eficiente. 
+
+Um exemplo do que falei anteriormente é a criação de uma *Website* para o pacote. Eu particularmente, não sou desenvolvedor de páginas *Web*. Assim, eu teria muita dificuldade de criar um *site* do zero. Porém, com o auxílio de um pacote chamado [pkgdown](pkgdown.r-lib.org), nós iremos observar que em um passe de mágica, usando o [RStudio](http://rstudio.com), poderemos não só criar uma página para o pacote, mas também disponíbilizá-lo em um repositório do [GitHub](https://github.com), por exemplo. Claro que, à medida que vamos necessitando de coisas mais complexas, haverá uma necessidade de estudar um pouco mais sobre o assunto, para atingir o objetivo desejado. Mais a frente, falaremos sobre isso.
+
+Por fim, há uma carência de um material, em Português, que nos permita consultar sobre desenvolvimento de pacotes em [R](http://r-project.org), e consiga mostrar desde a parte introdutória até a avançada, assim como também a experiência de muitos problemas solucionados e que ainda geram dúvidas sobre esse assunto. Dessa forma, isso me motivou na criação desse material, e espero, que você leitor, também possa fazer parte dessa contribuição, trazendo também as suas experiências, para que possamos acrescentar a esse material.
+
+## Escolha do nome e logo do pacote
+
+Quando pensamos em desenvolver um pacote, temos a impressão que o conjunto de rotinas criadas auxiliará de alguma forma na solução de muitos problemas, sejam estes dos mais diversos possíveis. E esse pacote pode ter uma relevância muito importante, para diversas áreas.
+
+O que falta ao meu ver, em muitos pacotes sobre o [CRAN](CRAN.r-project.org/), é a sua publicidade para aumentar o alcance da acessibilidade para os usuários. esse comportamento, vem mudando há um tempo. Percebemos que repositórios de códigos como o [GitHub](https://github.com/), [Gitlab](https://about.gitlab.com/), dentre outros, estão auxiliando muito bem essa publicidade, uma vez que esses repositórios permitem a criação de *websites* para apresentação do pacotes, tutoriais, *bugs*, e muito mais. Isso proporciona tanto uma melhor apresentação quanto um maior engajamento dos usuários na contribuição e melhoria do pacote.
+
+Mais a frente, exploraremos melhor esse tema. De início, iremos apresentar o cartão de visitas do pacote, que é o nome e a logo para a sua identificação. 
+
+Visitando o manual do R, [Writing R Extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Creating-R-packages), a recomendação é
+
+<blockquote>
+  <p>
+    <em>
+O campo obrigatório ‘Package’ [como um dos itens no arquivo *DESCRIPTION* do pacote] fornece o nome do pacote. Deve conter apenas letras (ASCII), números e ponto, ter pelo menos dois caracteres e começar com uma letra e não terminar com um ponto.
+    </em>
+  </p>
+</blockquote>
+<!--
+<blockquote>
+  <p>
+    <em>
+      The mandatory ‘Package’ field gives the name of the package. This should contain only (ASCII) letters, numbers and dot, have at least two characters and start with a letter and not end in a dot.
+    </em>
+  </p>
+</blockquote>
+-->
+
+No livro [R Packages](https://r-pkgs.org/description.html), Hadley apresenta alguns conselhos pragmáticos, que considero pertinentes. Inclusive é um puxão de orelha aos meus pacotes desenvolvidos. Apresento aqui alguns:
+
+* Escolha um nome exclusivo que seja fácil para o Google, isto é, para que is usuários encontrem mais facilmente;
+* Não escolher um nome que já esteja em uso no [CRAN](http://cran.r-project.org), uma vez que se desejar submeter o seu pacote, certamente, será rejeitado, e vale a pena também se perguntar:
+  * Há um pacote em desenvolvimento, por exemplo, no [GitHub](https://github.com/) que já tem algum histórico e parece estar caminhando para a publicação?
+  * Este nome já é usado por outro software ou por uma biblioteca ou estrutura, por exemplo, nas linguagens [Python](https://www.python.org/) ou [JavaScript](https://www.javascript.com/)?
+* Evite letra maiúsculas e minúsculas. Isso porque pode dificultar encontrar o pacote e ainda mais difícil de se lembrar;
+* Dê preferência a nomes pronunciáveis, para que as pessoas se sintam confortáveis ao falar sobre seu pacote e tenham uma maneira de ouvi-lo dentro de suas cabeças.
+* Algumas criações sobre nomes de pacotes foram discutidas no post de Nick Tierney, [Naming Things](https://www.njtierney.com/post/2018/06/20/naming-things/), bem interessante a discussão.
+
+
+
+Claro que atender a todos esses itens é impossível, simultaneamente. Por exemplo, no início da criação de meus pacotes, passei por alguns conflitos pessoais e profissionais, porque tomar essa decisão, é algo que nos atormenta no processo de desenvolvimento. E de fato, em algumas dessas criações eu fiz misturas de letras maiúsculas e minúsculas. Percebi, que a lembrança do nome para os usuários, bem como digitá-lo, acaba dificultando um pouco. E isso acaba sendo um processo irreversível, pois a sua alteração, uma vez publicada no CRAN, nunca mais será modificada. Ao criar um pacote para procedimentos de comparações múltiplas, de início pensei no nome **MCP**. Contudo, já existe um pacote chamado [mcp](https://lindeloev.github.io/mcp/) no [CRAN](http://cran.r-project.org), com outra finalidade, e apesar de está com letra minúscula, a minha sugestão inicial foi rejeitada pelo [CRAN](http://cran.r-project.org). Isso acabou me levando a tentação de intitulá-lo [MCPtests](https://github.com/bendeivide/MCPtests), um nome não sugerido pelos conselhos anteriores. A explicação é bem simples, quando estamos em fase de submissão do pacote ao [CRAN](http://cran.r-project.org), recebemos quase sempre muitas voltas para correções do pacote. E daí, nos preocupamos em alguns problemas complexos para a aceitação do pacote, que passamos despercebido em outros tão importantes quanto, como por exemplo o nome do pacote. Por fim, o anseio ao receber a aceitação do pacote ao [CRAN](http://cran.r-project.org), me fez cair na tentação do nome escolhido para o [MCPtests](https://github.com/bendeivide/MCPtests). Que essa experiência também sirva para você, leitor.
+
+Na época, eu ainda não conhecia um pacote chamado [available](https://github.com/r-lib/available). Este pacote nos auxilia a verificar se já existe esse nome em algumas plataformas. Por exemplo, o pacote guia para esse material, será chamado de [meupacoter](https://bendeivide.github.io/meupacoter/). Vejamos se já existe algum pacote com esse nome:
+```{r, eval = FALSE}
+available::available("meupacoter")
+#> Warning: package 'tidytext' was built under R version 3.6.3
+#> -- meupacoter ----------------------------------------------------------------
+#> Name valid: (OK)
+#> Available on CRAN: (OK)
+#> Available on Bioconductor: (OK)
+#> Available on GitHub:  (NO)
+#> Abbreviations: http://www.abbreviations.com/meupacoter
+#> Wikipedia: https://en.wikipedia.org/wiki/meupacoter
+#> Wiktionary: https://en.wiktionary.org/wiki/meupacoter
+#> Urban Dictionary:
+#>   Not found.
+```
+Perceba que pelo [GitHub](https://github.com/) o nome apresentou um problema, porque já existe um diretório dele nesse repositório. 
+
+Um outro caminho, pode ser baseado no título do pacote. Por exemplo, [meupacoter](https://bendeivide.github.io/meupacoter/) tem como título "Como desenvolver meu primeiro pacote R". Vamos pedir uma sugestão de nome de pacote para o pacote [available](https://github.com/r-lib/available),
+
+```{r, eval = FALSE}
+available::suggest("Como desenvolver meu primeiro pacote R")
+#> pacoter
+```
+
+Acho que por aí, nós poderemos dá um passo inicial.
+
+Uma vez escolhido o nome do pacote, passamos para a criação da logo. Percebemos, uma tendência dos pacotes em R terem sempre um fundo de forma hexagonal. Isso não é um padrão. Contudo, pensando nesse formato, mais um pacote para nos auxiliar nesta criação, chamado [] 
+
+
+
+## Boas práticas para a escrita do pacote
+
+<!--
+Pacotes a estudar:
+- goodpractice => goodpractice::gp()
+- styler > RStudio > Addins > Style active package (todo o pacote)
+- styler > RStudio > Addins > Style active file (Uma função selecionada)
+
+- lintr
+
+https://google.github.io/styleguide/Rguide.html
+https://style.tidyverse.org/
+-->
+
+Outra forma é configurar o RStudio para o propósito!
+
+## Uso de medidores de qualidade (*badges*) para pacotes
+
+<!--
+covr
+travis
+coverage
+-->
+
+
+

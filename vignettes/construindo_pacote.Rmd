@@ -54,6 +54,7 @@ Descriminaremos a importância de cada pacote na tabela a seguir. Para essa prim
 |           | `use_vignette`    |          |
 |           | `github_actions`    |          |
 |           | `github_token`    |          |
+|           | `use_testthat`    |          |
 | [pkgdown](https://pkgdown.r-lib.org/) |         |          |
 |           | `build_site`    |          |
 |           | `build_favicons`    |          |
