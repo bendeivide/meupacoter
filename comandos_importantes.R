@@ -35,7 +35,7 @@ require(usethis)
 use_readme_rmd()
 
 ## Criando o arquivo NEWS
-?use_news_md()
+use_news_md()
 
 ## Criando Vignettes
 use_vignette("introd_pkg")
