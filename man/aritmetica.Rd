@@ -24,6 +24,9 @@ A funcao \code{aritmetica} realiza as quatro operacoes basicas.
 }
 \examples{
 # Loading package
-library(meupacote)
+library(meupacoter)
 aritmetica(8, 4, op = "divisi")
+aritmetica(8, 4, op = "soma")
+aritmetica(8, 4, op = "subtra")
+aritmetica(8, 4, op = "multi")
 }

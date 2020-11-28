@@ -93,9 +93,17 @@ available::suggest("Como desenvolver meu primeiro pacote R")
 #> pacoter
 ```
 
-Acho que por aí, nós poderemos dá um passo inicial.
+Apesar da sugestão, resolver ficar com o nome já adotado. Acho que por aí, nós poderemos dá um passo inicial. Uma vez escolhido o nome do pacote, passamos para a criação da logo. Percebemos, uma tendência dos pacotes em R terem sempre um fundo de forma hexagonal. Isso não é um padrão. Contudo, pensando nesse formato, mais um pacote para nos auxiliar nesta criação, chamado [hexSticker](https://github.com/GuangchuangYu/hexSticker). Temos a função `sticker` com os argumentos principais `package` e `subplot`, sendo o nome do pacote e a imagem para inserir no fundo hexagonal, respectivamente. Existem mais argumentos, com mais opções de alterações na imagem, tais como bordas, fonte, cores, posicionamento de texto e imagem, dentre outras. Apesar de já termos a logo de [meupacoter](https://bendeivide.github.io/meupacoter/), vamos apresentar como criar essa imagem, usando as seguintes linhas de comando:
 
-Uma vez escolhido o nome do pacote, passamos para a criação da logo. Percebemos, uma tendência dos pacotes em R terem sempre um fundo de forma hexagonal. Isso não é um padrão. Contudo, pensando nesse formato, mais um pacote para nos auxiliar nesta criação, chamado [] 
+```{r logo}
+logomeupac <- "E:/BEN_R/pkgs_building/meupacoter/man/figures/logo.png"
+hexSticker::sticker(subplot = logomeupac, package = "meupacoter", filename = "E:/BEN_R/pkgs_building/meupacoter/man/figures/logoteste.png")
+```
+
+O resultado foi essa logo a seguir. Claro, que precisaríamos melhorar algumas configurações
+
+![](E:/BEN_R/pkgs_building/meupacoter/man/figures/logoteste.png)
+
 
 
 
