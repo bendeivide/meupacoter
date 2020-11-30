@@ -40,6 +40,11 @@ use_news_md()
 ## Criando Vignettes
 use_vignette("introd_pkg")
 
+## Versao do pacote
+usethis::use_version()
+numeric_version("1.9") == numeric_version("1.9.0-")
+
+
 
 ## Boas praticas
 goodpractice::gp()

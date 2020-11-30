@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">meupacoter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
       </span>
     </div>
 
@@ -54,13 +54,6 @@
   <a href="../index.html">
     <span class="fa fa fa fa-home"></span>
      
-  </a>
-</li>
-<li>
-  <a href="../articles/conf_files_pkg.html">
-    <span class="fa fa-question-circle-o"></span>
-     
-    Problemas frequentes
   </a>
 </li>
 <li class="dropdown">
@@ -84,7 +77,7 @@
   </ul>
 </li>
 <li>
-  <a href="../articles/conf_files_pkg.html">
+  <a href="../news/index.html">
     <span class="fa fa-newspaper-o"></span>
      
     Atualizações
@@ -97,10 +90,17 @@
     Função do pacote
   </a>
 </li>
+<li>
+  <a href="../articles/conf_files_pkg.html">
+    <span class="fa fa-question-circle-o"></span>
+     
+    Problemas frequentes
+  </a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/bendeivide/meupacote">
+  <a href="https://github.com/bendeivide/meupacoter">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -146,21 +146,21 @@
 
     
     
-<p>Todo esse material se baseia em três referências, que eu recomendo a todos:</p>
+<p>Todo esse material é baseado em três referências, que recomendamos a todos:</p>
 <ul>
 <li><a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Creating-R-packages">Writing R Extensions</a></li>
 <li><a href="https://r-pkgs.org/index.html">R packages</a></li>
 <li><a href="https://adv-r.hadley.nz/">Advanced R</a></li>
 </ul>
-<p>Eu acredito que a linguagem <a href="http://r-project.org">R</a>, conseguiu caminhar com suas próprias pernas, devido a sua versatilidade e contribuição computacional estatística para ciência. Hoje as áreas de atuação da linguagem são aplicadas nas mais diversas áreas da ciência.</p>
-<p>Entretanto, eu creio que a facilidade de utilização dessa linguagem, exitem dois marcos, um antes e outro depois de <a href="http://hadley.nz/">Hadley Wickham</a>, o Cientista Chefe do <a href="http://rstudio.com">RStudio</a>, que por sinal, os dois livros citados acima são deles. Entendo, que para alguns programadores haja rejeição da utilização do auxílio de interfaces gráficas para o <a href="http://r-project.org">R</a>, como o <a href="http://rstudio.com">RStudio</a>, as famosas <em>GUI</em>. Mas é notório que os recursos que alguns pacotes, inclusive desenvolvidos pelo próprio <a href="http://hadley.nz/">Hadley Wickham</a>, sendo utilizados com o <a href="http://rstudio.com">RStudio</a>, nos economiza um bom tempo de como programar ou desenvolver determinadas atividades. E daí, podemos tornar o nosso tempo de trabalho mais eficiente.</p>
-<p>Um exemplo do que falei anteriormente é a criação de uma <em>Website</em> para o pacote. Eu particularmente, não sou desenvolvedor de páginas <em>Web</em>. Assim, eu teria muita dificuldade de criar um <em>site</em> do zero. Porém, com o auxílio de um pacote chamado <a href="pkgdown.r-lib.org">pkgdown</a>, nós iremos observar que em um passe de mágica, usando o <a href="http://rstudio.com">RStudio</a>, poderemos não só criar uma página para o pacote, mas também disponíbilizá-lo em um repositório do <a href="https://github.com">GitHub</a>, por exemplo. Claro que, à medida que vamos necessitando de coisas mais complexas, haverá uma necessidade de estudar um pouco mais sobre o assunto, para atingir o objetivo desejado. Mais a frente, falaremos sobre isso.</p>
-<p>Por fim, há uma carência de um material, em Português, que nos permita consultar sobre desenvolvimento de pacotes em <a href="http://r-project.org">R</a>, e consiga mostrar desde a parte introdutória até a avançada, assim como também a experiência de muitos problemas solucionados e que ainda geram dúvidas sobre esse assunto. Dessa forma, isso me motivou na criação desse material, e espero, que você leitor, também possa fazer parte dessa contribuição, trazendo também as suas experiências, para que possamos acrescentar a esse material.</p>
-<div id="escolha-do-nome-e-logo-do-pacote" class="section level2">
+<p>Acreditamos que a linguagem <a href="http://r-project.org">R</a>, conseguiu caminhar com suas próprias pernas, devido a versatilidade e contribuição computacional estatística para ciência. Hoje as áreas de atuação da linguagem são aplicadas nas mais diversas áreas da ciência.</p>
+<p>Entretanto, cremos que a facilidade de utilização dessa linguagem, exitem dois marcos, um antes e outro depois de <a href="http://hadley.nz/">Hadley Wickham</a>, o Cientista Chefe do <a href="http://rstudio.com">RStudio</a>, que por sinal, os dois livros citados acima são deles. Entendemos, que alguns programadores haja rejeição rejeitem a utilização interfaces gráficas ao usuário <a href="http://r-project.org">R</a>, como o <a href="http://rstudio.com">RStudio</a>, as famosas <em>GUI</em>. Mas é notório que os recursos de alguns pacotes, inclusive desenvolvidos pelo próprio <a href="http://hadley.nz/">Hadley Wickham</a>, auxiliados com os recursos do <a href="http://rstudio.com">RStudio</a>, nos economiza um bom tempo de como programar ou desenvolver determinadas atividades. Dessa forma, podemos tornar o nosso tempo de trabalho mais eficiente.</p>
+<p>Um exemplo referente a esse assunto é a criação de uma <em>Website</em> para o pacote. Mesmo usuários da linguagem <a href="http://r-project.org">R</a> que não tem afinidades com o desenvolvimento de páginas <em>Web</em>, podem dessenvolver a sua com o auxílio de um pacote chamado <a href="pkgdown.r-lib.org">pkgdown</a>. Iremos observar que em um passe de mágica, usando o <a href="http://rstudio.com">RStudio</a>, poderemos não só criar uma página para o pacote, mas também disponíbilizá-lo em um repositório do <a href="https://github.com">GitHub</a>, por exemplo. Claro que, à medida que vamos necessitando de algo mais complexo, haverá um maior esforço em estudar um pouco mais sobre o assunto, para atingir o objetivo desejado. Mais a frente, falaremos sobre como desenvolver uma <em>Website</em> para o seu pacote.</p>
+<p>Por fim, há uma carência de materiais, em Português, que nos permita consultar sobre desenvolvimento de pacotes em <a href="http://r-project.org">R</a>, e consiga mostrar desde a parte introdutória até a avançada, assim como também a experiência de problemas solucionados que ainda geram dúvidas sobre esse assunto. Dessa forma, isso motivou a criação desse material. Esperamos, que você leitor, também possa fazer parte dessa contribuição, trazendo também as suas experiências, para que possamos acrescentar a esse material.</p>
+<div id="name_logo_pkg" class="section level2">
 <h2 class="hasAnchor">
-<a href="#escolha-do-nome-e-logo-do-pacote" class="anchor"></a>Escolha do nome e logo do pacote</h2>
+<a href="#name_logo_pkg" class="anchor"></a>Escolha do nome e logo do pacote</h2>
 <p>Quando pensamos em desenvolver um pacote, temos a impressão que o conjunto de rotinas criadas auxiliará de alguma forma na solução de muitos problemas, sejam estes dos mais diversos possíveis. E esse pacote pode ter uma relevância muito importante, para diversas áreas.</p>
-<p>O que falta ao meu ver, em muitos pacotes sobre o <a href="CRAN.r-project.org/">CRAN</a>, é a sua publicidade para aumentar o alcance da acessibilidade para os usuários. esse comportamento, vem mudando há um tempo. Percebemos que repositórios de códigos como o <a href="https://github.com/">GitHub</a>, <a href="https://about.gitlab.com/">Gitlab</a>, dentre outros, estão auxiliando muito bem essa publicidade, uma vez que esses repositórios permitem a criação de <em>websites</em> para apresentação do pacotes, tutoriais, <em>bugs</em>, e muito mais. Isso proporciona tanto uma melhor apresentação quanto um maior engajamento dos usuários na contribuição e melhoria do pacote.</p>
+<p>O que falta ao nosso olhar, em muitos pacotes sobre o <a href="CRAN.r-project.org/">CRAN</a>, é a publicidade para aumentar o alcance da acessibilidade para os usuários. esse comportamento, vem mudando há um tempo. Percebemos que repositórios de códigos como o <a href="https://github.com/">GitHub</a>, <a href="https://about.gitlab.com/">Gitlab</a>, dentre outros, estão auxiliando muito bem essa publicidade, uma vez que esses repositórios permitem a hospedagem de <em>websites</em> para apresentação do pacotes, tutoriais, <em>bugs</em>, e muito mais. Isso proporciona tanto uma melhor apresentação quanto um maior engajamento dos usuários na contribuição e melhoria do pacote.</p>
 <p>Mais a frente, exploraremos melhor esse tema. De início, iremos apresentar o cartão de visitas do pacote, que é o nome e a logo para a sua identificação.</p>
 <p>Visitando o manual do R, <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Creating-R-packages">Writing R Extensions</a>, a recomendação é</p>
 <blockquote>
@@ -177,7 +177,7 @@
   </p>
 </blockquote>
 -->
-<p>No livro <a href="https://r-pkgs.org/description.html">R Packages</a>, Hadley apresenta alguns conselhos pragmáticos, que considero pertinentes. Inclusive é um puxão de orelha aos meus pacotes desenvolvidos. Apresento aqui alguns:</p>
+<p>Percebemos que as recomendações são bem simples. Contudi, no livro <a href="https://r-pkgs.org/description.html">R Packages</a>, <a href="http://hadley.nz/">Hadley Wickham</a> e <a href="https://jennybryan.org/">Jenny Bryan</a> apresentam algumas recomendações pragmáticas, que consideramos pertinentes. Inclusive é um puxão de orelha aos meus pacotes desenvolvidos. Apresentamos aqui alguns desses comentários:</p>
 <ul>
 <li>Escolha um nome exclusivo que seja fácil para o Google, isto é, para que is usuários encontrem mais facilmente;</li>
 <li>Não escolher um nome que já esteja em uso no <a href="http://cran.r-project.org">CRAN</a>, uma vez que se desejar submeter o seu pacote, certamente, será rejeitado, e vale a pena também se perguntar:
@@ -190,8 +190,8 @@
 <li>Dê preferência a nomes pronunciáveis, para que as pessoas se sintam confortáveis ao falar sobre seu pacote e tenham uma maneira de ouvi-lo dentro de suas cabeças.</li>
 <li>Algumas criações sobre nomes de pacotes foram discutidas no post de Nick Tierney, <a href="https://www.njtierney.com/post/2018/06/20/naming-things/">Naming Things</a>, bem interessante a discussão.</li>
 </ul>
-<p>Claro que atender a todos esses itens é impossível, simultaneamente. Por exemplo, no início da criação de meus pacotes, passei por alguns conflitos pessoais e profissionais, porque tomar essa decisão, é algo que nos atormenta no processo de desenvolvimento. E de fato, em algumas dessas criações eu fiz misturas de letras maiúsculas e minúsculas. Percebi, que a lembrança do nome para os usuários, bem como digitá-lo, acaba dificultando um pouco. E isso acaba sendo um processo irreversível, pois a sua alteração, uma vez publicada no CRAN, nunca mais será modificada. Ao criar um pacote para procedimentos de comparações múltiplas, de início pensei no nome <strong>MCP</strong>. Contudo, já existe um pacote chamado <a href="https://lindeloev.github.io/mcp/">mcp</a> no <a href="http://cran.r-project.org">CRAN</a>, com outra finalidade, e apesar de está com letra minúscula, a minha sugestão inicial foi rejeitada pelo <a href="http://cran.r-project.org">CRAN</a>. Isso acabou me levando a tentação de intitulá-lo <a href="https://github.com/bendeivide/MCPtests">MCPtests</a>, um nome não sugerido pelos conselhos anteriores. A explicação é bem simples, quando estamos em fase de submissão do pacote ao <a href="http://cran.r-project.org">CRAN</a>, recebemos quase sempre muitas voltas para correções do pacote. E daí, nos preocupamos em alguns problemas complexos para a aceitação do pacote, que passamos despercebido em outros tão importantes quanto, como por exemplo o nome do pacote. Por fim, o anseio ao receber a aceitação do pacote ao <a href="http://cran.r-project.org">CRAN</a>, me fez cair na tentação do nome escolhido para o <a href="https://github.com/bendeivide/MCPtests">MCPtests</a>. Que essa experiência também sirva para você, leitor.</p>
-<p>Na época, eu ainda não conhecia um pacote chamado <a href="https://github.com/r-lib/available">available</a>. Este pacote nos auxilia a verificar se já existe esse nome em algumas plataformas. Por exemplo, o pacote guia para esse material, será chamado de <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>. Vejamos se já existe algum pacote com esse nome:</p>
+<p>Claro que atender a todos esses itens é impossível, simultaneamente. Por exemplo, no início da criação de meus pacotes, passei por alguns conflitos pessoais e profissionais sobre a escolha do nome dos pacotes, porque tomar essa decisão, é algo que nos atormenta no processo de desenvolvimento. E de fato, em algumas dessas criações fizemos misturas de letras maiúsculas e minúsculas. Percebemos, que a lembrança do nome para os usuários, bem como digitá-lo, acaba dificultando um pouco. Após essa decisão, acaba sendo um processo irreversível, pois a alteração do nome do pacote, uma vez publicada no CRAN, nunca mais será modificada. Ao criar um pacote para procedimentos de comparações múltiplas, de início pensamos no nome <strong>MCP</strong>. Contudo, já existia um pacote chamado <a href="https://lindeloev.github.io/mcp/">mcp</a> no <a href="http://cran.r-project.org">CRAN</a>, com outra finalidade, e apesar de está com letra minúscula, a minha sugestão inicial foi rejeitada pelo <a href="http://cran.r-project.org">CRAN</a>. Isso acabou me levando a tentação de intitulá-lo <a href="https://github.com/bendeivide/MCPtests">MCPtests</a>, um nome não sugerido pelos conselhos anteriores. A explicação é bem simples, quando estamos em fase de submissão do pacote ao <a href="http://cran.r-project.org">CRAN</a>, recebemos quase sempre muitas voltas para correções do pacote. E daí, nos preocupamos em alguns problemas complexos para a aceitação do pacote, que passamos despercebido em outros tão importantes quanto, como por exemplo o nome do pacote. Por fim, o anseio ao receber a aceitação do pacote ao <a href="http://cran.r-project.org">CRAN</a>, me fez cair na tentação do nome escolhido para o <a href="https://github.com/bendeivide/MCPtests">MCPtests</a>. Assim, também acabou ocorrendo com outro pacote chamado <a href="https://github.com/bendeivide/midrangeMCP">midrangeMCP</a>. Assim, pense um pouco mais sobre os conselhos apresentados anteriormente e que essa nossa experiência também sirva de experiência para você, leitor, sobre a escolha do nome do seu pacote.</p>
+<p>Na época da escolha dos nomes dos pacotes comantados anterioremnte, ainda não conhecíamos um pacote chamado <a href="https://github.com/r-lib/available">available</a>. Este pacote auxilia a verificar se já existe o nome desejado em algumas plataformas. Por exemplo, o pacote guia para esse material, será chamado de <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>. Vejamos se já existe algum pacote com esse nome:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">available</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/available/man/available.html">available</a></span><span class="op">(</span><span class="st">"meupacoter"</span><span class="op">)</span>
 <span class="co">#&gt; Warning: package 'tidytext' was built under R version 3.6.3</span>
@@ -210,15 +210,24 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">available</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/available/man/suggest.html">suggest</a></span><span class="op">(</span><span class="st">"Como desenvolver meu primeiro pacote R"</span><span class="op">)</span>
 <span class="co">#&gt; pacoter</span></code></pre></div>
-<p>Acho que por aí, nós poderemos dá um passo inicial.</p>
-<p>Uma vez escolhido o nome do pacote, passamos para a criação da logo. Percebemos, uma tendência dos pacotes em R terem sempre um fundo de forma hexagonal. Isso não é um padrão. Contudo, pensando nesse formato, mais um pacote para nos auxiliar nesta criação, chamado []</p>
+<p>Apesar da sugestão, resolvemos ficar com o nome já adotado. Acho que por aí, nós poderemos dá um passo inicial. Uma vez escolhido o nome do pacote, passamos para a criação da logo. Percebemos, uma tendência dos pacotes em R terem sempre um fundo de forma hexagonal. Isso não é um padrão. Contudo, pensando nesse formato, mais um pacote para nos auxiliar nesta criação, chamado <a href="https://github.com/GuangchuangYu/hexSticker">hexSticker</a>. Temos a função <code>sticker</code> com os argumentos principais <code>package</code> e <code>subplot</code>, sendo o nome do pacote e a imagem para inserir no fundo hexagonal, respectivamente. Existem mais argumentos, com mais opções de alterações na imagem, tais como bordas, fonte, cores, posicionamento de texto e imagem, dentre outras. Apesar de já termos a logo de <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>, vamos apresentar como criar essa imagem, usando as seguintes linhas de comando:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">logomeupac</span> <span class="op">&lt;-</span> <span class="st">"E:/BEN_R/pkgs_building/meupacoter/man/figures/logo.png"</span>
+<span class="fu">hexSticker</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/hexSticker/man/sticker.html">sticker</a></span><span class="op">(</span>subplot <span class="op">=</span> <span class="va">logomeupac</span>, package <span class="op">=</span> <span class="st">"meupacoter"</span>, filename <span class="op">=</span> <span class="st">"E:/BEN_R/pkgs_building/meupacoter/man/figures/logoteste.png"</span><span class="op">)</span></code></pre></div>
+<p>O resultado foi essa logo a seguir. Claro, que precisaríamos melhorar algumas configurações</p>
+<p><img src="logoteste.png" style="width:30.0%"></p>
+<p>Apesar dessas facilidades, percebemos que isso é algo bem pessoal para o desenvolvedor, porque de fato, você acaba deixando um pouco de sua criatividade e isso não pode ser um padrão. Vejam algumas logos de nossos pacotes:</p>
+<p><img src="midrangeMCP.png"><img src="MCPtests.gif" style="width:30.0%"><img src="statscience.png"></p>
 </div>
-<div id="boas-práticas-para-a-escrita-do-pacote" class="section level2">
+<div id="goodpractice" class="section level2">
 <h2 class="hasAnchor">
-<a href="#boas-pr%C3%A1ticas-para-a-escrita-do-pacote" class="anchor"></a>Boas práticas para a escrita do pacote</h2>
+<a href="#goodpractice" class="anchor"></a>Boas práticas para a escrita de um código R</h2>
 <!--
+Ensinar o que cada pacote faz e como executá-los!
+
 Pacotes a estudar:
-- goodpractice => goodpractice::gp()
+- goodpractice => goodpractice::gp
+- formatR (Ver Advaced R, 1ed, cap 5)
 - styler > RStudio > Addins > Style active package (todo o pacote)
 - styler > RStudio > Addins > Style active file (Uma função selecionada)
 
@@ -226,17 +235,55 @@ Pacotes a estudar:
 
 https://google.github.io/styleguide/Rguide.html
 https://style.tidyverse.org/
+
+Outra forma é configurar o RStudio para o propósito!
 -->
-<p>Outra forma é configurar o RStudio para o propósito!</p>
+<p>As boas práticas de um código, se refere a forma de como você escreve seu algoritmo em <a href="http:://r-project.org">R</a>. Lembre-se que seu código poderá ser lido por muitos outros desenvolvedores. Dessa forma, seguem algumas sugestões de leituras:</p>
+<ul>
+<li><a href="https://google.github.io/styleguide/Rguide.html">https://google.github.io/styleguide/Rguide.html</a></li>
+<li><a href="https://style.tidyverse.org/">https://style.tidyverse.org/</a></li>
+<li><a href="http://adv-r.had.co.nz/Style.html">Advanced R</a></li>
+</ul>
+<p>Para auxiliar nessa jornada, seguem algumas sugestões de pacotes:</p>
+<ul>
+<li><a href="https://yihui.org/formatr/">formatR</a></li>
+<li><a href="http://mangothecat.github.io/goodpractice/">goodpractice</a></li>
+<li><a href="https://styler.r-lib.org/">styler</a></li>
+<li><a href="https://cran.r-project.org/web/packages/lintr/readme/README.html">lintr</a></li>
+</ul>
+</div>
+<div id="boas-práticas-para-a-escrita-de-um-pacote" class="section level2">
+<h2 class="hasAnchor">
+<a href="#boas-pr%C3%A1ticas-para-a-escrita-de-um-pacote" class="anchor"></a>Boas práticas para a escrita de um pacote</h2>
+<!--
+Depois comentar cada uma delas mostrando o seu objetivo
+-->
+<ul>
+<li>Sempre atualize a versão e a identifique adequadamente;</li>
+<li>Crie um arquivo <em>NEWS</em>, e comente suas atualizações. Linha de comando <code><a href="https://usethis.r-lib.org/reference/use_news_md.html">usethis::use_news_md()</a></code>;</li>
+<li>Crie um arquivo <em>README</em>, para auxiliar nas ideias básicas para o pacote e auxiliar no repositório <a href="https://github.com">Github</a>. Linha de comando <code><a href="https://usethis.r-lib.org/reference/use_readme_rmd.html">usethis::use_readme_rmd</a></code>;</li>
+<li>Use os repositórios do tipo Git, de preferência o <a href="https://github.com">GitHub</a>. As contribuições são imensas para o pacote</li>
+<li>Mantenha sempre a data do pacote atualizada;</li>
+<li>Escreva vignettes. Linha de comando <code>use_vignette("&lt;nome_vignette&gt;")</code>;</li>
+<li>Se possível, crie uma <em>Website</em> para o pacote. Linha de comando <code><a href="https://pkgdown.r-lib.org/reference/build_site.html">pkgdown::build_site()</a></code>;</li>
+<li>internacionalize seu pacote;</li>
+<li>
+<a href="introd_pkg.html#goodpractice">Sempre comente seu código</a>, para que em futuras atualizações outros contribuídores do pacote tenham noção do que foi feito.</li>
+</ul>
 </div>
 <div id="uso-de-medidores-de-qualidade-badges-para-pacotes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#uso-de-medidores-de-qualidade-badges-para-pacotes" class="anchor"></a>Uso de medidores de qualidade (<em>badges</em>) para pacotes</h2>
-<!--
+<p>Em construção… <!--
 covr
 travis
 coverage
--->
+--></p>
+</div>
+<div id="resumo-do-que-vimos-nessa-seção" class="section level2">
+<h2 class="hasAnchor">
+<a href="#resumo-do-que-vimos-nessa-se%C3%A7%C3%A3o" class="anchor"></a>Resumo do que vimos nessa seção</h2>
+<p>Em construção…</p>
 </div>
   </div>
 

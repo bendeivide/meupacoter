@@ -16,9 +16,6 @@ navbar:
   left:
     - icon: fa fa-home
       href: index.html
-    - text: "Problemas frequentes"
-      icon: fa-question-circle-o
-      href: articles/conf_files_pkg.html
     - text: "Passos para construir um pacote"
       icon: fas fa-book
       menu:
@@ -30,13 +27,16 @@ navbar:
          href: articles/conf_files_pkg.html
     - icon: fa-newspaper-o
       text: "Atualizações"
-      href: articles/conf_files_pkg.html
+      href: news/index.html
     - icon: fa-file-code-o
       text: "Função do pacote"
       href: reference/index.html
+    - text: "Problemas frequentes"
+      icon: fa-question-circle-o
+      href: articles/conf_files_pkg.html
   right:
     - icon: fa-github fa-lg
-      href: https://github.com/bendeivide/meupacote
+      href: https://github.com/bendeivide/meupacoter
     - icon: fab fa-facebook
       href: https://www.facebook.com/bendeivide/
     - icon: fab fa-instagram

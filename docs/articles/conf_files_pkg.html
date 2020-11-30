@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">meupacoter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
       </span>
     </div>
 
@@ -54,13 +54,6 @@
   <a href="../index.html">
     <span class="fa fa fa fa-home"></span>
      
-  </a>
-</li>
-<li>
-  <a href="../articles/conf_files_pkg.html">
-    <span class="fa fa-question-circle-o"></span>
-     
-    Problemas frequentes
   </a>
 </li>
 <li class="dropdown">
@@ -84,7 +77,7 @@
   </ul>
 </li>
 <li>
-  <a href="../articles/conf_files_pkg.html">
+  <a href="../news/index.html">
     <span class="fa fa-newspaper-o"></span>
      
     Atualizações
@@ -97,10 +90,17 @@
     Função do pacote
   </a>
 </li>
+<li>
+  <a href="../articles/conf_files_pkg.html">
+    <span class="fa fa-question-circle-o"></span>
+     
+    Problemas frequentes
+  </a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/bendeivide/meupacote">
+  <a href="https://github.com/bendeivide/meupacoter">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -200,7 +200,7 @@
 <div id="atualizando-as-funções-do-pacote" class="section level2">
 <h2 class="hasAnchor">
 <a href="#atualizando-as-fun%C3%A7%C3%B5es-do-pacote" class="anchor"></a>Atualizando as funções do pacote</h2>
-Como já falado na Seção <a href="construindo_pacote.html">Construindo o esqueleto de um pacote R</a>, o subdiretório <em>R/</em> é o local para armazenar as rotinas do pacote. Dessa forma, vamos fazer as atualizações retirando os arquivos <em>.R</em> criados pelo <a href="https://rstudio.com/">RStudio</a>, e inserindo as rotinas do pacote (<a href="https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R">aritmetica.R</a> e <a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a>)
+<p>Como já falado na Seção <a href="construindo_pacote.html">Construindo o esqueleto de um pacote R</a>, o subdiretório <em>R/</em> é o local para armazenar as rotinas do pacote. Dessa forma, vamos fazer as atualizações retirando os arquivos <em>.R</em> criados pelo <a href="https://rstudio.com/">RStudio</a>, e inserindo as rotinas do pacote (<a href="https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R">aritmetica.R</a> e <a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a>). Lembre-se das <a href="introd_pkg.html#goodpractice">boas práticas de como escrever um código R</a>.</p>
 <p align="center">
 <img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%"></p>
 </div>
@@ -208,6 +208,246 @@ Como já falado na Seção <a href="construindo_pacote.html">Construindo o esque
 <h2 class="hasAnchor">
 <a href="#editando-o-arquivo-description" class="anchor"></a>Editando o arquivo <em>DESCRIPTION</em>
 </h2>
+<p>Quando nós <a href="construindo_pacote.html#building_rpack">criamos um projeto de pacote</a> usando o <a href="https://rstudio.com/">RStudio</a>, um arquivo chamado <em>DESCRIPTION</em> é criado no diretório do projeto do pacote. Talvez um dos mais importantes arquivos do pacote, pois esse arquivo contém os metadados sobre as característica do pacote, como o seu nome, título, versão, autor, descrição, licença, dentre outras opções.</p>
+<p>A estrutura básica é que cada linha se inicia com a opção seguida de “:”, e em seguida o valor. Segundo o manual <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions</a>, os campos <code>Package</code>, <code>Version</code>, <code>Licence</code>, <code>Description</code>, <code>Title</code>, <code>Author</code> e <code>Mantainer</code> são obrigatórios .Todos os outros campos são opcionais. Todo o <em>DESCPTION</em> deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Caso use acentuações, ou outros caracteres, deve ser acrescentado o campo <code>Encoding</code> e informar o tipo de codificação. No pacote <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>, por exemplo, foi utilizado <code>Encoding: UTF-8</code>, devido aos acentos na língua portuguesa.</p>
+<pre class="description"><code>Package: nome do pacote
+Title: O que o pacote faz (Em uma linha)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Maintainer: Nome e email do mantenedor do pacote
+Description: O que o pacote faz (one paragraph).
+License: Qual a licença que você usa</code></pre>
+<p>Iremos discutir a ideia sobre algumas dessas opções a seguir.</p>
+<div id="nome-do-pacote" class="section level3">
+<h3 class="hasAnchor">
+<a href="#nome-do-pacote" class="anchor"></a>Nome do pacote</h3>
+<p>A discução sobre o nome do pacote foi realizado na subseção <a href="introd_pkg.html#name_logo_pkg">Escolha do nome e logo do pacote</a>. O campo para o nome é <code>Package</code> e deve conter somente letras, números e ponto, e ter pelo menos dois caracteres, começar com uma letra e não terminar com um ponto. Esse campo não deve ser utilizado para explicar o que o pacote faz. Para isso use o campo <code>Description</code>.</p>
+</div>
+<div id="título-do-pacote" class="section level3">
+<h3 class="hasAnchor">
+<a href="#t%C3%ADtulo-do-pacote" class="anchor"></a>Título do pacote</h3>
+<p>O campo para o título do pacote é <code>Title</code>. Nele deve conter uma pequena descrição do pacote em uma única linha. Seguem alguns requisitos (<a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions</a>):</p>
+<ul>
+<li>Não use marcações for do pacrão ASCII;</li>
+<li>Não finalize o título com um ponto;</li>
+<li>Não repita o nome do pacote no título;</li>
+<li>Se usar a referência de outros pacotes no título, use aspas simples (‘<outrs_pacotes>’), se referenciar livros, aspas duplas (“nome_livros”);</outrs_pacotes>
+</li>
+<li>Geralmente limitado em 65 caracteres.</li>
+</ul>
+</div>
+<div id="controle-de-versão-do-pacote" class="section level3">
+<h3 class="hasAnchor">
+<a href="#controle-de-vers%C3%A3o-do-pacote" class="anchor"></a>Controle de versão do pacote</h3>
+<p>O campo responsável pela versão do pacote é <code>Version</code>. Deve ser uma sequência de ao menos dois números não negativos inteiros separados por um ponto (‘.’) ou traço (‘-’). Por exemplo, 1.1 e 0.9.1-10 são versões válidas, mas essas versões 2 ou 2.0-devel não são válidas. No livro <a href="https://combine-australia.github.io/r-pkg-dev/versioning.html">R packages</a>, temos uma descrição detalhada e abordada a seguir. Usaremos também uma abordagem feita pelo <a href="http://combine.org.au">COMBINE</a>, pelo material <a href="https://combine-australia.github.io/r-pkg-dev/">R package workshop</a>.</p>
+<p>Podemos dizer que a estrutura do controle de versão é formado por uma sequência de quatro dígitos: <code>&lt;maior&gt;.&lt;menor&gt;.&lt;trecho&gt;.&lt;desenvolvimento&gt;</code>. Vejamos,</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric_version.html">numeric_version</a></span><span class="op">(</span><span class="st">"1.9"</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric_version.html">numeric_version</a></span><span class="op">(</span><span class="st">"1.9.0"</span><span class="op">)</span>
+<span class="co">#&gt; [1] TRUE</span>
+<span class="fu"><a href="https://rdrr.io/r/base/numeric_version.html">numeric_version</a></span><span class="op">(</span><span class="st">"1.9"</span><span class="op">)</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric_version.html">numeric_version</a></span><span class="op">(</span><span class="st">"1.9.0.0"</span><span class="op">)</span>
+<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+<p>Isso significa dizer, se usarmos ao menos dois dígitos, os outros dígitos serão completados por zero (<em>default</em>). Vejamos o que significa cada dígito:</p>
+<ul>
+<li>Dígito <code>&lt;maior&gt;</code>: esse dígito é alterado quando o pacote passa por uma mudança significativa na atualização;</li>
+<li>Dígito <code>menor</code>: esse dígito é alterado quando ocorre alguma funcionalidade foi adicionada ao pacote, como criação de funções, atualizações de funções com os códigos existentes, etc;</li>
+<li>Dígito <code>trecho</code>: esse dígito se altera quando ocorre correções de erros (<code>bugs</code>) no pacote, mas não é acrescido nada de novo. Uma forma interessante de encontrar esses erros é criar uma página de problemas do pacote, e à medida que ocorre a experiência do usário com o pacote, alguns problemas podem ocorrer que não eram previstos pelo desenvolvedor. Dessa forma, esses problemas podem ser postados nessa página específica. No Github há uma aba chamada <em>issues</em> nos repositórios criados, que é específico para isso, e o link dessa página pode ser inserido no campo <code>BugReports</code> no arquivo <em>DESCRIPTION</em>;</li>
+<li>Dígito <code>desenvolvimento</code>: o dígito 9000 é utilizado quando o pacote está em desenvolvimento. Com essa codigifcação, podemos esperar mudanças muito rápidas no pacote.</li>
+</ul>
+<p>Caso deseje alterar algum dos dígitos, o desenvolvedor pode alterar diretamente no arquivo <em>DESCRPTION</em>, ou usando (Exemplo realizado para o <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>):</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>usethis<span class="op">::</span><span class="kw">use_version</span>()</span>
+<span id="cb5-2"><a href="#cb5-2"></a>Setting active project to <span class="st">'~/meupacoter'</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>There are uncommitted changes. Do you want to proceed anyway?</span>
+<span id="cb5-4"><a href="#cb5-4"></a></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="dv">1</span><span class="op">:</span><span class="st"> </span>Negative</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="dv">2</span><span class="op">:</span><span class="st"> </span>Nope</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="dv">3</span><span class="op">:</span><span class="st"> </span>Yup</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>Selection<span class="op">:</span><span class="st"> "&lt;Escolhe uma das opções e digita: 1, 2 ou 3&gt;"</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>Current version is <span class="dv">0</span>.<span class="dv">1</span>.<span class="dv">1</span>.<span class="fl">9000.</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>Which part to increment? (<span class="dv">0</span> to exit) </span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="dv">1</span><span class="op">:</span><span class="st"> </span>major <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">1</span>.<span class="fl">0.0</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="dv">2</span><span class="op">:</span><span class="st"> </span>minor <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="fl">2.0</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="dv">3</span><span class="op">:</span><span class="st"> </span>patch <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="fl">1.2</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="dv">4</span><span class="op">:</span><span class="st">   </span>dev <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="dv">1</span>.<span class="fl">1.9001</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a></span>
+<span id="cb5-18"><a href="#cb5-18"></a>Selection<span class="op">:</span><span class="st"> "&lt;Escolhe uma das opções e digita: 1, 2 ou 3&gt;"</span></span></code></pre></div>
+<p>A primeira versão de um pacote que se inicia o seu desenvolvimento é 0.0.0.9000.</p>
+</div>
+<div id="autor-e-mantenedor" class="section level3">
+<h3 class="hasAnchor">
+<a href="#autor-e-mantenedor" class="anchor"></a>Autor e Mantenedor</h3>
+<p>Os campos responsáveis pela criação do pacote, de forma direta ou indireta, são <code>Autor</code> ou <code>Authors@R</code> e <code>Mantainer</code>. Começando pelo último, este campo representa a pessoa responsável por manter o pacote sobre o <a href="http://cran.r-project.org">CRAN</a>, correção, atualização, etc. Apenas ele tem esse poder e deve ser uma pessoa e não uma empresa, de modo que seja válido enquanto o pacote estiver disponível no <a href="http://cran.r-project.org">CRAN</a>. O campo <code>Autor</code> ou <code>Authors@R</code> representa as pessoas que desenvolveram o pacote. O que diferencia esses dois campos é a forma de inserir as informações. Existem regras para essa criação, representado por algumas siglas, e apresentamos quatro importantes:</p>
+<ul>
+<li>
+<code>aut</code>: autores que fizeram contribuições significativas ao pacote;</li>
+<li>
+<code>cre</code>: mantenedor do pacote que estará responsável para resolver possíveis problemas do pacote;</li>
+<li>
+<code>ctb</code>: desenvolvedores que fizeram contribuições menores;</li>
+<li>
+<code>cph</code>: detentor dos direitos autorais, quando a autoria não é do autor, geralmente uma empresa.</li>
+</ul>
+<p>Se desejar uma especificação mais detalhada sobre o seu papel como desenvolvedor, consulte mais siglas em <a href="https://www.loc.gov/marc/relators/relaterm.html">full list of roles</a></p>
+<p>A forma básica de inserir os dados no campo <code>Mantainer</code> o primeiro e o último nome, seguido do email entre (“&lt; &gt;”), por exemplo, <code>Mantainer: Ben Deivide &lt;ben.deivide@gmail.com&gt;</code>.</p>
+<p>Para inserir as informações no campo <code>Author</code>, basta digitar o nome dos autores separados por vírgula, por exemplo: <code>Author: Ben Deivide, Daniel Furtado, Diego Arthur</code>.</p>
+<p>Por fim, uma descrição mais completa pode ser usando o campo <code>Author@R</code>, pois saberemos a atuação de cada autor, usando as siglas acima. E ainda mais, não será necessário inserir no arquivo <em>DESCRIPTION</em> campo <code>Mantainer</code>. Veremos a seguir, um exemplo do pacote <a href="https://bendeivide.github.io/midrangeMCP/">midrangeMCP</a>:</p>
+<pre class="description_author"><code>Authors@R: c(
+    person(given = "Ben", 
+           family = "Deivide", 
+           email = "ben.deivide@ufsj.edu.br", 
+           role = c("aut", "cre"), 
+           comment = c(ORCID = '0000-0001-7019-8794')),
+    person(given = "Daniel", 
+           family = "Furtado", 
+           email = "danielff@dex.ufla.br", 
+           role = "aut",
+           comment = c(ORCID = '0000-0002-4371-5239')),
+    person(given = "Diego", 
+           family = "Arthur", 
+           email = "digo.arthur@hotmail.com", 
+           role = "ctb"))</code></pre>
+<p>Dentro do campo <code>Authors@R</code>, inserimos cada descrição dos desenvolvedores dentro de uma função chamada <code>person</code>, do pacote <code>utils</code>, veja a sua execução</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"> <span class="fu"><a href="https://rdrr.io/r/utils/person.html">person</a></span><span class="op">(</span>given <span class="op">=</span> <span class="st">"Ben"</span>, 
+           family <span class="op">=</span> <span class="st">"Deivide"</span>, 
+           email <span class="op">=</span> <span class="st">"ben.deivide@ufsj.edu.br"</span>, 
+           role <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"aut"</span>, <span class="st">"cre"</span><span class="op">)</span>, 
+           comment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>ORCID <span class="op">=</span> <span class="st">'0000-0001-7019-8794'</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Ben Deivide &lt;ben.deivide@ufsj.edu.br&gt; [aut, cre] (&lt;https://orcid.org/0000-0001-7019-8794&gt;)"</span></code></pre></div>
+<p>Na função <code>person</code> o primeiro argumento representa o primeiro nome do autor (<code>given</code>) e o segundo (<code>family</code>), o último nome. Posteriormente, temos o argumento para o email (<code>email</code>), e em seguida, o argumento para identificar a especificação do autor para o pacote (argumento <code>role</code>). Por fim, acrescentamos em <code>comment</code>, uma informação adicional que foi o <a href="https://orcid.org/">ORCID</a> dos respectivos autores. Percebam pelas regras atribuídas aos desenvolvedores que Ben Deivide e Daniel Furtado são autores (regra <code>'aut'</code>), e o primeiro é também mantenedor (regra <code>'cre'</code>). No caso de Diego Arthur, como o seu desenvolvimento teve menores contribuições ao pacote, a regra foi <code>'ctb'</code>. Dessa forma, não será necessário inserir o campo <code>Mantainer</code>.</p>
+</div>
+<div id="descrição" class="section level3">
+<h3 class="hasAnchor">
+<a href="#descri%C3%A7%C3%A3o" class="anchor"></a>Descrição</h3>
+<p>O campo responsável no arquivo <em>DESCRIPTION</em> para descrever e detalhar o que faz o pacote é <code>Description</code>. Deve conter apenas um parágrafo. Vejamos mais algumas informações:</p>
+<ul>
+<li>Evite iniciar a descrição com o nome do pacote, ao invés, use <em>Esse pacote…</em> ou algo similar;</li>
+<li>Quando a descrição estiver em mais de uma linha, cada linha deve conter no máximo 80 caracteres, e a partir da segunda linha, dê 4 espaços para iniciá-la;</li>
+<li>Assim como no campo <code>Title</code>, devemos usar aspas duplas (“<texto>”) para referenciar livros, artigos, aspas simples para palavras que não estão em inglês, incluindo nomes de pacotes, softwares externos, etc.</texto>
+</li>
+</ul>
+<p>Vejamos um exemplo do <em>DESCRIPTION</em> do pacote <a href="http://cran.r-project.org/package=midrangeMCP">midrangeMCP</a>:</p>
+<pre><code>Description: Apply tests of multiple comparisons based
+    on studentized 'midrange' and 'range' distributions. 
+    The tests are: Tukey Midrange ('TM' test),
+    Student-Newman-Keuls Midrange ('SNKM' test), 
+    Means Grouping Midrange ('MGM' test) and 
+    Means Grouping Range ('MGR' test). The articles of these 
+    tests are in the submission phase, and we will soon update the references.</code></pre>
+</div>
+<div id="campos-opcionais-ao-description" class="section level3">
+<h3 class="hasAnchor">
+<a href="#campos-opcionais-ao-description" class="anchor"></a>Campos opcionais ao <em>DESCRIPTION</em>
+</h3>
+<table class="table">
+<colgroup>
+<col width="59%">
+<col width="40%">
+</colgroup>
+<thead><tr class="header">
+<th>Campos opcionais</th>
+<th>Finalidade</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><code>Data</code></td>
+<td>Insere a data atualizada para submissão ao <a href="http://cran.r-project.org">CRAN</a>. Essa data é preferível deixar não ser colocada. Já tivemos rejeição de pacotes, simplesmente porque a data estava desatualizada</td>
+</tr>
+<tr class="even">
+<td><code>Depends</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>Imports</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>Sugests</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>SystemRequirements</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>Copyright</code></td>
+<td>Usado quando o detentor dos direitos autorais não forem os autores. Se desejar, poderá inserir um arquivo (<code>COPYRIGHTS</code>) no pacote para um maior detalhamento. O convencional é usar o subdiretóriO <code>inst</code>, isto é, <code>inst/COPYRIGHTS</code>
+</td>
+</tr>
+<tr class="odd">
+<td><code>Additional_repositories</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>Enhances</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>LinkingTo</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>BugReports</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>URL</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>LazyData</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>KeepSource</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>ByteCompile</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>UseLTO</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>Collate</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>BuildVignettes</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>BuildVignetter</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>Type</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>OS_type</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>Language</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>RdMacros</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Outros campos não mencionados acima, podem ser utilizados. Por exemplo, campos como <code>Note</code>, <code>Contact</code>, <code>MailingList</code>, dentre outros.</p>
+</div>
 </div>
 <div id="editando-o-arquivo-namespace" class="section level2">
 <h2 class="hasAnchor">
@@ -217,6 +457,10 @@ Como já falado na Seção <a href="construindo_pacote.html">Construindo o esque
 <div id="documentando-as-funções-do-pacote" class="section level2">
 <h2 class="hasAnchor">
 <a href="#documentando-as-fun%C3%A7%C3%B5es-do-pacote" class="anchor"></a>Documentando as funções do pacote</h2>
+</div>
+<div id="resumo-do-que-vimos-nessa-seção" class="section level2">
+<h2 class="hasAnchor">
+<a href="#resumo-do-que-vimos-nessa-se%C3%A7%C3%A3o" class="anchor"></a>Resumo do que vimos nessa seção</h2>
 </div>
   </div>
 

@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">meupacoter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1.9000</span>
       </span>
     </div>
 
@@ -54,13 +54,6 @@
   <a href="../index.html">
     <span class="fa fa fa fa-home"></span>
      
-  </a>
-</li>
-<li>
-  <a href="../articles/conf_files_pkg.html">
-    <span class="fa fa-question-circle-o"></span>
-     
-    Problemas frequentes
   </a>
 </li>
 <li class="dropdown">
@@ -84,7 +77,7 @@
   </ul>
 </li>
 <li>
-  <a href="../articles/conf_files_pkg.html">
+  <a href="../news/index.html">
     <span class="fa fa-newspaper-o"></span>
      
     Atualizações
@@ -97,10 +90,17 @@
     Função do pacote
   </a>
 </li>
+<li>
+  <a href="../articles/conf_files_pkg.html">
+    <span class="fa fa-question-circle-o"></span>
+     
+    Problemas frequentes
+  </a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/bendeivide/meupacote">
+  <a href="https://github.com/bendeivide/meupacoter">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -146,10 +146,10 @@
 
     
     
-<p>Nessa seção, veremos como construir um pacote R usando o <a href="https://rstudio.com/">RStudio</a>. Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando para para esse momento.</p>
+<p>Nessa seção, veremos como construir um pacote R usando o <a href="https://rstudio.com/">RStudio</a>. Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando todos para esse momento.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"knitr"</span>, <span class="st">"devtools"</span>, <span class="st">"roxygen2"</span>, <span class="st">"usethis"</span>,
-                   <span class="st">"pkgdown"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"devtools"</span>, <span class="st">"usethis"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgdown"</span>, <span class="st">"tinytex"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">pkgs</span><span class="op">)</span></code></pre></div>
 <p>Descriminaremos a importância de cada pacote na tabela a seguir. Para essa primeira versão, deixaremos claro que o desenvolvimento de pacotes será usado de acordo com as configurações do sistema operacional Windows. Assim, precisaremos instalar uma outra ferramenta que é o <a href="https://cran.r-project.org/bin/windows/Rtools/">rtools</a>.</p>
 <p align="center">
 </p>
@@ -301,6 +301,16 @@
 <td></td>
 </tr>
 <tr class="odd">
+<td></td>
+<td><code>use_news_md</code></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><code>use_readme_rmd</code></td>
+<td></td>
+</tr>
+<tr class="odd">
 <td><a href="https://pkgdown.r-lib.org/">pkgdown</a></td>
 <td></td>
 <td></td>
@@ -332,17 +342,13 @@
 </tr>
 </tbody>
 </table>
-<p>Por fim, precisamos fazer o download para o <a href="http://miktex.org/download"><span class="math inline">\(\LaTeX\)</span></a>, para desenvolvermos a documentação do pacote. Caso não deseje fazer essa instalação, uma alternativa é instalar o pacote <a href="http://cran.r-project.org/package=tinytex">tinytex</a>, usando o código:</p>
+<p>Por fim, precisamos fazer o download para o <a href="http://miktex.org/download"><span class="math inline">\(\LaTeX\)</span></a>, para desenvolvermos a documentação do pacote. Caso não deseje fazer essa instalação, uma alternativa é instalar o pacote <a href="http://cran.r-project.org/package=tinytex">tinytex</a>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Instalando</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tinytex"</span><span class="op">)</span>
-<span class="co"># Carregando</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tinytex"</span><span class="op">)</span></code></pre></div>
+<p>Lembre-se que se já tiver o <a href="http://miktex.org/download"><span class="math inline">\(\LaTeX\)</span></a> instalado não é necessário instalar <a href="http://cran.r-project.org/package=tinytex">tinytex</a>, e até não recomendado instalar para não gerar conflito com a versão que já tem instalada.</p>
 <p>Para carregar esses pacotes use a linha de código a seguir.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># No RStudio (Instalar pacotes necessarios)</span>
-<span class="va">pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"devtools"</span>, <span class="st">"usethis"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgdown"</span><span class="op">)</span>
-
-<span class="co">### Funcao carregar</span>
+<code class="sourceCode R"><span class="co">### Funcao carregar</span>
 <span class="va">carregar</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">package</span><span class="op">)</span><span class="op">{</span>
   <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/message.html">suppressMessages</a></span><span class="op">(</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">package</span>, character.only <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="op">}</span>
@@ -382,15 +388,15 @@
 <em>man/</em>: esse diretório armazena os arquivos de ajuda do pacote. Descreve e exemplifica as funções do pacote.</li>
 </ul>
 </div>
-<div id="construindo-o-pacote-r-pelo-rstudio" class="section level2">
+<div id="building_rpack" class="section level2">
 <h2 class="hasAnchor">
-<a href="#construindo-o-pacote-r-pelo-rstudio" class="anchor"></a>Construindo o pacote R pelo RStudio</h2>
+<a href="#building_rpack" class="anchor"></a>Construindo o pacote R pelo RStudio</h2>
 <p>Para construir o esqueleto básico de um pacote, usando o <a href="https://rstudio.com/">RStudio</a>, siga os passos pelo vídeo abaixo.</p>
 <p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aq4OL8IDRJ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 </iframe>
 </p>
-<p>Passos no <a href="https://rstudio.com/">RStudio</a>: <code>File</code> &gt; <code>New Project...</code> &gt; <code>New Directory</code> &gt; <code>R package</code>. Insira o nome do pacote e armazene o projeto em um diretório desejado.</p>
+<p>Passos no <a href="https://rstudio.com/">RStudio</a>: <code>File</code> &gt; <code>New Project...</code> &gt; <code>New Directory</code> &gt; <code>R package</code>. Insira o nome do pacote e armazene o projeto em um diretório desejado. Nesse momento, poderíamos já ter adicionado um repositório <a href="http://github.com">GitHub</a> ao pacote. Deixaremos essa parte para as seções seguintes.</p>
 </div>
   </div>
 

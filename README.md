@@ -15,13 +15,13 @@ como desenvolver insterfaces gráficas ao usuário, a internacionalização
 de pacotes para outros idiomas, criação de websites, criação de
 vignettes, e muito mais.
 
-## Onde [meupacoter](https://bendeivide.github.io/meupacoter/) já foi apresentado?
+## Onde [meupacoter](https://bendeivide.github.io/meupacoter/) foi apresentado?
 
 O [meupacoter](https://bendeivide.github.io/meupacoter/) já foi
 apresentado em palestras, seminários e minicursos sobre desenvolvimento
 de pacotes. Contudo, só a partir de 24 de novembro de 2020 é que o
 pacote ficou disponível no [repositório
-Github](http:://github.com/bendeivide/meupacoter/).
+Github](https://github.com/bendeivide/meupacoter).
 
 Vejam alguns locais que o
 [meupacoter](https://bendeivide.github.io/meupacoter/) já foi
@@ -36,8 +36,8 @@ apresentado:
 
 ## Instalação
 
-O meupacoter\](<https://bendeivide.github.io/meupacoter/>) ainda não
-está disponível no [CRAN](https://CRAN.R-project.org).
+O [meupacoter](https://bendeivide.github.io/meupacoter/) ainda não está
+disponível no [CRAN](https://CRAN.R-project.org).
 
 <!--
 You can install the released version of meupacoter from [CRAN](https://CRAN.R-project.org) with:

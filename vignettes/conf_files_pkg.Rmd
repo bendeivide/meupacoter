@@ -73,13 +73,186 @@ No nosso caso, apenas a função `aritmetica` será exportável. Perceba, que o 
 
 ## Atualizando as funções do pacote
 
-Como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_pacote.html), o subdiretório *R/* é o local para armazenar as rotinas do pacote. Dessa forma, vamos fazer as atualizações retirando os arquivos *.R* criados pelo [RStudio](https://rstudio.com/), e inserindo as rotinas do pacote ([aritmetica.R](https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R) e [auxiliar.R](https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R))
+Como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_pacote.html), o subdiretório *R/* é o local para armazenar as rotinas do pacote. Dessa forma, vamos fazer as atualizações retirando os arquivos *.R* criados pelo [RStudio](https://rstudio.com/), e inserindo as rotinas do pacote  ([aritmetica.R](https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R) e [auxiliar.R](https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R)). Lembre-se das [boas práticas de como escrever um código R](introd_pkg.html#goodpractice).
+
 <p align="center">
 <img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%">
 </p>
 
 ## Editando o arquivo *DESCRIPTION*
 
+Quando nós [criamos um projeto de pacote](construindo_pacote.html#building_rpack) usando o [RStudio](https://rstudio.com/), um arquivo chamado *DESCRIPTION* é criado no diretório do projeto do pacote. Talvez um dos mais importantes arquivos do pacote, pois esse arquivo contém os metadados sobre as característica do pacote, como o seu nome, título, versão, autor, descrição, licença, dentre outras opções. 
+
+A estrutura básica é que cada linha se inicia com a opção seguida de ":", e em seguida o valor. Segundo o manual [Writing R extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file), os campos `Package`, `Version`, `Licence`, `Description`, `Title`, `Author` e `Mantainer` são obrigatórios .Todos os outros campos são opcionais. Todo o *DESCPTION* deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Caso use acentuações, ou outros caracteres, deve ser acrescentado o campo `Encoding` e informar o tipo de codificação. No pacote [meupacoter](https://bendeivide.github.io/meupacoter/), por exemplo, foi utilizado `Encoding: UTF-8`, devido aos acentos na língua portuguesa. 
+
+```{description, eval = FALSE}
+Package: nome do pacote
+Title: O que o pacote faz (Em uma linha)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Maintainer: Nome e email do mantenedor do pacote
+Description: O que o pacote faz (one paragraph).
+License: Qual a licença que você usa
+```
+
+
+Iremos discutir a ideia sobre algumas dessas opções a seguir.
+
+### Nome do pacote
+
+A discução sobre o nome do pacote foi realizado na subseção [Escolha do nome e logo do pacote](introd_pkg.html#name_logo_pkg). O campo para o nome é `Package` e deve conter somente letras, números e ponto, e ter pelo menos dois caracteres, começar com uma letra e não terminar com um ponto. Esse campo não deve ser utilizado para explicar o que o pacote faz. Para isso use o campo `Description`.
+
+### Título do pacote
+
+O campo para o título do pacote é `Title`. Nele deve conter uma pequena descrição do pacote em uma única linha. Seguem alguns requisitos ([Writing R extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file)):
+ 
+* Não use marcações for do pacrão ASCII;
+* Não finalize o título com um ponto;
+* Não repita o nome do pacote no título;
+* Se usar a referência de outros pacotes no título, use aspas simples ('<outrs_pacotes>'), se referenciar livros, aspas duplas ("nome_livros");
+* Geralmente limitado em 65 caracteres.
+
+### Controle de versão do pacote
+
+O campo responsável pela versão do pacote é `Version`. Deve ser uma sequência de ao menos dois números não negativos inteiros separados por um ponto ('.') ou traço ('-'). Por exemplo, 1.1 e 0.9.1-10 são versões válidas, mas essas versões 2 ou 2.0-devel não são válidas. No livro [R packages](https://combine-australia.github.io/r-pkg-dev/versioning.html), temos uma descrição detalhada e abordada a seguir. Usaremos também uma abordagem feita pelo [COMBINE](http://combine.org.au), pelo material [R package workshop](https://combine-australia.github.io/r-pkg-dev/).
+
+Podemos dizer que a estrutura do controle de versão é formado por uma sequência de quatro dígitos: `<maior>.<menor>.<trecho>.<desenvolvimento>`. Vejamos,
+```{r versao, eval = TRUE}
+numeric_version("1.9") == numeric_version("1.9.0")
+numeric_version("1.9") == numeric_version("1.9.0.0")
+```
+Isso significa dizer, se usarmos ao menos dois dígitos, os outros dígitos serão completados por zero (*default*). Vejamos o que significa cada dígito:
+
+* Dígito `<maior>`: esse dígito é alterado quando o pacote passa por uma mudança significativa na atualização;
+* Dígito `menor`: esse dígito é alterado quando ocorre alguma funcionalidade foi adicionada ao pacote, como criação de funções, atualizações de funções com os códigos existentes, etc;
+* Dígito `trecho`: esse dígito se altera quando ocorre correções de erros (`bugs`) no pacote, mas não é acrescido nada de novo. Uma forma interessante de encontrar esses erros é criar uma página de problemas do pacote, e à medida que ocorre a experiência do usário com o pacote, alguns problemas podem ocorrer que não eram previstos pelo desenvolvedor. Dessa forma, esses problemas podem ser postados nessa página específica. No Github há uma aba chamada *issues* nos repositórios criados, que é específico para isso, e o link dessa página pode ser inserido no campo `BugReports` no arquivo *DESCRIPTION*;
+* Dígito `desenvolvimento`: o dígito 9000 é utilizado quando o pacote está em desenvolvimento. Com essa codigifcação, podemos esperar mudanças muito rápidas no pacote.
+
+Caso deseje alterar algum dos dígitos, o desenvolvedor pode alterar diretamente no arquivo *DESCRPTION*, ou usando (Exemplo realizado para o [meupacoter](https://bendeivide.github.io/meupacoter/)):
+```{r altera_versao, eval = FALSE}
+usethis::use_version()
+Setting active project to '~/meupacoter'
+There are uncommitted changes. Do you want to proceed anyway?
+
+1: Negative
+2: Nope
+3: Yup
+
+Selection: "<Escolhe uma das opções e digita: 1, 2 ou 3>"
+Current version is 0.1.1.9000.
+Which part to increment? (0 to exit) 
+
+1: major --> 1.0.0
+2: minor --> 0.2.0
+3: patch --> 0.1.2
+4:   dev --> 0.1.1.9001
+
+Selection: "<Escolhe uma das opções e digita: 1, 2 ou 3>"
+```
+
+A primeira versão de um pacote que se inicia o seu desenvolvimento é 0.0.0.9000.
+
+### Autor e Mantenedor
+
+Os campos responsáveis pela criação do pacote, de forma direta ou indireta, são `Autor` ou `Authors@R` e `Mantainer`. Começando pelo último, este campo representa a pessoa responsável por manter o pacote sobre o [CRAN](http://cran.r-project.org), correção, atualização, etc. Apenas ele tem esse poder e deve ser uma pessoa e não uma empresa, de modo que seja válido enquanto o pacote estiver disponível no [CRAN](http://cran.r-project.org). O campo `Autor` ou `Authors@R` representa as pessoas que desenvolveram o pacote. O que diferencia esses dois campos é a forma de inserir as informações. Existem regras para essa criação, representado por algumas siglas, e apresentamos quatro importantes:
+
+* `aut`: autores que fizeram contribuições significativas ao pacote;
+* `cre`: mantenedor do pacote que estará responsável para resolver possíveis problemas do pacote;
+* `ctb`: desenvolvedores que fizeram contribuições menores;
+* `cph`: detentor dos direitos autorais, quando a autoria não é do autor, geralmente uma empresa.
+
+Se desejar uma especificação mais detalhada sobre o seu papel como desenvolvedor, consulte mais siglas em [full list of roles](https://www.loc.gov/marc/relators/relaterm.html)
+
+A forma básica de inserir os dados no campo `Mantainer` o primeiro e o último nome, seguido do email entre ("< >"), por exemplo, `Mantainer: Ben Deivide <ben.deivide@gmail.com>`. 
+
+Para inserir as informações no campo `Author`, basta digitar o nome dos autores separados por vírgula, por exemplo: `Author: Ben Deivide, Daniel Furtado, Diego Arthur`.
+
+Por fim, uma descrição mais completa pode ser usando o campo `Author@R`, pois saberemos a atuação de cada autor, usando as siglas acima. E ainda mais, não será necessário inserir no arquivo *DESCRIPTION*  campo `Mantainer`. Veremos a seguir, um exemplo do pacote [midrangeMCP](https://bendeivide.github.io/midrangeMCP/):
+```{description_author}
+Authors@R: c(
+    person(given = "Ben", 
+           family = "Deivide", 
+           email = "ben.deivide@ufsj.edu.br", 
+           role = c("aut", "cre"), 
+           comment = c(ORCID = '0000-0001-7019-8794')),
+    person(given = "Daniel", 
+           family = "Furtado", 
+           email = "danielff@dex.ufla.br", 
+           role = "aut",
+           comment = c(ORCID = '0000-0002-4371-5239')),
+    person(given = "Diego", 
+           family = "Arthur", 
+           email = "digo.arthur@hotmail.com", 
+           role = "ctb"))
+```
+Dentro do campo `Authors@R`, inserimos cada descrição dos desenvolvedores dentro de uma função chamada `person`, do pacote `utils`, veja a sua execução
+
+```{r person, eval = TRUE}
+ person(given = "Ben", 
+           family = "Deivide", 
+           email = "ben.deivide@ufsj.edu.br", 
+           role = c("aut", "cre"), 
+           comment = c(ORCID = '0000-0001-7019-8794'))
+```
+Na função `person` o primeiro argumento representa o primeiro nome do autor (`given`) e o segundo (`family`), o último nome. Posteriormente, temos o argumento para o email (`email`), e em seguida, o argumento para identificar a especificação do autor para o pacote (argumento `role`). Por fim, acrescentamos em `comment`, uma informação adicional que foi o [ORCID](https://orcid.org/) dos respectivos autores. Percebam pelas regras atribuídas aos desenvolvedores que Ben Deivide e Daniel Furtado são autores (regra `'aut'`), e o primeiro é também mantenedor (regra `'cre'`). No caso de Diego Arthur, como o seu desenvolvimento teve menores contribuições ao pacote, a regra foi `'ctb'`. Dessa forma, não será necessário inserir o campo `Mantainer`.
+
+### Descrição
+
+O campo responsável no arquivo *DESCRIPTION* para descrever e detalhar o que faz o pacote é `Description`. Deve conter apenas um parágrafo. Vejamos mais algumas informações:
+
+* Evite iniciar a descrição com o nome do pacote, ao invés, use *Esse pacote...* ou algo similar;
+* Quando a descrição estiver em mais de uma linha, cada linha deve conter no máximo 80 caracteres, e a partir da segunda linha, dê 4 espaços para iniciá-la;
+* Assim como no campo `Title`, devemos usar aspas duplas ("<texto>") para referenciar livros, artigos, aspas simples para palavras que não estão em inglês, incluindo nomes de pacotes, softwares externos, etc.
+
+Vejamos um exemplo do *DESCRIPTION* do pacote [midrangeMCP](http://cran.r-project.org/package=midrangeMCP):
+
+```{}
+Description: Apply tests of multiple comparisons based
+    on studentized 'midrange' and 'range' distributions. 
+    The tests are: Tukey Midrange ('TM' test),
+    Student-Newman-Keuls Midrange ('SNKM' test), 
+    Means Grouping Midrange ('MGM' test) and 
+    Means Grouping Range ('MGR' test). The articles of these 
+    tests are in the submission phase, and we will soon update the references.
+```
+
+### Campos opcionais ao *DESCRIPTION*
+
+|Campos opcionais| Finalidade|
+|----------------|-----------|
+| `Data`         | Insere a data atualizada para submissão ao [CRAN](http://cran.r-project.org). Essa data é preferível deixar não ser colocada. Já tivemos rejeição de pacotes, simplesmente porque a data estava desatualizada |
+| `Depends`      |           |
+| `Imports`      |           |
+| `Sugests`      |           |
+| `SystemRequirements`       |           |
+|  `Copyright`   |  Usado quando o detentor dos direitos autorais não forem os autores. Se desejar, poderá inserir um arquivo (`COPYRIGHTS`) no pacote para um maior detalhamento. O convencional é usar o subdiretóriO `inst`, isto é, `inst/COPYRIGHTS`     |
+| `Additional_repositories`      |           |
+| `Enhances`     |           |
+|  `LinkingTo`   |           |
+|   `BugReports` |           |
+|   `URL`        |           |
+|    `LazyData`  |           |
+|     `KeepSource`  |           |
+|   `ByteCompile` |          |
+|     `UseLTO`   |           |
+|    `Collate`   |           |
+|     `BuildVignettes` |         |
+|     `BuildVignetter` |         |
+|      `Type`          |         |
+|      `OS_type`       |         |
+|      `Language`      |         |
+|      `RdMacros`      |         |
+
+Outros campos não mencionados acima, podem ser utilizados. Por exemplo, campos como `Note`, `Contact`, `MailingList`, dentre outros.
+
+
 ## Editando o arquivo *NAMESPACE*
 
 ## Documentando as funções do pacote
+
+## Resumo do que vimos nessa seção

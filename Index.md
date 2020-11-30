@@ -15,7 +15,7 @@ como desenvolver insterfaces gráficas ao usuário, a internacionalização
 de pacotes para outros idiomas, criação de websites, criação de
 vignettes, e muito mais.
 
-## <i class="fas fa-map-marker-alt"></i> Onde [meupacoter](https://bendeivide.github.io/meupacoter/) já foi apresentado?
+## <i class="fas fa-map-marker-alt"></i> Onde [meupacoter](https://bendeivide.github.io/meupacoter/) foi apresentado?
 
 O [meupacoter](https://bendeivide.github.io/meupacoter/) já foi
 apresentado em palestras, seminários e minicursos sobre desenvolvimento
@@ -24,7 +24,7 @@ pacote ficou disponível no [repositório
 Github](http:://github.com/bendeivide/meupacoter/).
 
 Vejam alguns locais que o
-[meupacoter](https://bendeivide.github.io/meupacoter/) já foi
+[meupacoter](https://github.com/bendeivide/meupacoter/) já foi
 apresentado:
 
 | Data       | Local                               | Tema da apresentação                                                                |
@@ -36,8 +36,8 @@ apresentado:
 
 ## <i class="fas fa-arrow-alt-circle-down"></i> Instalação
 
-O meupacoter\](<https://bendeivide.github.io/meupacoter/>) ainda não
-está disponível no [CRAN](https://CRAN.R-project.org).
+O [meupacoter](https://bendeivide.github.io/meupacoter/) ainda não está
+disponível no [CRAN](https://CRAN.R-project.org).
 
 <!--
 You can install the released version of meupacoter from [CRAN](https://CRAN.R-project.org) with:
