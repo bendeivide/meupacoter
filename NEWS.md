@@ -1,4 +1,4 @@
-# meupacoter 0.0.0.9001
+# meupacoter 0.1.0.9000
 * Mudança na ordem das opções da barra de navegação;
 * Em **Introdução a desenvolvimento de pacotes**:
   * revisado a pessoa do verbo;

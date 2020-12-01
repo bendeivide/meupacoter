@@ -83,7 +83,7 @@ Como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_
 
 Quando nós [criamos um projeto de pacote](construindo_pacote.html#building_rpack) usando o [RStudio](https://rstudio.com/), um arquivo chamado *DESCRIPTION* é criado no diretório do projeto do pacote. Talvez um dos mais importantes arquivos do pacote, pois esse arquivo contém os metadados sobre as característica do pacote, como o seu nome, título, versão, autor, descrição, licença, dentre outras opções. 
 
-A estrutura básica é que cada linha se inicia com a opção seguida de ":", e em seguida o valor. Segundo o manual [Writing R extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file), os campos `Package`, `Version`, `Licence`, `Description`, `Title`, `Author` e `Mantainer` são obrigatórios .Todos os outros campos são opcionais. Todo o *DESCPTION* deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Caso use acentuações, ou outros caracteres, deve ser acrescentado o campo `Encoding` e informar o tipo de codificação. No pacote [meupacoter](https://bendeivide.github.io/meupacoter/), por exemplo, foi utilizado `Encoding: UTF-8`, devido aos acentos na língua portuguesa. 
+A estrutura básica é que cada linha se inicia com o nome do campo seguido de ":", posteriormente, se insere a atribuída a esse campo. Segundo o manual [Writing R extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file), os campos `Package`, `Version`, `Licence`, `Description`, `Title`, `Author` e `Mantainer` são obrigatórios .Todos os outros campos são opcionais. Todo o *DESCRIPTION* deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Para utilizar caracteres diferentes, deve ser acrescentado o campo `Encoding` e informar o tipo de codificação. No pacote [meupacoter](https://bendeivide.github.io/meupacoter/), por exemplo, foi utilizado `Encoding: UTF-8`. 
 
 ```{description, eval = FALSE}
 Package: nome do pacote
@@ -96,16 +96,23 @@ Authors@R:
            email = "first.last@example.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Maintainer: Nome e email do mantenedor do pacote
-Description: O que o pacote faz (one paragraph).
+Description: O que o pacote faz (Em um parágrafo).
 License: Qual a licença que você usa
 ```
 
 
-Iremos discutir a ideia sobre algumas dessas opções a seguir.
+Iremos discutir a ideia sobre alguns desses campos a seguir.
 
 ### Nome do pacote
 
-A discução sobre o nome do pacote foi realizado na subseção [Escolha do nome e logo do pacote](introd_pkg.html#name_logo_pkg). O campo para o nome é `Package` e deve conter somente letras, números e ponto, e ter pelo menos dois caracteres, começar com uma letra e não terminar com um ponto. Esse campo não deve ser utilizado para explicar o que o pacote faz. Para isso use o campo `Description`.
+A discução sobre o nome do pacote foi realizado na subseção [Escolha do nome e logo do pacote](introd_pkg.html#name_logo_pkg). O campo para o nome é `Package`, com as seguintes características:
+
+* deve conter somente letras, números e ponto;
+* ter pelo menos dois caracteres;
+* começar com uma letra
+* não terminar com um ponto. 
+
+Esse campo não deve ser utilizado para explicar o que o pacote faz. Para isso use o campo `Description`.
 
 ### Título do pacote
 
