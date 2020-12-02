@@ -1,0 +1,17 @@
+---
+title: "Checando o pacote"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Checando o pacote}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Em construção...

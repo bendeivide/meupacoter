@@ -83,7 +83,7 @@ Como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_
 
 Quando nós [criamos um projeto de pacote](construindo_pacote.html#building_rpack) usando o [RStudio](https://rstudio.com/), um arquivo chamado *DESCRIPTION* é criado no diretório do projeto do pacote. Talvez um dos mais importantes arquivos do pacote, pois esse arquivo contém os metadados sobre as característica do pacote, como o seu nome, título, versão, autor, descrição, licença, dentre outras opções. 
 
-A estrutura básica é que cada linha se inicia com o nome do campo seguido de ":", posteriormente, se insere a atribuída a esse campo. Segundo o manual [Writing R extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file), os campos `Package`, `Version`, `Licence`, `Description`, `Title`, `Author` e `Mantainer` são obrigatórios .Todos os outros campos são opcionais. Todo o *DESCRIPTION* deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Para utilizar caracteres diferentes, deve ser acrescentado o campo `Encoding` e informar o tipo de codificação. No pacote [meupacoter](https://bendeivide.github.io/meupacoter/), por exemplo, foi utilizado `Encoding: UTF-8`. 
+A estrutura básica é que cada linha se inicia com o nome do campo seguido de ":", posteriormente, se insere a atribuída a esse campo. Segundo o manual [Writing R extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file), os campos `Package`, `Version`, `Licence`, `Description`, `Title`, `Author` e `Mantainer` são obrigatórios . Todos os outros campos são opcionais. Todo o *DESCRIPTION* deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Para utilizar caracteres diferentes, deve ser acrescentado o campo `Encoding` e informar o tipo de codificação. No pacote [meupacoter](https://bendeivide.github.io/meupacoter/), por exemplo, foi utilizado `Encoding: UTF-8`. 
 
 ```{description, eval = FALSE}
 Package: nome do pacote
@@ -105,7 +105,7 @@ Iremos discutir a ideia sobre alguns desses campos a seguir.
 
 ### Nome do pacote
 
-A discução sobre o nome do pacote foi realizado na subseção [Escolha do nome e logo do pacote](introd_pkg.html#name_logo_pkg). O campo para o nome é `Package`, com as seguintes características:
+A discução sobre o nome do pacote foi realizado na subseção [Escolha do nome e logo do pacote](introd_pkg.html#name_logo_pkg). O campo para o nome é `Package`, com as seguintes características ([Writing R extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file)):
 
 * deve conter somente letras, números e ponto;
 * ter pelo menos dois caracteres;
@@ -151,22 +151,26 @@ There are uncommitted changes. Do you want to proceed anyway?
 3: Yup
 
 Selection: "<Escolhe uma das opções e digita: 1, 2 ou 3>"
-Current version is 0.1.1.9000.
+Current version is 0.0.0.9000.
 Which part to increment? (0 to exit) 
 
 1: major --> 1.0.0
-2: minor --> 0.2.0
-3: patch --> 0.1.2
-4:   dev --> 0.1.1.9001
+2: minor --> 0.1.0
+3: patch --> 0.0.1
+4:   dev --> 0.0.0.9001
 
 Selection: "<Escolhe uma das opções e digita: 1, 2 ou 3>"
 ```
 
-A primeira versão de um pacote que se inicia o seu desenvolvimento é 0.0.0.9000.
+A primeira versão de um pacote que inicia o seu desenvolvimento é 0.0.0.9000.
+
+Nós, particularmente, estamos usando a seguinte estratégia para o [meupacoter](https://bendeivide.github.io/meupacoter/), como o pacote está em desenvolvimento, e sua finalidade é ensinar a desenvolver pacotes, o que pretendemos é criar páginas web com o passo-a-passo. Assim, estamos usando o quarto dígito `9000`. Os acréscimos realizados sob o [GitHub](http://github.com), que levam em consideração as páginas web, estão alterando o dígito menor, porque a primeira versão quando for submetida ao [CRAN](http://cran.r-project.org), será `1.0.0`, de modo que o pacote estará estável, não haverá mais alterações no dígito maior (assim, esperamos!), apenas nos demais.
+
+De fato, as sugestões dos números de versão mencionadas por [R packages](https://combine-australia.github.io/r-pkg-dev/versioning.html) e [R package workshop](https://combine-australia.github.io/r-pkg-dev/) ocorrem a cada alteração lançada ao [CRAN](http://cran.r-project.org), e o controle dos três dígitos para a versão, realmente é interessante. Entretanto, achamod que seguir a ideia dos três dígitos é interessante, mas não que isso fique martirzando a sua cabeça, uma vez que nos manuais do [CRAN](http://cran.r-project.org) não há condições restritivas para essas escolhas. Caso deseje detalhes, é só consultar [Writing R extensions, DESCRIPTION](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file).
 
 ### Autor e Mantenedor
 
-Os campos responsáveis pela criação do pacote, de forma direta ou indireta, são `Autor` ou `Authors@R` e `Mantainer`. Começando pelo último, este campo representa a pessoa responsável por manter o pacote sobre o [CRAN](http://cran.r-project.org), correção, atualização, etc. Apenas ele tem esse poder e deve ser uma pessoa e não uma empresa, de modo que seja válido enquanto o pacote estiver disponível no [CRAN](http://cran.r-project.org). O campo `Autor` ou `Authors@R` representa as pessoas que desenvolveram o pacote. O que diferencia esses dois campos é a forma de inserir as informações. Existem regras para essa criação, representado por algumas siglas, e apresentamos quatro importantes:
+Os campos responsáveis pela criação do pacote, de forma direta ou indireta, são `Autor` ou `Authors@R` e `Mantainer`. Começando pelo último, este campo representa a pessoa responsável por manter o pacote sobre o [CRAN](http://cran.r-project.org), correção, atualização, etc. Apenas ele tem esse poder e deve ser uma pessoa e não uma empresa, de modo que seja válido enquanto o pacote estiver disponível no [CRAN](http://cran.r-project.org). O campo `Autor` ou `Authors@R` representa as pessoas que desenvolveram o pacote. O que diferencia esses dois campos é a forma de inserir as informações. Para o campo `Authors@R`, ainda pode ser inserido funções adicionais aos autores, algo como especifícações do que cada autor contribuiu de fato ao desenvolvimento do pacote. Apresentamos quatro funções importantes:
 
 * `aut`: autores que fizeram contribuições significativas ao pacote;
 * `cre`: mantenedor do pacote que estará responsável para resolver possíveis problemas do pacote;
@@ -179,7 +183,7 @@ A forma básica de inserir os dados no campo `Mantainer` o primeiro e o último 
 
 Para inserir as informações no campo `Author`, basta digitar o nome dos autores separados por vírgula, por exemplo: `Author: Ben Deivide, Daniel Furtado, Diego Arthur`.
 
-Por fim, uma descrição mais completa pode ser usando o campo `Author@R`, pois saberemos a atuação de cada autor, usando as siglas acima. E ainda mais, não será necessário inserir no arquivo *DESCRIPTION*  campo `Mantainer`. Veremos a seguir, um exemplo do pacote [midrangeMCP](https://bendeivide.github.io/midrangeMCP/):
+Por fim, como já falado acima, uma descrição mais completa pode ser usando o campo `Authors@R`, inserindo a especificação de cada autor ao desenvolvimento do pacote, usando as siglas acima. E ainda mais, não será necessário inserir no arquivo *DESCRIPTION*  o campo `Mantainer`. Veremos a seguir, um exemplo do pacote [midrangeMCP](https://bendeivide.github.io/midrangeMCP/):
 ```{description_author}
 Authors@R: c(
     person(given = "Ben", 
@@ -197,7 +201,7 @@ Authors@R: c(
            email = "digo.arthur@hotmail.com", 
            role = "ctb"))
 ```
-Dentro do campo `Authors@R`, inserimos cada descrição dos desenvolvedores dentro de uma função chamada `person`, do pacote `utils`, veja a sua execução
+Dentro do campo `Authors@R`, inserimos para cada desenvolvedor, uma descrição dentro da função chamada `person`, do pacote `utils`, veja o resultado da sua execução:
 
 ```{r person, eval = TRUE}
  person(given = "Ben", 
@@ -210,13 +214,14 @@ Na função `person` o primeiro argumento representa o primeiro nome do autor (`
 
 ### Descrição
 
-O campo responsável no arquivo *DESCRIPTION* para descrever e detalhar o que faz o pacote é `Description`. Deve conter apenas um parágrafo. Vejamos mais algumas informações:
+O campo responsável no arquivo *DESCRIPTION* para descrever e detalhar o que faz o pacote é `Description`. Deve conter apenas um parágrafo. Vejamos mais algumas informações ([R packages](https://combine-australia.github.io/r-pkg-dev/versioning.html)):
 
 * Evite iniciar a descrição com o nome do pacote, ao invés, use *Esse pacote...* ou algo similar;
 * Quando a descrição estiver em mais de uma linha, cada linha deve conter no máximo 80 caracteres, e a partir da segunda linha, dê 4 espaços para iniciá-la;
-* Assim como no campo `Title`, devemos usar aspas duplas ("<texto>") para referenciar livros, artigos, aspas simples para palavras que não estão em inglês, incluindo nomes de pacotes, softwares externos, etc.
+* Assim como no campo `Title`, devemos usar aspas duplas ("texto") para referenciar livros, artigos, aspas simples para palavras que não estão em inglês, incluindo nomes de pacotes, softwares externos, etc.
+* Para utilização de sites, use aspas simples com colchetes angulares, isto é, ‘<https://www.r-project.org>’.
 
-Vejamos um exemplo do *DESCRIPTION* do pacote [midrangeMCP](http://cran.r-project.org/package=midrangeMCP):
+Vejamos um exemplo do *DESCRIPTION* do pacote [midrangeMCP](https://cran.r-project.org/web/packages/gnomeGUI/index.html):
 
 ```{}
 Description: Apply tests of multiple comparisons based
@@ -225,41 +230,112 @@ Description: Apply tests of multiple comparisons based
     Student-Newman-Keuls Midrange ('SNKM' test), 
     Means Grouping Midrange ('MGM' test) and 
     Means Grouping Range ('MGR' test). The articles of these 
-    tests are in the submission phase, and we will soon update the references.
+    tests are in the submission phase, and we will soon update 
+    the references.
 ```
 
 ### Campos opcionais ao *DESCRIPTION*
 
+Alguns campos adicionais são interessantes e deixamos na tabela abaixo  para consulta ([Writing R extensions, DESCRIPTION](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file)).
+
 |Campos opcionais| Finalidade|
 |----------------|-----------|
-| `Data`         | Insere a data atualizada para submissão ao [CRAN](http://cran.r-project.org). Essa data é preferível deixar não ser colocada. Já tivemos rejeição de pacotes, simplesmente porque a data estava desatualizada |
-| `Depends`      |           |
-| `Imports`      |           |
-| `Sugests`      |           |
-| `SystemRequirements`       |           |
-|  `Copyright`   |  Usado quando o detentor dos direitos autorais não forem os autores. Se desejar, poderá inserir um arquivo (`COPYRIGHTS`) no pacote para um maior detalhamento. O convencional é usar o subdiretóriO `inst`, isto é, `inst/COPYRIGHTS`     |
-| `Additional_repositories`      |           |
-| `Enhances`     |           |
-|  `LinkingTo`   |           |
-|   `BugReports` |           |
-|   `URL`        |           |
-|    `LazyData`  |           |
-|     `KeepSource`  |           |
-|   `ByteCompile` |          |
-|     `UseLTO`   |           |
-|    `Collate`   |           |
-|     `BuildVignettes` |         |
-|     `BuildVignetter` |         |
-|      `Type`          |         |
-|      `OS_type`       |         |
-|      `Language`      |         |
-|      `RdMacros`      |         |
+| `Data`         | Insere a data atualizada para submissão ao [CRAN](http://cran.r-project.org). Essa data é preferível deixar não ser colocada. Já tivemos rejeição de pacotes, simplesmente porque a data estava desatualizada. |
+| `Depends`      | Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Esses pacotes serão instalados usando o argumento `dependencies` em `install.packages(pkgs = 'nome_pacote', dependencies =     TRUE)`, que `dependencies = TRUE` implica em instalar os pacotes do `Depends`, o dos campos  `Imports`, `LinkingTo`, `Suggests`. Veja Subseção [Campo Depends](conf_files_pkg.html#campo-depends) para mais detalhes.  |
+| `Imports`      | Esse campo é utilizado para listar pacotes que são inseridos no [NAMESPACE](conf_files_pkg.html#docs_rpkg). Isso significa que ao importarmos funções de outros pacotes que serão necessários ao nosso pacote, poderão ser utilizados sem precisarmos carregar estes pacotes de origem destas funções. Funções que usamos os operadores "::" ou ":::", também deverão ser listados aqui, ou nos campos `Sugests` ou `Enhances`      |
+| `Sugests`      | Esse campo usa a mesma sintaxe do campo `Depends` e lista os pacotes que não são necessariamente necessários. Geralmente são pacotes utilizados nos exemplos de documentação de ajuda do pacote (arquivos do subdiretório `man/~.Rd`), ou na descrição de um conjunto de dados inseridos no pacote; no auxílio dos tutoriais (*vignettes*), dentre outras situações, que não impede o bom funcionamento do pacote.      |
+| `Enhances`| Campo que lista os pacotes que forncem um aprimoramento do pacote em questão, por exemplo, forncendo métodos para as classes desses pacotes ou maneiras de manipular objetos.|
+| `SystemRequirements`       | Dependências externas ao sistema [R](http://r-project.org) devem ser listadas no campo `SystemRequirements`, sendo detalhados essa integração no arquivo *README*. Para mais detalhes veja a Subseção [Uso dos campos *NeedsCompilation* e *SystemRequirement*](conf_files_pkg.html#ext_files_r).        |
+| `NeedsCompilation`   | Campo utilizado para identíficar códigos que necessitam de compilação antes da instalação do pacote. Nesse caso o campo deve assumir `NeedsCompilation:yes`. Caso contrário, se o pacote ao ser instalado em quaiquer plataformas e não precisar ser instalado ferramentas adicionais, use `NeedsCompilation:no`, esse é o padrão. Geralmente quando usamos o comando `R CMD build` para a compilação do pacote binário para a utilização no SO Windows, e esse pacote apresenta o subdiretório `src`, usamos `NeedsCompilation:yes`. Quando usamos esse tipo de compilação, não há no arquivo *DESCRIPTION* o campo `Authors@R`, por exemplo, e sim, os campos `Mantainer` e `Author`. Para mais detalhes veja a Subseção [Uso dos campos *NeedsCompilation* e *SystemRequirement*](conf_files_pkg.html#ext_files_r).|
+|       `License`         |        [Licença R](https://www.r-project.org/Licenses/), [Writing R extensions,DESCRIPTION](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file)|
+|  `Copyright`   |  Usado quando o detentor dos direitos autorais não forem os autores. Se desejar, poderá inserir um arquivo (`COPYRIGHTS`) no pacote para um maior detalhamento. O convencional é usar o subdiretório `inst`, isto é, `inst/COPYRIGHTS`.Ver Seção [Subdiretórios adicionais](subdir_add.html#subdir_inst).     |
+| `Additional_repositories`      |    O campo `Additional_repositories` é uma lista separada por vírgulas de URLs de repositório onde os pacotes nomeados em outros campos podem ser encontrados.       |
+|  `LinkingTo`   |   Um pacote que deseja fazer uso de arquivos de cabeçalho em outros pacotes para compilar seu código *C/C++*  precisa declará-los como uma lista separada por vírgulas no campo `LinkingTo` no arquivo *DESCRIPTION*. Para detalhes veja o Git do pacote [BH](https://github.com/eddelbuettel/bh#bh-boost-headers-for-r)|
+|   `BugReports` |   Campo que apresenta uma única URL específica para se reportar a erros do pacote. Uma das opções de hospedagem é via Github, na seção *issues*, veja a seção [Criar uma website para o pacote](construindo_website.html). Caso deseje especificar outro email para os possíveis erros, use o campo `Contact` para isso.  |
+|   `URL`        | Campo para especificas uma listas de URLs separados por vírgula, que hoespeda a sua página pessoal ou a página do pacote. Uma das opções de hospedagem é via Github. Veja a seção [Criar uma website para o pacote](construindo_website.html)     |
+|    `LazyData`  |   Campo lógico (`TRUE` ou `FALSE`), para para informar que existe um conjunto dados diponíveis no pacote para utilização        |
+|     `KeepSource`  |  O campo lógico `KeepSource` controla se o código do pacote é originado usando `keep.source = TRUE` ou `FALSE`: pode ser necessário excepcionalmente para um pacote projetado para ser sempre usado com `keep.source = TRUE`. Para mais detalhes, [Writing R extensions, DESCRIPTION](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file)        |
+|   `ByteCompile` |  O campo lógico `ByteCompile` controla se o código do pacote deve ser compilado por byte na instalação: o padrão é compilar por byte. Isso pode ser sobrescrito instalando com o sinalizador `--no-byte-compile`.  Para mais detalhes, [Writing R extensions, DESCRIPTION](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file)       |
+|     `UseLTO`   | O campo lógico `UseLTO` é usado para o SO Unix para indicar se o código-fonte no pacote deve ser compilado com *Link-Time Optimization* (veja Usando [Link-Time Optimization](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Using-Link_002dtime-Optimization)); se o R foi instalado com `--enable-lto` (*default*) ou `--enable-lto=R`.          |
+|    `Collate`   |  Campo utilizado para controlar a ordem de agrupamento para os arquivos de código R em um pacote quando estes são processados para instalação do pacote. Para mais detalhes, [Writing R extensions, DESCRIPTION](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file).        |
+|     `BuildVignettes` |  Campo utilizado para evitar a construção dos tutoriais (*vignettes*) ao construir o pacote usando `R CMD check`. Geralmente quando tem imagens grandes no pacote. Mas ao usar `R CMD check --as-cran` ele é criado, independente do valor para `BuildVignettes`. O que nós observamos para o RStudio é que mesmo esse campo com o valor. Essa opção,  se o pacote [roxigen2](https://roxygen2.r-lib.org/) está ativado para a construção de toda a documentação, os tutoriais (*vignettes*) são criados independentes dessa opção quando usamos o botão **check**, que tem o mesmo objetivo do comando `R CMD check`. na prática, esse campo não deve ser utilizado, a menos que o código do pacote não seja do tipo "código-aberto".|
+|     `BuildVignetter` | Campo responsável para informar quais os pacotes que renderizarão os tutoriais (vignettes). Pode ser informado o nome de um pacote ou uma lista de nomes de pacotes separados por vírgula. Por exemplo, em [meupacote](https://bendeivide.github.io/meupacoter/), nós usamos `VignetteBuilder: knitr`. Como na instalação do pacote, isso não é obrigatório, usamod no campo `Suggests: knitr, rmarkdown`, uma vez que o pacote [rmarkdown](https://rmarkdown.rstudio.com) está apenas como sugestão pelo pacote [knitr](https://yihui.org/knitr/). |
+|      `Type`          |   Esse campo especifica a natureza do projeto. O padrão é assumir `Type: Package`. Por exemplo, podemos o pacote [gnomeGUI](https://cran.r-project.org/packages=gnomeGUI), foi desativado pelo CRAN, com natureza *frontend*, isto é, `Type: Frontend`.  |
+|      `OS_type`       |   Esse campo especifica os sistemas operacionais para os quais o pacote se destina, sendo as opções 'unix' ou 'windows', para indicar que o pacote só pode ser instalado em uma plataforma dessas plataformas.      |
+|  `Encoding`          |   Campo utilizado para identificar a codificação do pacote, diferente de ASCII, usada no *DESCRIPTION*, *NAMESPACE*, arquivos do tipo *R* e *.Rd*. As opções são `latin1`, `latin2` e `UTF-8`   |
+|      `Language`      |    Campo utilizado para identificar o idioma que o código foi escrito. O padrão de idioma é o Inglês. De acordo com [R for Windows FAQ: Languages and Internationalization](https://cran.r-project.org/bin/windows/base/rw-FAQ.html#Languages-and-Internationalization), as opções de idiomas são:  `Catalan` (Catalão), `Simplified Chinese` (Chinês simplificado) `Traditional Chinese` (Chinês tradicional), `Czech` (Theco), `Danish` (Dinamarquês), `Dutch` (Holandês), `Finnish` (Finlandês), `French` (Francês), `German` (Alemão), `Greek` (Grego), `Hebrew` (Hebraico), `Hungarian` (Húngaro), `Italian` (Italiano), `Japanese` (Japonês), `Korean` (Coreano), `Norwegian` (Noroeguês), `Polish` (Polonês), `Portuguese (Brazil)` (Português brasileiro), `Portuguese (Portugal)` (Português de Portugal). O que sugerimos é que ao invés de utilizar o idioma nativo, pensando numa maior divulgação do pacote, o interessante é a internacionalização, ver Seção [Internacionalização de pacotes](interpack.html).   |
+|      `RdMacros`      |   Campo utilizado para conter uma lista, separada por vírgula, de pacotes a partir da qual o pacote atual importará definições de macro Rd. Esses pacotes também devem estar listados nos campos `Imports` (ou ‘Depends’).      |
 
-Outros campos não mencionados acima, podem ser utilizados. Por exemplo, campos como `Note`, `Contact`, `MailingList`, dentre outros.
 
+Outros campos não mencionados acima, podem ser utilizados. Por exemplo, campos como `Note`, `Contact`, `MailingList`, `RoxygenNote`, dentre outros.
+
+#### Campo `Depends` {#campo-depends}
+
+Vejamos mais algumas características sobre esse campo:
+
+* O padrão do argumento `dependencies` da função `install.packages` é `NA`, que implica em instalar os pacotes dos campos `Depends`, `Imports` e `LinkingTo`. Se desejar instalar tudo, basta usar `install.packages(pkgs = 'nome_pacote', dependencies = c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances"))`.  Os pacotes no campo `Depends` serão carregados antes dos pacotes de interesse serem carregados, usando `library` ou `require`;
+* Cada pacote no campo `Depends` por ser seguido de um parêntes identificando a versão desejada, isto é, `Depends: MASS (>= 3.1)`. Contudo, ao inserir a versão, use apenas para os dois dígitos, evite inserir o dígito `<trecho>` (terceiro dígito);
+* Não faz sentido inserir nesse campo, pacotes da base do [R](http://r-project.org), pois estes são instalados na instalação do próprio programa. Nesse campo também pode ser possível especificar determinada dependência da versão do [R](http://r-project.org), por exemplo, `Depends: R (>= 3.6)`;
+* Pode ser repetido um pacote ou a versão R mais de uma vez, para limitar as versões aceitáveis;
+* Evite comentários nesse campo, pois tanto a biblioteca de pacotes quanto os recursos de verificação do pacote R, usam esse campo, e isso pode acabar gerando problema ao bom funcionamento da linguagem;
+* Na prática, o que se observa é que esse campo é utilizado para identificar a versão necessária do R para a utilização do pacote. Quando um pacote é necessário no pacote desenvolvido, o inserimos no NAMESPACE, e assim, as dependências internas do pacote dependentes de funções de outros pacotes, serão utilizadas sem que estes precisem ser carregados.
+
+#### Uso pacotes dependentes em `Imports` ou `Depends`?
+
+Vejamos as regras gerais ([Writing R extensions, DESCRIPTION](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file)):
+
+* Um pacote dependente deve ser listado em apenas um campos dos campos `Depends` ou `Imports`;
+* Pacotes listados no *NAMESPACE* usando `import` ou `importFrom` devem ser listados sempre no campo `Imports` e não em `Depends`;
+* Caso contrário, se não for listado no *NAMESPACE*, para o carregamento do pacote usando a função `library`, os pacotes dependentes devem adicionados no campo `Depends`;
+* Pacotes dependentes que utilizamos os seus conjuntos de dados em nosso pacote, devem ser listados no campo `Imports`
+
+O campo 'Depends' atualmente deve ser usado raramente, apenas para a construção de pacotes em que desejamos que todas as funções dos pacotes dependentes estejam disponíveis para o usário, ao carregar o pacote desenvolvido, por questão de facilidade para o usuário. Caso contrário, o uso do campo `Imports` é mais coerente.
+
+#### Uso dos campos `NeedsCompilation` e `SystemRequirements` {#ext_files_r}
+
+O campo `SystemRequirements` quando utilizado no *DESCRIPTION*, 
+significa que algum código não [R](http://r-project.org) que está inserido em seu código, e precisa ser informado
+
+O subdiretório `src` é utilizado para códigos que precisam ser compilados, tais como *C*, *C++*, *Fortran*, dentre outros. O subdiretório `exec` ou `inst` é usado para inserir scripts que precisam ser interpretados, tais como *Shell*, *BUGS*, *JavaScript*, *Matlab*, *Perl*, *php(amap)*, *Phyton*, *Tcl*. O caso da linguagem *Java*, o mecanismo é um pouco diferente, ver [Writing R extensions§1.1.7](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file). Observando os pacotes desenvolvidos, a convenção é usar no diretório  `inst`, do tipo `inst/perl`, `inst/tcl`, etc. Vejam alguns exemplos de pacotes:
+
+* [WriteXLS](https://github.com/marcschwartz/WriteXLS)`/inst/Perl`, veja o seu *DESCRIPTION*:
+```{}
+Package: WriteXLS
+Version: 6.1.0
+Date: 2020-11-20
+Title: Cross-Platform Perl Based R Function to Create Excel 2003 (XLS) and Excel 2007 (XLSX) Files
+Description: Cross-platform Perl based R function to create Excel 2003 (XLS) and Excel 2007 (XLSX)
+             files from one or more data frames. Each data frame will be
+             written to a separate named worksheet in the Excel spreadsheet.
+             The worksheet name will be the name of the data frame it contains
+             or can be specified by the user. 
+Author: Marc Schwartz <marc_schwartz@me.com> and various authors for Perl modules listed in each .pm file.
+Copyright: The copyright holders of the Perl files are listed in each .pm file under the Perl directory.
+Maintainer: Marc Schwartz <marc_schwartz@me.com>
+License: GPL (>= 2)
+SystemRequirements: Perl
+Imports: utils
+URL: https://github.com/marcschwartz/WriteXLS
+BugReports: https://github.com/marcschwartz/WriteXLS/issues
+```
+
+* [rJava]()
+
+
+Considere também que alguns pacotes já fizeram a integração de algumas linguagens, e até mencionados acima, tais como: pacote [reticulate](rstudio.github.io/reticulate) (*Phyton*), pacote [Rcpp](https://cran.r-project.org/package=Rcpp) (*C++*), pacote [rJava](http://www.rforge.net/rJava/) (*Java*), pacotes [tcltk]() hoje da base do [R](http://r-project.org) (*Tcl/Tk*), pacote [RGtk2](https://cran.r-project.org/package=RGtk2) (*GTK+*), dentre muitos outros, esses já fizeram a parte árdua de integração. Assim, necessitando de alguma dessas linguagens e usando esses pacotes não é necessário a utilização do campo `SystemRequirements`.
+
+Por fim, a utilização do campo `SystemRequirements` necessita uma explicação mais detalhada sobre o pacote no arquivo *README*, pois para o bom funcionamento, precisamos muitas vezes fazer instalações externas ao sistema operacional em utilização. E mais uma vez, é um nível avançado de desenvolvimento de pacotes, pois não necessita apenas do conhecimento da linguagem [R](http://r-project.org), como também de outras linguagens. Um exemplo recente, foi um pacote chamado [gWidgets](https://cran.r-project.org/package=gWidgets) que foi desativado devido a problemas de instalação ao interpretação *GTK+*, que por sinal, um pacote muito bom para desenvolvimento de interfaces gráficas ao usuários, usando *Tcl/Tk* e *GTK+*
+
+
+
+
+
+
+
+
+## Documentando as funções do pacote {#docs_rpkg}
 
 ## Editando o arquivo *NAMESPACE*
 
-## Documentando as funções do pacote
 
 ## Resumo do que vimos nessa seção

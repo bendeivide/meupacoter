@@ -1,0 +1,23 @@
+---
+title: "Problemas frequentes"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Problemas frequentes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Pacotes no CRAN
+
+[Pacotes no CRAN](https://cran.r-project.org/web/packages/)
+
+## Política de Repositório do CRAN
+
+[Política de Repositório do CRAN](https://cran.r-project.org/web/packages/policies.html)

@@ -25,6 +25,35 @@ navbar:
          href: articles/construindo_pacote.html
        - text: Passo 2 - Configurando os arquivos básicos de um pacote
          href: articles/conf_files_pkg.html
+       - text: Passo 3 - Checando o pacote
+         href: articles/check_pkg.html
+       - text: Passo 4 - Submetendo o pacote ao CRAN
+         href: ~
+       - text: Passos adicionais
+         menu:
+         - text: Criar um repositório GitHub para o pacote
+           href: ~
+         - text: Criar uma website para o pacote
+           href: articles/construindo_website.html
+         - text: Criar tutoriais do pacote (vignettes)
+           href: ~
+         - text: Criando o arquivo README
+           href: ~
+         - text: Criando o arquivo index
+           href: ~
+         - text: Inserindo dados em um pacotes
+           href: articles/datasetr.html
+         - text: Inserindo imagens na documentação do pacotes
+           href: ~
+         - text: Internacionação de pacotes
+           href: articles/interpack.html
+         - text: Criação de GUI para o pacote
+           href: ~
+         - text: Integração com outras linguagens de programação
+           href: ~
+         - text: Subdiretórios adicionais
+           href: ~
+
     - icon: fa-newspaper-o
       text: "Atualizações"
       href: news/index.html

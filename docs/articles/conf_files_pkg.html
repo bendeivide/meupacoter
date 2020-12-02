@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">meupacoter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
       </span>
     </div>
 
@@ -74,6 +74,32 @@
     <li>
       <a href="../articles/conf_files_pkg.html">Passo 2 - Configurando os arquivos básicos de um pacote</a>
     </li>
+    <li>
+      <a href="../articles/check_pkg.html">Passo 3 - Checando o pacote</a>
+    </li>
+    <li class="dropdown-header">Passo 4 - Submetendo o pacote ao CRAN</li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passos adicionais</a>
+      <ul class="dropdown-menu" role="menu">
+<li class="dropdown-header">Criar um repositório GitHub para o pacote</li>
+        <li>
+          <a href="../articles/construindo_website.html">Criar uma website para o pacote</a>
+        </li>
+        <li class="dropdown-header">Criar tutoriais do pacote (vignettes)</li>
+        <li class="dropdown-header">Criando o arquivo README</li>
+        <li class="dropdown-header">Criando o arquivo index</li>
+        <li>
+          <a href="../articles/datasetr.html">Inserindo dados em um pacotes</a>
+        </li>
+        <li class="dropdown-header">Inserindo imagens na documentação do pacotes</li>
+        <li>
+          <a href="../articles/interpack.html">Internacionação de pacotes</a>
+        </li>
+        <li class="dropdown-header">Criação de GUI para o pacote</li>
+        <li class="dropdown-header">Integração com outras linguagens de programação</li>
+        <li class="dropdown-header">Subdiretórios adicionais</li>
+      </ul>
+</li>
   </ul>
 </li>
 <li>
@@ -209,7 +235,7 @@
 <a href="#editando-o-arquivo-description" class="anchor"></a>Editando o arquivo <em>DESCRIPTION</em>
 </h2>
 <p>Quando nós <a href="construindo_pacote.html#building_rpack">criamos um projeto de pacote</a> usando o <a href="https://rstudio.com/">RStudio</a>, um arquivo chamado <em>DESCRIPTION</em> é criado no diretório do projeto do pacote. Talvez um dos mais importantes arquivos do pacote, pois esse arquivo contém os metadados sobre as característica do pacote, como o seu nome, título, versão, autor, descrição, licença, dentre outras opções.</p>
-<p>A estrutura básica é que cada linha se inicia com o nome do campo seguido de “:”, posteriormente, se insere a atribuída a esse campo. Segundo o manual <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions</a>, os campos <code>Package</code>, <code>Version</code>, <code>Licence</code>, <code>Description</code>, <code>Title</code>, <code>Author</code> e <code>Mantainer</code> são obrigatórios .Todos os outros campos são opcionais. Todo o <em>DESCRIPTION</em> deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Para utilizar caracteres diferentes, deve ser acrescentado o campo <code>Encoding</code> e informar o tipo de codificação. No pacote <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>, por exemplo, foi utilizado <code>Encoding: UTF-8</code>.</p>
+<p>A estrutura básica é que cada linha se inicia com o nome do campo seguido de “:”, posteriormente, se insere a atribuída a esse campo. Segundo o manual <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions</a>, os campos <code>Package</code>, <code>Version</code>, <code>Licence</code>, <code>Description</code>, <code>Title</code>, <code>Author</code> e <code>Mantainer</code> são obrigatórios . Todos os outros campos são opcionais. Todo o <em>DESCRIPTION</em> deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Para utilizar caracteres diferentes, deve ser acrescentado o campo <code>Encoding</code> e informar o tipo de codificação. No pacote <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>, por exemplo, foi utilizado <code>Encoding: UTF-8</code>.</p>
 <pre class="description"><code>Package: nome do pacote
 Title: O que o pacote faz (Em uma linha)
 Version: 0.0.0.9000
@@ -220,13 +246,20 @@ Authors@R:
            email = "first.last@example.com",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Maintainer: Nome e email do mantenedor do pacote
-Description: O que o pacote faz (one paragraph).
+Description: O que o pacote faz (Em um parágrafo).
 License: Qual a licença que você usa</code></pre>
-<p>Iremos discutir a ideia sobre algumas dessas opções a seguir.</p>
+<p>Iremos discutir a ideia sobre alguns desses campos a seguir.</p>
 <div id="nome-do-pacote" class="section level3">
 <h3 class="hasAnchor">
 <a href="#nome-do-pacote" class="anchor"></a>Nome do pacote</h3>
-<p>A discução sobre o nome do pacote foi realizado na subseção <a href="introd_pkg.html#name_logo_pkg">Escolha do nome e logo do pacote</a>. O campo para o nome é <code>Package</code> e deve conter somente letras, números e ponto, e ter pelo menos dois caracteres, começar com uma letra e não terminar com um ponto. Esse campo não deve ser utilizado para explicar o que o pacote faz. Para isso use o campo <code>Description</code>.</p>
+<p>A discução sobre o nome do pacote foi realizado na subseção <a href="introd_pkg.html#name_logo_pkg">Escolha do nome e logo do pacote</a>. O campo para o nome é <code>Package</code>, com as seguintes características (<a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions</a>):</p>
+<ul>
+<li>deve conter somente letras, números e ponto;</li>
+<li>ter pelo menos dois caracteres;</li>
+<li>começar com uma letra</li>
+<li>não terminar com um ponto.</li>
+</ul>
+<p>Esse campo não deve ser utilizado para explicar o que o pacote faz. Para isso use o campo <code>Description</code>.</p>
 </div>
 <div id="título-do-pacote" class="section level3">
 <h3 class="hasAnchor">
@@ -268,21 +301,23 @@ License: Qual a licença que você usa</code></pre>
 <span id="cb5-7"><a href="#cb5-7"></a><span class="dv">3</span><span class="op">:</span><span class="st"> </span>Yup</span>
 <span id="cb5-8"><a href="#cb5-8"></a></span>
 <span id="cb5-9"><a href="#cb5-9"></a>Selection<span class="op">:</span><span class="st"> "&lt;Escolhe uma das opções e digita: 1, 2 ou 3&gt;"</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>Current version is <span class="dv">0</span>.<span class="dv">1</span>.<span class="dv">1</span>.<span class="fl">9000.</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>Current version is <span class="dv">0</span>.<span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">9000.</span></span>
 <span id="cb5-11"><a href="#cb5-11"></a>Which part to increment? (<span class="dv">0</span> to exit) </span>
 <span id="cb5-12"><a href="#cb5-12"></a></span>
 <span id="cb5-13"><a href="#cb5-13"></a><span class="dv">1</span><span class="op">:</span><span class="st"> </span>major <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">1</span>.<span class="fl">0.0</span></span>
-<span id="cb5-14"><a href="#cb5-14"></a><span class="dv">2</span><span class="op">:</span><span class="st"> </span>minor <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="fl">2.0</span></span>
-<span id="cb5-15"><a href="#cb5-15"></a><span class="dv">3</span><span class="op">:</span><span class="st"> </span>patch <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="fl">1.2</span></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="dv">4</span><span class="op">:</span><span class="st">   </span>dev <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="dv">1</span>.<span class="fl">1.9001</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="dv">2</span><span class="op">:</span><span class="st"> </span>minor <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="fl">1.0</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="dv">3</span><span class="op">:</span><span class="st"> </span>patch <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="fl">0.1</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="dv">4</span><span class="op">:</span><span class="st">   </span>dev <span class="op">-</span>-&gt;<span class="st"> </span><span class="dv">0</span>.<span class="dv">0</span>.<span class="fl">0.9001</span></span>
 <span id="cb5-17"><a href="#cb5-17"></a></span>
 <span id="cb5-18"><a href="#cb5-18"></a>Selection<span class="op">:</span><span class="st"> "&lt;Escolhe uma das opções e digita: 1, 2 ou 3&gt;"</span></span></code></pre></div>
-<p>A primeira versão de um pacote que se inicia o seu desenvolvimento é 0.0.0.9000.</p>
+<p>A primeira versão de um pacote que inicia o seu desenvolvimento é 0.0.0.9000.</p>
+<p>Nós, particularmente, estamos usando a seguinte estratégia para o <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>, como o pacote está em desenvolvimento, e sua finalidade é ensinar a desenvolver pacotes, o que pretendemos é criar páginas web com o passo-a-passo. Assim, estamos usando o quarto dígito <code>9000</code>. Os acréscimos realizados sob o <a href="http://github.com">GitHub</a>, que levam em consideração as páginas web, estão alterando o dígito menor, porque a primeira versão quando for submetida ao <a href="http://cran.r-project.org">CRAN</a>, será <code>1.0.0</code>, de modo que o pacote estará estável, não haverá mais alterações no dígito maior (assim, esperamos!), apenas nos demais.</p>
+<p>De fato, as sugestões dos números de versão mencionadas por <a href="https://combine-australia.github.io/r-pkg-dev/versioning.html">R packages</a> e <a href="https://combine-australia.github.io/r-pkg-dev/">R package workshop</a> ocorrem a cada alteração lançada ao <a href="http://cran.r-project.org">CRAN</a>, e o controle dos três dígitos para a versão, realmente é interessante. Entretanto, achamod que seguir a ideia dos três dígitos é interessante, mas não que isso fique martirzando a sua cabeça, uma vez que nos manuais do <a href="http://cran.r-project.org">CRAN</a> não há condições restritivas para essas escolhas. Caso deseje detalhes, é só consultar <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>.</p>
 </div>
 <div id="autor-e-mantenedor" class="section level3">
 <h3 class="hasAnchor">
 <a href="#autor-e-mantenedor" class="anchor"></a>Autor e Mantenedor</h3>
-<p>Os campos responsáveis pela criação do pacote, de forma direta ou indireta, são <code>Autor</code> ou <code>Authors@R</code> e <code>Mantainer</code>. Começando pelo último, este campo representa a pessoa responsável por manter o pacote sobre o <a href="http://cran.r-project.org">CRAN</a>, correção, atualização, etc. Apenas ele tem esse poder e deve ser uma pessoa e não uma empresa, de modo que seja válido enquanto o pacote estiver disponível no <a href="http://cran.r-project.org">CRAN</a>. O campo <code>Autor</code> ou <code>Authors@R</code> representa as pessoas que desenvolveram o pacote. O que diferencia esses dois campos é a forma de inserir as informações. Existem regras para essa criação, representado por algumas siglas, e apresentamos quatro importantes:</p>
+<p>Os campos responsáveis pela criação do pacote, de forma direta ou indireta, são <code>Autor</code> ou <code>Authors@R</code> e <code>Mantainer</code>. Começando pelo último, este campo representa a pessoa responsável por manter o pacote sobre o <a href="http://cran.r-project.org">CRAN</a>, correção, atualização, etc. Apenas ele tem esse poder e deve ser uma pessoa e não uma empresa, de modo que seja válido enquanto o pacote estiver disponível no <a href="http://cran.r-project.org">CRAN</a>. O campo <code>Autor</code> ou <code>Authors@R</code> representa as pessoas que desenvolveram o pacote. O que diferencia esses dois campos é a forma de inserir as informações. Para o campo <code>Authors@R</code>, ainda pode ser inserido funções adicionais aos autores, algo como especifícações do que cada autor contribuiu de fato ao desenvolvimento do pacote. Apresentamos quatro funções importantes:</p>
 <ul>
 <li>
 <code>aut</code>: autores que fizeram contribuições significativas ao pacote;</li>
@@ -296,7 +331,7 @@ License: Qual a licença que você usa</code></pre>
 <p>Se desejar uma especificação mais detalhada sobre o seu papel como desenvolvedor, consulte mais siglas em <a href="https://www.loc.gov/marc/relators/relaterm.html">full list of roles</a></p>
 <p>A forma básica de inserir os dados no campo <code>Mantainer</code> o primeiro e o último nome, seguido do email entre (“&lt; &gt;”), por exemplo, <code>Mantainer: Ben Deivide &lt;ben.deivide@gmail.com&gt;</code>.</p>
 <p>Para inserir as informações no campo <code>Author</code>, basta digitar o nome dos autores separados por vírgula, por exemplo: <code>Author: Ben Deivide, Daniel Furtado, Diego Arthur</code>.</p>
-<p>Por fim, uma descrição mais completa pode ser usando o campo <code>Author@R</code>, pois saberemos a atuação de cada autor, usando as siglas acima. E ainda mais, não será necessário inserir no arquivo <em>DESCRIPTION</em> campo <code>Mantainer</code>. Veremos a seguir, um exemplo do pacote <a href="https://bendeivide.github.io/midrangeMCP/">midrangeMCP</a>:</p>
+<p>Por fim, como já falado acima, uma descrição mais completa pode ser usando o campo <code>Authors@R</code>, inserindo a especificação de cada autor ao desenvolvimento do pacote, usando as siglas acima. E ainda mais, não será necessário inserir no arquivo <em>DESCRIPTION</em> o campo <code>Mantainer</code>. Veremos a seguir, um exemplo do pacote <a href="https://bendeivide.github.io/midrangeMCP/">midrangeMCP</a>:</p>
 <pre class="description_author"><code>Authors@R: c(
     person(given = "Ben", 
            family = "Deivide", 
@@ -312,7 +347,7 @@ License: Qual a licença que você usa</code></pre>
            family = "Arthur", 
            email = "digo.arthur@hotmail.com", 
            role = "ctb"))</code></pre>
-<p>Dentro do campo <code>Authors@R</code>, inserimos cada descrição dos desenvolvedores dentro de uma função chamada <code>person</code>, do pacote <code>utils</code>, veja a sua execução</p>
+<p>Dentro do campo <code>Authors@R</code>, inserimos para cada desenvolvedor, uma descrição dentro da função chamada <code>person</code>, do pacote <code>utils</code>, veja o resultado da sua execução:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"> <span class="fu"><a href="https://rdrr.io/r/utils/person.html">person</a></span><span class="op">(</span>given <span class="op">=</span> <span class="st">"Ben"</span>, 
            family <span class="op">=</span> <span class="st">"Deivide"</span>, 
@@ -325,26 +360,28 @@ License: Qual a licença que você usa</code></pre>
 <div id="descrição" class="section level3">
 <h3 class="hasAnchor">
 <a href="#descri%C3%A7%C3%A3o" class="anchor"></a>Descrição</h3>
-<p>O campo responsável no arquivo <em>DESCRIPTION</em> para descrever e detalhar o que faz o pacote é <code>Description</code>. Deve conter apenas um parágrafo. Vejamos mais algumas informações:</p>
+<p>O campo responsável no arquivo <em>DESCRIPTION</em> para descrever e detalhar o que faz o pacote é <code>Description</code>. Deve conter apenas um parágrafo. Vejamos mais algumas informações (<a href="https://combine-australia.github.io/r-pkg-dev/versioning.html">R packages</a>):</p>
 <ul>
 <li>Evite iniciar a descrição com o nome do pacote, ao invés, use <em>Esse pacote…</em> ou algo similar;</li>
 <li>Quando a descrição estiver em mais de uma linha, cada linha deve conter no máximo 80 caracteres, e a partir da segunda linha, dê 4 espaços para iniciá-la;</li>
-<li>Assim como no campo <code>Title</code>, devemos usar aspas duplas (“<texto>”) para referenciar livros, artigos, aspas simples para palavras que não estão em inglês, incluindo nomes de pacotes, softwares externos, etc.</texto>
-</li>
+<li>Assim como no campo <code>Title</code>, devemos usar aspas duplas (“texto”) para referenciar livros, artigos, aspas simples para palavras que não estão em inglês, incluindo nomes de pacotes, softwares externos, etc.</li>
+<li>Para utilização de sites, use aspas simples com colchetes angulares, isto é, ‘<a href="https://www.r-project.org" class="uri">https://www.r-project.org</a>’.</li>
 </ul>
-<p>Vejamos um exemplo do <em>DESCRIPTION</em> do pacote <a href="http://cran.r-project.org/package=midrangeMCP">midrangeMCP</a>:</p>
+<p>Vejamos um exemplo do <em>DESCRIPTION</em> do pacote <a href="https://cran.r-project.org/web/packages/gnomeGUI/index.html">midrangeMCP</a>:</p>
 <pre><code>Description: Apply tests of multiple comparisons based
     on studentized 'midrange' and 'range' distributions. 
     The tests are: Tukey Midrange ('TM' test),
     Student-Newman-Keuls Midrange ('SNKM' test), 
     Means Grouping Midrange ('MGM' test) and 
     Means Grouping Range ('MGR' test). The articles of these 
-    tests are in the submission phase, and we will soon update the references.</code></pre>
+    tests are in the submission phase, and we will soon update 
+    the references.</code></pre>
 </div>
 <div id="campos-opcionais-ao-description" class="section level3">
 <h3 class="hasAnchor">
 <a href="#campos-opcionais-ao-description" class="anchor"></a>Campos opcionais ao <em>DESCRIPTION</em>
 </h3>
+<p>Alguns campos adicionais são interessantes e deixamos na tabela abaixo para consulta (<a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>).</p>
 <table class="table">
 <colgroup>
 <col width="59%">
@@ -357,106 +394,185 @@ License: Qual a licença que você usa</code></pre>
 <tbody>
 <tr class="odd">
 <td><code>Data</code></td>
-<td>Insere a data atualizada para submissão ao <a href="http://cran.r-project.org">CRAN</a>. Essa data é preferível deixar não ser colocada. Já tivemos rejeição de pacotes, simplesmente porque a data estava desatualizada</td>
+<td>Insere a data atualizada para submissão ao <a href="http://cran.r-project.org">CRAN</a>. Essa data é preferível deixar não ser colocada. Já tivemos rejeição de pacotes, simplesmente porque a data estava desatualizada.</td>
 </tr>
 <tr class="even">
 <td><code>Depends</code></td>
-<td></td>
+<td>Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Esses pacotes serão instalados usando o argumento <code>dependencies</code> em <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages(pkgs = 'nome_pacote', dependencies =     TRUE)</a></code>, que <code>dependencies = TRUE</code> implica em instalar os pacotes do <code>Depends</code>, o dos campos <code>Imports</code>, <code>LinkingTo</code>, <code>Suggests</code>. Veja Subseção <a href="conf_files_pkg.html#campo-depends">Campo Depends</a> para mais detalhes.</td>
 </tr>
 <tr class="odd">
 <td><code>Imports</code></td>
-<td></td>
+<td>Esse campo é utilizado para listar pacotes que são inseridos no <a href="conf_files_pkg.html#docs_rpkg">NAMESPACE</a>. Isso significa que ao importarmos funções de outros pacotes que serão necessários ao nosso pacote, poderão ser utilizados sem precisarmos carregar estes pacotes de origem destas funções. Funções que usamos os operadores “::” ou “:::”, também deverão ser listados aqui, ou nos campos <code>Sugests</code> ou <code>Enhances</code>
+</td>
 </tr>
 <tr class="even">
 <td><code>Sugests</code></td>
-<td></td>
+<td>Esse campo usa a mesma sintaxe do campo <code>Depends</code> e lista os pacotes que não são necessariamente necessários. Geralmente são pacotes utilizados nos exemplos de documentação de ajuda do pacote (arquivos do subdiretório <code>man/~.Rd</code>), ou na descrição de um conjunto de dados inseridos no pacote; no auxílio dos tutoriais (<em>vignettes</em>), dentre outras situações, que não impede o bom funcionamento do pacote.</td>
 </tr>
 <tr class="odd">
-<td><code>SystemRequirements</code></td>
-<td></td>
+<td><code>Enhances</code></td>
+<td>Campo que lista os pacotes que forncem um aprimoramento do pacote em questão, por exemplo, forncendo métodos para as classes desses pacotes ou maneiras de manipular objetos.</td>
 </tr>
 <tr class="even">
-<td><code>Copyright</code></td>
-<td>Usado quando o detentor dos direitos autorais não forem os autores. Se desejar, poderá inserir um arquivo (<code>COPYRIGHTS</code>) no pacote para um maior detalhamento. O convencional é usar o subdiretóriO <code>inst</code>, isto é, <code>inst/COPYRIGHTS</code>
+<td><code>SystemRequirements</code></td>
+<td>Dependências externas ao sistema <a href="http://r-project.org">R</a> devem ser listadas no campo <code>SystemRequirements</code>, sendo detalhados essa integração no arquivo <em>README</em>. Para mais detalhes veja a Subseção <a href="conf_files_pkg.html#ext_files_r">Uso dos campos <em>NeedsCompilation</em> e <em>SystemRequirement</em></a>.</td>
+</tr>
+<tr class="odd">
+<td><code>NeedsCompilation</code></td>
+<td>Campo utilizado para identíficar códigos que necessitam de compilação antes da instalação do pacote. Nesse caso o campo deve assumir <code>NeedsCompilation:yes</code>. Caso contrário, se o pacote ao ser instalado em quaiquer plataformas e não precisar ser instalado ferramentas adicionais, use <code>NeedsCompilation:no</code>, esse é o padrão. Geralmente quando usamos o comando <code>R CMD build</code> para a compilação do pacote binário para a utilização no SO Windows, e esse pacote apresenta o subdiretório <code>src</code>, usamos <code>NeedsCompilation:yes</code>. Quando usamos esse tipo de compilação, não há no arquivo <em>DESCRIPTION</em> o campo <code>Authors@R</code>, por exemplo, e sim, os campos <code>Mantainer</code> e <code>Author</code>. Para mais detalhes veja a Subseção <a href="conf_files_pkg.html#ext_files_r">Uso dos campos <em>NeedsCompilation</em> e <em>SystemRequirement</em></a>.</td>
+</tr>
+<tr class="even">
+<td><code>License</code></td>
+<td>
+<a href="https://www.r-project.org/Licenses/">Licença R</a>, <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions,DESCRIPTION</a>
 </td>
 </tr>
 <tr class="odd">
-<td><code>Additional_repositories</code></td>
-<td></td>
+<td><code>Copyright</code></td>
+<td>Usado quando o detentor dos direitos autorais não forem os autores. Se desejar, poderá inserir um arquivo (<code>COPYRIGHTS</code>) no pacote para um maior detalhamento. O convencional é usar o subdiretório <code>inst</code>, isto é, <code>inst/COPYRIGHTS</code>.Ver Seção <a href="subdir_add.html#subdir_inst">Subdiretórios adicionais</a>.</td>
 </tr>
 <tr class="even">
-<td><code>Enhances</code></td>
-<td></td>
+<td><code>Additional_repositories</code></td>
+<td>O campo <code>Additional_repositories</code> é uma lista separada por vírgulas de URLs de repositório onde os pacotes nomeados em outros campos podem ser encontrados.</td>
 </tr>
 <tr class="odd">
 <td><code>LinkingTo</code></td>
-<td></td>
+<td>Um pacote que deseja fazer uso de arquivos de cabeçalho em outros pacotes para compilar seu código <em>C/C++</em> precisa declará-los como uma lista separada por vírgulas no campo <code>LinkingTo</code> no arquivo <em>DESCRIPTION</em>. Para detalhes veja o Git do pacote <a href="https://github.com/eddelbuettel/bh#bh-boost-headers-for-r">BH</a>
+</td>
 </tr>
 <tr class="even">
 <td><code>BugReports</code></td>
-<td></td>
+<td>Campo que apresenta uma única URL específica para se reportar a erros do pacote. Uma das opções de hospedagem é via Github, na seção <em>issues</em>, veja a seção <a href="construindo_website.html">Criar uma website para o pacote</a>. Caso deseje especificar outro email para os possíveis erros, use o campo <code>Contact</code> para isso.</td>
 </tr>
 <tr class="odd">
 <td><code>URL</code></td>
-<td></td>
+<td>Campo para especificas uma listas de URLs separados por vírgula, que hoespeda a sua página pessoal ou a página do pacote. Uma das opções de hospedagem é via Github. Veja a seção <a href="construindo_website.html">Criar uma website para o pacote</a>
+</td>
 </tr>
 <tr class="even">
 <td><code>LazyData</code></td>
-<td></td>
+<td>Campo lógico (<code>TRUE</code> ou <code>FALSE</code>), para para informar que existe um conjunto dados diponíveis no pacote para utilização</td>
 </tr>
 <tr class="odd">
 <td><code>KeepSource</code></td>
-<td></td>
+<td>O campo lógico <code>KeepSource</code> controla se o código do pacote é originado usando <code>keep.source = TRUE</code> ou <code>FALSE</code>: pode ser necessário excepcionalmente para um pacote projetado para ser sempre usado com <code>keep.source = TRUE</code>. Para mais detalhes, <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>
+</td>
 </tr>
 <tr class="even">
 <td><code>ByteCompile</code></td>
-<td></td>
+<td>O campo lógico <code>ByteCompile</code> controla se o código do pacote deve ser compilado por byte na instalação: o padrão é compilar por byte. Isso pode ser sobrescrito instalando com o sinalizador <code>--no-byte-compile</code>. Para mais detalhes, <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>
+</td>
 </tr>
 <tr class="odd">
 <td><code>UseLTO</code></td>
-<td></td>
+<td>O campo lógico <code>UseLTO</code> é usado para o SO Unix para indicar se o código-fonte no pacote deve ser compilado com <em>Link-Time Optimization</em> (veja Usando <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Using-Link_002dtime-Optimization">Link-Time Optimization</a>); se o R foi instalado com <code>--enable-lto</code> (<em>default</em>) ou <code>--enable-lto=R</code>.</td>
 </tr>
 <tr class="even">
 <td><code>Collate</code></td>
-<td></td>
+<td>Campo utilizado para controlar a ordem de agrupamento para os arquivos de código R em um pacote quando estes são processados para instalação do pacote. Para mais detalhes, <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>.</td>
 </tr>
 <tr class="odd">
 <td><code>BuildVignettes</code></td>
-<td></td>
+<td>Campo utilizado para evitar a construção dos tutoriais (<em>vignettes</em>) ao construir o pacote usando <code>R CMD check</code>. Geralmente quando tem imagens grandes no pacote. Mas ao usar <code>R CMD check --as-cran</code> ele é criado, independente do valor para <code>BuildVignettes</code>. O que nós observamos para o RStudio é que mesmo esse campo com o valor. Essa opção, se o pacote <a href="https://roxygen2.r-lib.org/">roxigen2</a> está ativado para a construção de toda a documentação, os tutoriais (<em>vignettes</em>) são criados independentes dessa opção quando usamos o botão <strong>check</strong>, que tem o mesmo objetivo do comando <code>R CMD check</code>. na prática, esse campo não deve ser utilizado, a menos que o código do pacote não seja do tipo “código-aberto”.</td>
 </tr>
 <tr class="even">
 <td><code>BuildVignetter</code></td>
-<td></td>
+<td>Campo responsável para informar quais os pacotes que renderizarão os tutoriais (vignettes). Pode ser informado o nome de um pacote ou uma lista de nomes de pacotes separados por vírgula. Por exemplo, em <a href="https://bendeivide.github.io/meupacoter/">meupacote</a>, nós usamos <code>VignetteBuilder: knitr</code>. Como na instalação do pacote, isso não é obrigatório, usamod no campo <code>Suggests: knitr, rmarkdown</code>, uma vez que o pacote <a href="https://rmarkdown.rstudio.com">rmarkdown</a> está apenas como sugestão pelo pacote <a href="https://yihui.org/knitr/">knitr</a>.</td>
 </tr>
 <tr class="odd">
 <td><code>Type</code></td>
-<td></td>
+<td>Esse campo especifica a natureza do projeto. O padrão é assumir <code>Type: Package</code>. Por exemplo, podemos o pacote <a href="https://cran.r-project.org/packages=gnomeGUI">gnomeGUI</a>, foi desativado pelo CRAN, com natureza <em>frontend</em>, isto é, <code>Type: Frontend</code>.</td>
 </tr>
 <tr class="even">
 <td><code>OS_type</code></td>
-<td></td>
+<td>Esse campo especifica os sistemas operacionais para os quais o pacote se destina, sendo as opções ‘unix’ ou ‘windows’, para indicar que o pacote só pode ser instalado em uma plataforma dessas plataformas.</td>
 </tr>
 <tr class="odd">
-<td><code>Language</code></td>
-<td></td>
+<td><code>Encoding</code></td>
+<td>Campo utilizado para identificar a codificação do pacote, diferente de ASCII, usada no <em>DESCRIPTION</em>, <em>NAMESPACE</em>, arquivos do tipo <em>R</em> e <em>.Rd</em>. As opções são <code>latin1</code>, <code>latin2</code> e <code>UTF-8</code>
+</td>
 </tr>
 <tr class="even">
+<td><code>Language</code></td>
+<td>Campo utilizado para identificar o idioma que o código foi escrito. O padrão de idioma é o Inglês. De acordo com <a href="https://cran.r-project.org/bin/windows/base/rw-FAQ.html#Languages-and-Internationalization">R for Windows FAQ: Languages and Internationalization</a>, as opções de idiomas são: <code>Catalan</code> (Catalão), <code>Simplified Chinese</code> (Chinês simplificado) <code>Traditional Chinese</code> (Chinês tradicional), <code>Czech</code> (Theco), <code>Danish</code> (Dinamarquês), <code>Dutch</code> (Holandês), <code>Finnish</code> (Finlandês), <code>French</code> (Francês), <code>German</code> (Alemão), <code>Greek</code> (Grego), <code>Hebrew</code> (Hebraico), <code>Hungarian</code> (Húngaro), <code>Italian</code> (Italiano), <code>Japanese</code> (Japonês), <code>Korean</code> (Coreano), <code>Norwegian</code> (Noroeguês), <code>Polish</code> (Polonês), <code>Portuguese (Brazil)</code> (Português brasileiro), <code>Portuguese (Portugal)</code> (Português de Portugal). O que sugerimos é que ao invés de utilizar o idioma nativo, pensando numa maior divulgação do pacote, o interessante é a internacionalização, ver Seção <a href="interpack.html">Internacionalização de pacotes</a>.</td>
+</tr>
+<tr class="odd">
 <td><code>RdMacros</code></td>
-<td></td>
+<td>Campo utilizado para conter uma lista, separada por vírgula, de pacotes a partir da qual o pacote atual importará definições de macro Rd. Esses pacotes também devem estar listados nos campos <code>Imports</code> (ou ‘Depends’).</td>
 </tr>
 </tbody>
 </table>
-<p>Outros campos não mencionados acima, podem ser utilizados. Por exemplo, campos como <code>Note</code>, <code>Contact</code>, <code>MailingList</code>, dentre outros.</p>
+<p>Outros campos não mencionados acima, podem ser utilizados. Por exemplo, campos como <code>Note</code>, <code>Contact</code>, <code>MailingList</code>, <code>RoxygenNote</code>, dentre outros.</p>
+<div id="campo-depends" class="section level4">
+<h4 class="hasAnchor">
+<a href="#campo-depends" class="anchor"></a>Campo <code>Depends</code>
+</h4>
+<p>Vejamos mais algumas características sobre esse campo:</p>
+<ul>
+<li>O padrão do argumento <code>dependencies</code> da função <code>install.packages</code> é <code>NA</code>, que implica em instalar os pacotes dos campos <code>Depends</code>, <code>Imports</code> e <code>LinkingTo</code>. Se desejar instalar tudo, basta usar <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages(pkgs = 'nome_pacote', dependencies = c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances"))</a></code>. Os pacotes no campo <code>Depends</code> serão carregados antes dos pacotes de interesse serem carregados, usando <code>library</code> ou <code>require</code>;</li>
+<li>Cada pacote no campo <code>Depends</code> por ser seguido de um parêntes identificando a versão desejada, isto é, <code>Depends: MASS (&gt;= 3.1)</code>. Contudo, ao inserir a versão, use apenas para os dois dígitos, evite inserir o dígito <code>&lt;trecho&gt;</code> (terceiro dígito);</li>
+<li>Não faz sentido inserir nesse campo, pacotes da base do <a href="http://r-project.org">R</a>, pois estes são instalados na instalação do próprio programa. Nesse campo também pode ser possível especificar determinada dependência da versão do <a href="http://r-project.org">R</a>, por exemplo, <code>Depends: R (&gt;= 3.6)</code>;</li>
+<li>Pode ser repetido um pacote ou a versão R mais de uma vez, para limitar as versões aceitáveis;</li>
+<li>Evite comentários nesse campo, pois tanto a biblioteca de pacotes quanto os recursos de verificação do pacote R, usam esse campo, e isso pode acabar gerando problema ao bom funcionamento da linguagem;</li>
+<li>Na prática, o que se observa é que esse campo é utilizado para identificar a versão necessária do R para a utilização do pacote. Quando um pacote é necessário no pacote desenvolvido, o inserimos no NAMESPACE, e assim, as dependências internas do pacote dependentes de funções de outros pacotes, serão utilizadas sem que estes precisem ser carregados.</li>
+</ul>
 </div>
+<div id="uso-pacotes-dependentes-em-imports-ou-depends" class="section level4">
+<h4 class="hasAnchor">
+<a href="#uso-pacotes-dependentes-em-imports-ou-depends" class="anchor"></a>Uso pacotes dependentes em <code>Imports</code> ou <code>Depends</code>?</h4>
+<p>Vejamos as regras gerais (<a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>):</p>
+<ul>
+<li>Um pacote dependente deve ser listado em apenas um campos dos campos <code>Depends</code> ou <code>Imports</code>;</li>
+<li>Pacotes listados no <em>NAMESPACE</em> usando <code>import</code> ou <code>importFrom</code> devem ser listados sempre no campo <code>Imports</code> e não em <code>Depends</code>;</li>
+<li>Caso contrário, se não for listado no <em>NAMESPACE</em>, para o carregamento do pacote usando a função <code>library</code>, os pacotes dependentes devem adicionados no campo <code>Depends</code>;</li>
+<li>Pacotes dependentes que utilizamos os seus conjuntos de dados em nosso pacote, devem ser listados no campo <code>Imports</code>
+</li>
+</ul>
+<p>O campo ‘Depends’ atualmente deve ser usado raramente, apenas para a construção de pacotes em que desejamos que todas as funções dos pacotes dependentes estejam disponíveis para o usário, ao carregar o pacote desenvolvido, por questão de facilidade para o usuário. Caso contrário, o uso do campo <code>Imports</code> é mais coerente.</p>
+</div>
+<div id="ext_files_r" class="section level4">
+<h4 class="hasAnchor">
+<a href="#ext_files_r" class="anchor"></a>Uso dos campos <code>NeedsCompilation</code> e <code>SystemRequirements</code>
+</h4>
+<p>O campo <code>SystemRequirements</code> quando utilizado no <em>DESCRIPTION</em>, significa que algum código não <a href="http://r-project.org">R</a> que está inserido em seu código, e precisa ser informado</p>
+<p>O subdiretório <code>src</code> é utilizado para códigos que precisam ser compilados, tais como <em>C</em>, <em>C++</em>, <em>Fortran</em>, dentre outros. O subdiretório <code>exec</code> ou <code>inst</code> é usado para inserir scripts que precisam ser interpretados, tais como <em>Shell</em>, <em>BUGS</em>, <em>JavaScript</em>, <em>Matlab</em>, <em>Perl</em>, <em>php(amap)</em>, <em>Phyton</em>, <em>Tcl</em>. O caso da linguagem <em>Java</em>, o mecanismo é um pouco diferente, ver <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions§1.1.7</a>. Observando os pacotes desenvolvidos, a convenção é usar no diretório <code>inst</code>, do tipo <code>inst/perl</code>, <code>inst/tcl</code>, etc. Vejam alguns exemplos de pacotes:</p>
+<ul>
+<li>
+<a href="https://github.com/marcschwartz/WriteXLS">WriteXLS</a><code>/inst/Perl</code>, veja o seu <em>DESCRIPTION</em>:</li>
+</ul>
+<pre><code>Package: WriteXLS
+Version: 6.1.0
+Date: 2020-11-20
+Title: Cross-Platform Perl Based R Function to Create Excel 2003 (XLS) and Excel 2007 (XLSX) Files
+Description: Cross-platform Perl based R function to create Excel 2003 (XLS) and Excel 2007 (XLSX)
+             files from one or more data frames. Each data frame will be
+             written to a separate named worksheet in the Excel spreadsheet.
+             The worksheet name will be the name of the data frame it contains
+             or can be specified by the user. 
+Author: Marc Schwartz &lt;marc_schwartz@me.com&gt; and various authors for Perl modules listed in each .pm file.
+Copyright: The copyright holders of the Perl files are listed in each .pm file under the Perl directory.
+Maintainer: Marc Schwartz &lt;marc_schwartz@me.com&gt;
+License: GPL (&gt;= 2)
+SystemRequirements: Perl
+Imports: utils
+URL: https://github.com/marcschwartz/WriteXLS
+BugReports: https://github.com/marcschwartz/WriteXLS/issues</code></pre>
+<ul>
+<li><a href="">rJava</a></li>
+</ul>
+<p>Considere também que alguns pacotes já fizeram a integração de algumas linguagens, e até mencionados acima, tais como: pacote <a href="rstudio.github.io/reticulate">reticulate</a> (<em>Phyton</em>), pacote <a href="https://cran.r-project.org/package=Rcpp">Rcpp</a> (<em>C++</em>), pacote <a href="http://www.rforge.net/rJava/">rJava</a> (<em>Java</em>), pacotes <a href="">tcltk</a> hoje da base do <a href="http://r-project.org">R</a> (<em>Tcl/Tk</em>), pacote <a href="https://cran.r-project.org/package=RGtk2">RGtk2</a> (<em>GTK+</em>), dentre muitos outros, esses já fizeram a parte árdua de integração. Assim, necessitando de alguma dessas linguagens e usando esses pacotes não é necessário a utilização do campo <code>SystemRequirements</code>.</p>
+<p>Por fim, a utilização do campo <code>SystemRequirements</code> necessita uma explicação mais detalhada sobre o pacote no arquivo <em>README</em>, pois para o bom funcionamento, precisamos muitas vezes fazer instalações externas ao sistema operacional em utilização. E mais uma vez, é um nível avançado de desenvolvimento de pacotes, pois não necessita apenas do conhecimento da linguagem <a href="http://r-project.org">R</a>, como também de outras linguagens. Um exemplo recente, foi um pacote chamado <a href="https://cran.r-project.org/package=gWidgets">gWidgets</a> que foi desativado devido a problemas de instalação ao interpretação <em>GTK+</em>, que por sinal, um pacote muito bom para desenvolvimento de interfaces gráficas ao usuários, usando <em>Tcl/Tk</em> e <em>GTK+</em></p>
+</div>
+</div>
+</div>
+<div id="docs_rpkg" class="section level2">
+<h2 class="hasAnchor">
+<a href="#docs_rpkg" class="anchor"></a>Documentando as funções do pacote</h2>
 </div>
 <div id="editando-o-arquivo-namespace" class="section level2">
 <h2 class="hasAnchor">
 <a href="#editando-o-arquivo-namespace" class="anchor"></a>Editando o arquivo <em>NAMESPACE</em>
 </h2>
-</div>
-<div id="documentando-as-funções-do-pacote" class="section level2">
-<h2 class="hasAnchor">
-<a href="#documentando-as-fun%C3%A7%C3%B5es-do-pacote" class="anchor"></a>Documentando as funções do pacote</h2>
 </div>
 <div id="resumo-do-que-vimos-nessa-seção" class="section level2">
 <h2 class="hasAnchor">

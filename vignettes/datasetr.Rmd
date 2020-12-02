@@ -1,0 +1,17 @@
+---
+title: "Inserindo conjunto de dados em um pacote"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Inserindo conjunto de dados em um pacote}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Em construção...

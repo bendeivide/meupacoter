@@ -38,7 +38,7 @@ use_readme_rmd()
 use_news_md()
 
 ## Criando Vignettes
-use_vignette("introd_pkg")
+use_vignette("check_pkg")
 
 ## Versao do pacote
 usethis::use_version()
