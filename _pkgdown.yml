@@ -16,7 +16,7 @@ navbar:
   left:
     - icon: fa fa-home
       href: index.html
-    - text: "Passos para construir um pacote"
+    - text: "Como desenvolver pacotes"
       icon: fas fa-book
       menu:
        - text: Passo 0 - Introdução a desenvolvimento de pacotes
@@ -29,7 +29,7 @@ navbar:
          href: articles/check_pkg.html
        - text: Passo 4 - Submetendo o pacote ao CRAN
          href: ~
-       - text: Passos adicionais
+       - text: Passos e temas adicionais
          menu:
          - text: Criar um repositório GitHub para o pacote
            href: ~
@@ -53,6 +53,10 @@ navbar:
            href: ~
          - text: Subdiretórios adicionais
            href: ~
+         - text: Ambientes em R
+           href: ~
+         - text: Programação defensiva
+           href: ~
 
     - icon: fa-newspaper-o
       text: "Atualizações"
@@ -60,7 +64,7 @@ navbar:
     - icon: fa-file-code-o
       text: "Função do pacote"
       href: reference/index.html
-    - text: "Problemas frequentes"
+    - text: "faq"
       icon: fa-question-circle-o
       href: articles/conf_files_pkg.html
   right:
@@ -72,4 +76,6 @@ navbar:
       href: https://www.instagram.com/bendeivide/
     - icon: fab fa-blogger
       href: https://benalana.blogspot.com/
+    - icon: fab fa-youtube-square
+      href: http://youtube.com/bendeivide
 

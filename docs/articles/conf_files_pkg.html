@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">meupacoter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
       </span>
     </div>
 
@@ -60,7 +60,7 @@
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     <span class="fas fa fas fa-book"></span>
      
-    Passos para construir um pacote
+    Como desenvolver pacotes
      
     <span class="caret"></span>
   </a>
@@ -79,7 +79,7 @@
     </li>
     <li class="dropdown-header">Passo 4 - Submetendo o pacote ao CRAN</li>
     <li class="dropdown-submenu">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passos adicionais</a>
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passos e temas adicionais</a>
       <ul class="dropdown-menu" role="menu">
 <li class="dropdown-header">Criar um repositório GitHub para o pacote</li>
         <li>
@@ -98,6 +98,8 @@
         <li class="dropdown-header">Criação de GUI para o pacote</li>
         <li class="dropdown-header">Integração com outras linguagens de programação</li>
         <li class="dropdown-header">Subdiretórios adicionais</li>
+        <li class="dropdown-header">Ambientes em R</li>
+        <li class="dropdown-header">Programação defensiva</li>
       </ul>
 </li>
   </ul>
@@ -120,7 +122,7 @@
   <a href="../articles/conf_files_pkg.html">
     <span class="fa fa-question-circle-o"></span>
      
-    Problemas frequentes
+    faq
   </a>
 </li>
       </ul>
@@ -149,6 +151,12 @@
      
   </a>
 </li>
+<li>
+  <a href="http://youtube.com/bendeivide">
+    <span class="fab fa fab fa-youtube-square"></span>
+     
+  </a>
+</li>
       </ul>
 </div>
 <!--/.nav-collapse -->
@@ -165,7 +173,7 @@
       <h1 data-toc-skip>Configurando os arquivos básicos de um pacote</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/bendeivide/meupacote/blob/master/vignettes/conf_files_pkg.Rmd"><code>vignettes/conf_files_pkg.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/bendeivide/meupacoter/blob/master/vignettes/conf_files_pkg.Rmd"><code>vignettes/conf_files_pkg.Rmd</code></a></small>
       <div class="hidden name"><code>conf_files_pkg.Rmd</code></div>
 
     </div>
@@ -287,9 +295,9 @@ License: Qual a licença que você usa</code></pre>
 <p>Isso significa dizer, se usarmos ao menos dois dígitos, os outros dígitos serão completados por zero (<em>default</em>). Vejamos o que significa cada dígito:</p>
 <ul>
 <li>Dígito <code>&lt;maior&gt;</code>: esse dígito é alterado quando o pacote passa por uma mudança significativa na atualização;</li>
-<li>Dígito <code>menor</code>: esse dígito é alterado quando ocorre alguma funcionalidade foi adicionada ao pacote, como criação de funções, atualizações de funções com os códigos existentes, etc;</li>
-<li>Dígito <code>trecho</code>: esse dígito se altera quando ocorre correções de erros (<code>bugs</code>) no pacote, mas não é acrescido nada de novo. Uma forma interessante de encontrar esses erros é criar uma página de problemas do pacote, e à medida que ocorre a experiência do usário com o pacote, alguns problemas podem ocorrer que não eram previstos pelo desenvolvedor. Dessa forma, esses problemas podem ser postados nessa página específica. No Github há uma aba chamada <em>issues</em> nos repositórios criados, que é específico para isso, e o link dessa página pode ser inserido no campo <code>BugReports</code> no arquivo <em>DESCRIPTION</em>;</li>
-<li>Dígito <code>desenvolvimento</code>: o dígito 9000 é utilizado quando o pacote está em desenvolvimento. Com essa codigifcação, podemos esperar mudanças muito rápidas no pacote.</li>
+<li>Dígito <code>&lt;menor&gt;</code>: esse dígito é alterado quando ocorre alguma funcionalidade foi adicionada ao pacote, como criação de funções, atualizações de funções com os códigos existentes, etc;</li>
+<li>Dígito <code>&lt;trecho&gt;</code>: esse dígito se altera quando ocorre correções de erros (<code>bugs</code>) no pacote, mas não é acrescido nada de novo. Uma forma interessante de encontrar esses erros é criar uma página de problemas do pacote, e à medida que ocorre a experiência do usário com o pacote, alguns problemas podem ocorrer que não eram previstos pelo desenvolvedor. Dessa forma, esses problemas podem ser postados nessa página específica. No Github há uma aba chamada <em>issues</em> nos repositórios criados, que é específico para isso, e o link dessa página pode ser inserido no campo <code>BugReports</code> no arquivo <em>DESCRIPTION</em>;</li>
+<li>Dígito <code>&lt;desenvolvimento&gt;</code>: o dígito 9000 é utilizado quando o pacote está em desenvolvimento. Com essa codigifcação, podemos esperar mudanças muito rápidas no pacote.</li>
 </ul>
 <p>Caso deseje alterar algum dos dígitos, o desenvolvedor pode alterar diretamente no arquivo <em>DESCRPTION</em>, ou usando (Exemplo realizado para o <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>):</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>usethis<span class="op">::</span><span class="kw">use_version</span>()</span>
@@ -367,7 +375,7 @@ License: Qual a licença que você usa</code></pre>
 <li>Assim como no campo <code>Title</code>, devemos usar aspas duplas (“texto”) para referenciar livros, artigos, aspas simples para palavras que não estão em inglês, incluindo nomes de pacotes, softwares externos, etc.</li>
 <li>Para utilização de sites, use aspas simples com colchetes angulares, isto é, ‘<a href="https://www.r-project.org" class="uri">https://www.r-project.org</a>’.</li>
 </ul>
-<p>Vejamos um exemplo do <em>DESCRIPTION</em> do pacote <a href="https://cran.r-project.org/web/packages/gnomeGUI/index.html">midrangeMCP</a>:</p>
+<p>Vejamos um exemplo do campo <code>Description</code> no arquivo <em>DESCRIPTION</em> do pacote <a href="https://cran.r-project.org/web/packages/gnomeGUI/index.html">midrangeMCP</a>:</p>
 <pre><code>Description: Apply tests of multiple comparisons based
     on studentized 'midrange' and 'range' distributions. 
     The tests are: Tukey Midrange ('TM' test),
@@ -398,15 +406,14 @@ License: Qual a licença que você usa</code></pre>
 </tr>
 <tr class="even">
 <td><code>Depends</code></td>
-<td>Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Esses pacotes serão instalados usando o argumento <code>dependencies</code> em <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages(pkgs = 'nome_pacote', dependencies =     TRUE)</a></code>, que <code>dependencies = TRUE</code> implica em instalar os pacotes do <code>Depends</code>, o dos campos <code>Imports</code>, <code>LinkingTo</code>, <code>Suggests</code>. Veja Subseção <a href="conf_files_pkg.html#campo-depends">Campo Depends</a> para mais detalhes.</td>
+<td>Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Esses pacotes serão também instalados quando solicitar o pacote de interesse pela função <code>install.packages</code>. Para mais detalhes, ver Subseçções <a href="conf_files_pkg.html#campo-depends">Campo <em>Depends</em></a> e <a href="conf_files_pkg.html#subsec-depimp">Uso de pacotes dependentes em <em>Imports</em> ou <em>Depends</em>?</a>.</td>
 </tr>
 <tr class="odd">
 <td><code>Imports</code></td>
-<td>Esse campo é utilizado para listar pacotes que são inseridos no <a href="conf_files_pkg.html#docs_rpkg">NAMESPACE</a>. Isso significa que ao importarmos funções de outros pacotes que serão necessários ao nosso pacote, poderão ser utilizados sem precisarmos carregar estes pacotes de origem destas funções. Funções que usamos os operadores “::” ou “:::”, também deverão ser listados aqui, ou nos campos <code>Sugests</code> ou <code>Enhances</code>
-</td>
+<td>Esse campo é utilizado para listar pacotes que são inseridos no <a href="conf_files_pkg.html#sec-namespace">NAMESPACE</a>. Isso significa que ao importarmos funções de outros pacotes que serão necessários ao nosso pacote, poderão ser utilizados sem precisarmos anexar estes pacotes de origem destas funções. Funções que usamos os operadores “::” ou “:::”, também deverão ser listados aqui, ou nos campos <code>Suggests</code> ou <code>Enhances</code>. Para mais detalhes, ver Subseção <a href="conf_files_pkg.html#subsec-depimp">Uso de pacotes dependentes em <em>Imports</em> ou <em>Depends</em>?</a>.</td>
 </tr>
 <tr class="even">
-<td><code>Sugests</code></td>
+<td><code>Suggests</code></td>
 <td>Esse campo usa a mesma sintaxe do campo <code>Depends</code> e lista os pacotes que não são necessariamente necessários. Geralmente são pacotes utilizados nos exemplos de documentação de ajuda do pacote (arquivos do subdiretório <code>man/~.Rd</code>), ou na descrição de um conjunto de dados inseridos no pacote; no auxílio dos tutoriais (<em>vignettes</em>), dentre outras situações, que não impede o bom funcionamento do pacote.</td>
 </tr>
 <tr class="odd">
@@ -415,11 +422,11 @@ License: Qual a licença que você usa</code></pre>
 </tr>
 <tr class="even">
 <td><code>SystemRequirements</code></td>
-<td>Dependências externas ao sistema <a href="http://r-project.org">R</a> devem ser listadas no campo <code>SystemRequirements</code>, sendo detalhados essa integração no arquivo <em>README</em>. Para mais detalhes veja a Subseção <a href="conf_files_pkg.html#ext_files_r">Uso dos campos <em>NeedsCompilation</em> e <em>SystemRequirement</em></a>.</td>
+<td>Dependências externas ao sistema <a href="http://r-project.org">R</a> devem ser listadas no campo <code>SystemRequirements</code>, sendo detalhados essa integração no arquivo <em>README</em>. Para mais detalhes veja a Subseção <a href="conf_files_pkg.html#ext_files_r">Uso do campo <em>SystemRequirement</em></a>.</td>
 </tr>
 <tr class="odd">
 <td><code>NeedsCompilation</code></td>
-<td>Campo utilizado para identíficar códigos que necessitam de compilação antes da instalação do pacote. Nesse caso o campo deve assumir <code>NeedsCompilation:yes</code>. Caso contrário, se o pacote ao ser instalado em quaiquer plataformas e não precisar ser instalado ferramentas adicionais, use <code>NeedsCompilation:no</code>, esse é o padrão. Geralmente quando usamos o comando <code>R CMD build</code> para a compilação do pacote binário para a utilização no SO Windows, e esse pacote apresenta o subdiretório <code>src</code>, usamos <code>NeedsCompilation:yes</code>. Quando usamos esse tipo de compilação, não há no arquivo <em>DESCRIPTION</em> o campo <code>Authors@R</code>, por exemplo, e sim, os campos <code>Mantainer</code> e <code>Author</code>. Para mais detalhes veja a Subseção <a href="conf_files_pkg.html#ext_files_r">Uso dos campos <em>NeedsCompilation</em> e <em>SystemRequirement</em></a>.</td>
+<td>Campo utilizado para identíficar códigos que necessitam de compilação antes da instalação do pacote. Nesse caso o campo deve assumir <code>NeedsCompilation:yes</code>. Caso contrário, se o pacote ao ser instalado em quaiquer plataformas e não precisar ser instalado ferramentas adicionais, use <code>NeedsCompilation:no</code>, esse é o padrão. Geralmente quando usamos o comando <code>R CMD build</code> para a compilação do pacote binário para a utilização no SO Windows, e esse pacote apresenta o subdiretório <code>src</code>, usamos <code>NeedsCompilation:yes</code>. Quando usamos esse tipo de compilação, não há no arquivo <em>DESCRIPTION</em> o campo <code>Authors@R</code>, por exemplo, e sim, os campos <code>Mantainer</code> e <code>Author</code>.</td>
 </tr>
 <tr class="even">
 <td><code>License</code></td>
@@ -437,8 +444,7 @@ License: Qual a licença que você usa</code></pre>
 </tr>
 <tr class="odd">
 <td><code>LinkingTo</code></td>
-<td>Um pacote que deseja fazer uso de arquivos de cabeçalho em outros pacotes para compilar seu código <em>C/C++</em> precisa declará-los como uma lista separada por vírgulas no campo <code>LinkingTo</code> no arquivo <em>DESCRIPTION</em>. Para detalhes veja o Git do pacote <a href="https://github.com/eddelbuettel/bh#bh-boost-headers-for-r">BH</a>
-</td>
+<td>Um pacote que deseja fazer uso de arquivos de cabeçalho em outros pacotes para compilar seu código <em>C/C++</em> precisa declará-los como uma lista separada por vírgulas no campo <code>LinkingTo</code> no arquivo <em>DESCRIPTION</em>. Para detalhes veja o Git do pacote <a href="https://github.com/eddelbuettel/bh#bh-boost-headers-for-r">BH</a>.</td>
 </tr>
 <tr class="even">
 <td><code>BugReports</code></td>
@@ -446,17 +452,15 @@ License: Qual a licença que você usa</code></pre>
 </tr>
 <tr class="odd">
 <td><code>URL</code></td>
-<td>Campo para especificas uma listas de URLs separados por vírgula, que hoespeda a sua página pessoal ou a página do pacote. Uma das opções de hospedagem é via Github. Veja a seção <a href="construindo_website.html">Criar uma website para o pacote</a>
-</td>
+<td>Campo para especificas uma listas de URLs separados por vírgula, que hoespeda a sua página pessoal ou a página do pacote. Uma das opções de hospedagem é via Github. Veja a seção <a href="construindo_website.html">Criar uma website para o pacote</a>.</td>
 </tr>
 <tr class="even">
 <td><code>LazyData</code></td>
-<td>Campo lógico (<code>TRUE</code> ou <code>FALSE</code>), para para informar que existe um conjunto dados diponíveis no pacote para utilização</td>
+<td>Campo lógico (<code>TRUE</code> ou <code>FALSE</code>), para para informar que existe um conjunto dados diponíveis no pacote para utilização.</td>
 </tr>
 <tr class="odd">
 <td><code>KeepSource</code></td>
-<td>O campo lógico <code>KeepSource</code> controla se o código do pacote é originado usando <code>keep.source = TRUE</code> ou <code>FALSE</code>: pode ser necessário excepcionalmente para um pacote projetado para ser sempre usado com <code>keep.source = TRUE</code>. Para mais detalhes, <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>
-</td>
+<td>O campo lógico <code>KeepSource</code> controla se o código do pacote é originado usando <code>keep.source = TRUE</code> ou <code>FALSE</code>: pode ser necessário excepcionalmente para um pacote projetado para ser sempre usado com <code>keep.source = TRUE</code>. Para mais detalhes, <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>.</td>
 </tr>
 <tr class="even">
 <td><code>ByteCompile</code></td>
@@ -509,6 +513,7 @@ License: Qual a licença que você usa</code></pre>
 </h4>
 <p>Vejamos mais algumas características sobre esse campo:</p>
 <ul>
+<li>Os pacotes no campo <code>Depends</code> serão instalados usando o argumento <code>dependencies</code> na função <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages(pkgs = 'nome_pacote', dependencies =     TRUE)</a></code>, que <code>dependencies = TRUE</code> implica em instalar os pacotes do <code>Depends</code>, o dos campos <code>Imports</code>, <code>LinkingTo</code>, <code>Suggests</code>;</li>
 <li>O padrão do argumento <code>dependencies</code> da função <code>install.packages</code> é <code>NA</code>, que implica em instalar os pacotes dos campos <code>Depends</code>, <code>Imports</code> e <code>LinkingTo</code>. Se desejar instalar tudo, basta usar <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages(pkgs = 'nome_pacote', dependencies = c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances"))</a></code>. Os pacotes no campo <code>Depends</code> serão carregados antes dos pacotes de interesse serem carregados, usando <code>library</code> ou <code>require</code>;</li>
 <li>Cada pacote no campo <code>Depends</code> por ser seguido de um parêntes identificando a versão desejada, isto é, <code>Depends: MASS (&gt;= 3.1)</code>. Contudo, ao inserir a versão, use apenas para os dois dígitos, evite inserir o dígito <code>&lt;trecho&gt;</code> (terceiro dígito);</li>
 <li>Não faz sentido inserir nesse campo, pacotes da base do <a href="http://r-project.org">R</a>, pois estes são instalados na instalação do próprio programa. Nesse campo também pode ser possível especificar determinada dependência da versão do <a href="http://r-project.org">R</a>, por exemplo, <code>Depends: R (&gt;= 3.6)</code>;</li>
@@ -517,9 +522,10 @@ License: Qual a licença que você usa</code></pre>
 <li>Na prática, o que se observa é que esse campo é utilizado para identificar a versão necessária do R para a utilização do pacote. Quando um pacote é necessário no pacote desenvolvido, o inserimos no NAMESPACE, e assim, as dependências internas do pacote dependentes de funções de outros pacotes, serão utilizadas sem que estes precisem ser carregados.</li>
 </ul>
 </div>
-<div id="uso-pacotes-dependentes-em-imports-ou-depends" class="section level4">
+<div id="subsec-depimp" class="section level4">
 <h4 class="hasAnchor">
-<a href="#uso-pacotes-dependentes-em-imports-ou-depends" class="anchor"></a>Uso pacotes dependentes em <code>Imports</code> ou <code>Depends</code>?</h4>
+<a href="#subsec-depimp" class="anchor"></a>Uso de pacotes dependentes em <code>Imports</code> ou <code>Depends</code>?</h4>
+<p>Basicamente, a diferença entre os campos <code>Depends</code> e <code>Imports</code> é que o primeiro apenas <strong>carrega</strong> o pacote, e o segundo <strong>anexa</strong>. Essa discussão foi bem documentada na Subseção <a href="conf_files_pkg.html#subsec-namespace">Editando o arquivo <em>NAMESPACE</em></a></p>
 <p>Vejamos as regras gerais (<a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions, DESCRIPTION</a>):</p>
 <ul>
 <li>Um pacote dependente deve ser listado em apenas um campos dos campos <code>Depends</code> ou <code>Imports</code>;</li>
@@ -532,9 +538,9 @@ License: Qual a licença que você usa</code></pre>
 </div>
 <div id="ext_files_r" class="section level4">
 <h4 class="hasAnchor">
-<a href="#ext_files_r" class="anchor"></a>Uso dos campos <code>NeedsCompilation</code> e <code>SystemRequirements</code>
+<a href="#ext_files_r" class="anchor"></a>Uso do campo <code>SystemRequirements</code>
 </h4>
-<p>O campo <code>SystemRequirements</code> quando utilizado no <em>DESCRIPTION</em>, significa que algum código não <a href="http://r-project.org">R</a> que está inserido em seu código, e precisa ser informado</p>
+<p>O campo <code>SystemRequirements</code> quando utilizado no <em>DESCRIPTION</em>, significa que algum código não <a href="http://r-project.org">R</a> que está inserido em seu código, e precisa ser informado. Considere também que alguns pacotes já fizeram a integração de algumas linguagens, tais como: pacote <a href="rstudio.github.io/reticulate">reticulate</a> (<em>Phyton</em>), pacote <a href="https://cran.r-project.org/package=Rcpp">Rcpp</a> (<em>C++</em>), pacote <a href="http://www.rforge.net/rJava/">rJava</a> (<em>Java</em>), pacotes <a href="">tcltk</a> hoje da base do <a href="http://r-project.org">R</a> (<em>Tcl/Tk</em>), um complemento ao pacote anterior <a href="%5Btcltk2%5D(https://cran.r-project.org/package=tcltk2)">tcltk2</a> (<em>Tcl/Tk</em>), pacote <a href="https://cran.r-project.org/package=RGtk2">RGtk2</a> (<em>GTK+</em>), dentre muitos outros, esses já fizeram a parte árdua de integração. Assim, necessitando de alguma dessas linguagens e usando esses pacotes como dependentes, não é necessário a utilização do campo <code>SystemRequirements</code>.</p>
 <p>O subdiretório <code>src</code> é utilizado para códigos que precisam ser compilados, tais como <em>C</em>, <em>C++</em>, <em>Fortran</em>, dentre outros. O subdiretório <code>exec</code> ou <code>inst</code> é usado para inserir scripts que precisam ser interpretados, tais como <em>Shell</em>, <em>BUGS</em>, <em>JavaScript</em>, <em>Matlab</em>, <em>Perl</em>, <em>php(amap)</em>, <em>Phyton</em>, <em>Tcl</em>. O caso da linguagem <em>Java</em>, o mecanismo é um pouco diferente, ver <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions§1.1.7</a>. Observando os pacotes desenvolvidos, a convenção é usar no diretório <code>inst</code>, do tipo <code>inst/perl</code>, <code>inst/tcl</code>, etc. Vejam alguns exemplos de pacotes:</p>
 <ul>
 <li>
@@ -558,25 +564,381 @@ Imports: utils
 URL: https://github.com/marcschwartz/WriteXLS
 BugReports: https://github.com/marcschwartz/WriteXLS/issues</code></pre>
 <ul>
-<li><a href="">rJava</a></li>
+<li>
+<a href="http://www.rforge.net/rJava/">rJava</a><code>/src/java</code>, veja o seu <em>DESCRIPTION</em>:</li>
 </ul>
-<p>Considere também que alguns pacotes já fizeram a integração de algumas linguagens, e até mencionados acima, tais como: pacote <a href="rstudio.github.io/reticulate">reticulate</a> (<em>Phyton</em>), pacote <a href="https://cran.r-project.org/package=Rcpp">Rcpp</a> (<em>C++</em>), pacote <a href="http://www.rforge.net/rJava/">rJava</a> (<em>Java</em>), pacotes <a href="">tcltk</a> hoje da base do <a href="http://r-project.org">R</a> (<em>Tcl/Tk</em>), pacote <a href="https://cran.r-project.org/package=RGtk2">RGtk2</a> (<em>GTK+</em>), dentre muitos outros, esses já fizeram a parte árdua de integração. Assim, necessitando de alguma dessas linguagens e usando esses pacotes não é necessário a utilização do campo <code>SystemRequirements</code>.</p>
-<p>Por fim, a utilização do campo <code>SystemRequirements</code> necessita uma explicação mais detalhada sobre o pacote no arquivo <em>README</em>, pois para o bom funcionamento, precisamos muitas vezes fazer instalações externas ao sistema operacional em utilização. E mais uma vez, é um nível avançado de desenvolvimento de pacotes, pois não necessita apenas do conhecimento da linguagem <a href="http://r-project.org">R</a>, como também de outras linguagens. Um exemplo recente, foi um pacote chamado <a href="https://cran.r-project.org/package=gWidgets">gWidgets</a> que foi desativado devido a problemas de instalação ao interpretação <em>GTK+</em>, que por sinal, um pacote muito bom para desenvolvimento de interfaces gráficas ao usuários, usando <em>Tcl/Tk</em> e <em>GTK+</em></p>
+<pre><code>Package: rJava
+Version: (populated by mkdist!)
+Title: Low-Level R to Java Interface
+Author: Simon Urbanek &lt;simon.urbanek@r-project.org&gt;
+Maintainer: Simon Urbanek &lt;simon.urbanek@r-project.org&gt;
+Depends: R (&gt;= 2.5.0), methods
+Description: Low-level interface to Java VM very much like .C/.Call and friends. Allows creation of objects, calling methods and accessing fields.
+License: GPL-2
+URL: http://www.rforge.net/rJava/
+SystemRequirements: Java JDK 1.2 or higher (for JRI/REngine JDK 1.4 or higher), GNU make
+BugReports: https://github.com/s-u/rJava/issues</code></pre>
+<ul>
+<li>
+<a href="https://cran.r-project.org/package=tcltk2">tcltk2</a><code>/inst/tklibs</code>, veja o seu <em>DESCRIPTION</em>:</li>
+</ul>
+<pre><code>Package: tcltk2
+Type: Package
+Version: 1.2-11
+Date: 2014-12-19
+Title: Tcl/Tk Additions
+Author: Philippe Grosjean [aut, cre]
+Authors@R: c(person("Philippe", "Grosjean", role = c("aut", "cre"),
+  email = "phgrosjean@sciviews.org"))
+Maintainer: Philippe Grosjean &lt;phgrosjean@sciviews.org&gt;
+Depends: R (&gt;= 2.8.0), tcltk
+Suggests: utils
+SystemRequirements: Tcl/Tk (&gt;= 8.5), Tktable (&gt;= 2.9, optional)
+Description: A series of additional Tcl commands and Tk widgets with style
+  and various functions (under Windows: DDE exchange, access to the
+  registry and icon manipulation) to supplement the tcltk package
+License: LGPL-3 + file LICENSE
+URL: http://www.sciviews.org/SciViews-R
+BugReports: https://r-forge.r-project.org/tracker/?group_id=194
+Packaged: 2014-12-19 16:32:30 UTC; phgrosjean
+NeedsCompilation: no
+Repository: CRAN
+Date/Publication: 2014-12-20 10:35:06</code></pre>
+<ul>
+<li>
+<a href="https://cran.r-project.org/package=reticulate">reticulate</a><code>/inst/phyton/rpytools</code>, veja o seu <em>DESCRIPTION</em>:</li>
+</ul>
+<pre><code>Package: reticulate
+Type: Package
+Title: Interface to 'Python'
+Version: 1.18-9000
+Authors@R: c(
+  person("Kevin", "Ushey", role = c("aut", "cre"),
+         email = "kevin@rstudio.com"),
+  person("JJ", "Allaire", role = c("aut"), email = "jj@rstudio.com"),
+  person("RStudio", role = c("cph", "fnd")),
+  person("Yuan", "Tang", role = c("aut", "cph"),
+         email = "terrytangyuan@gmail.com",
+         comment = c(ORCID = "0000-0001-5243-233X")),
+  person("Dirk", "Eddelbuettel", role = c("ctb", "cph"),
+         email = "edd@debian.org"),
+  person("Bryan", "Lewis", role = c("ctb", "cph"),
+         email = "blewis@illposed.net"),
+  person("Sigrid", "Keydana", role = c("ctb"),
+         email = "sigrid@rstudio.com"),
+  person("Ryan", "Hafen", role = c("ctb", "cph"),
+         email = "rhafen@gmail.com"),
+  person("Marcus", "Geelnard", role = c("ctb", "cph"),
+         comment = "TinyThread library, http://tinythreadpp.bitsnbites.eu/")
+  )
+Description: Interface to 'Python' modules, classes, and functions. When calling
+    into 'Python', R data types are automatically converted to their equivalent 'Python'
+    types. When values are returned from 'Python' to R they are converted back to R
+    types. Compatible with all versions of 'Python' &gt;= 2.7.
+License: Apache License 2.0
+URL: https://github.com/rstudio/reticulate
+BugReports: https://github.com/rstudio/reticulate/issues
+SystemRequirements: Python (&gt;= 2.7.0)
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (&gt;= 3.0)
+Imports:
+    graphics,
+    jsonlite,
+    Matrix,
+    methods,
+    rappdirs,
+    Rcpp (&gt;= 0.12.7),
+    utils
+Suggests:
+    callr,
+    knitr,
+    rmarkdown,
+    testthat
+LinkingTo: Rcpp
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr</code></pre>
+<p>Por fim, a utilização do campo <code>SystemRequirements</code> necessita uma explicação mais detalhada sobre o pacote no arquivo <em>README</em>, pois para o bom funcionamento, precisamos muitas vezes fazer instalações externas ao sistema operacional em utilização. E mais uma vez, é um nível avançado de desenvolvimento de pacotes, pois não necessita apenas do conhecimento da linguagem <a href="http://r-project.org">R</a>, como também de outras linguagens. Um exemplo recente, foi um pacote chamado <a href="https://cran.r-project.org/package=gWidgets">gWidgets</a> que foi desativado devido a problemas de instalação do <em>GTK+</em>, que por sinal, um pacote muito bom para desenvolvimento de interfaces gráficas ao usuários, usando <em>Tcl/Tk</em> e <em>GTK+</em></p>
 </div>
 </div>
+</div>
+<div id="subsec-namespace" class="section level2">
+<h2 class="hasAnchor">
+<a href="#subsec-namespace" class="anchor"></a>Entendendo o <em>NAMESPACE</em>
+</h2>
+<p>Antes de iniciarmos a discussão sobre o que significa, qual o objetivo, e como utilizar o arquivo <em>NAMESPACE</em>, vamos entender inicialmente o que significa os termos <strong>instalar</strong>, <strong>carregar</strong> e <strong>anexar</strong> um pacote no R. A função <code>install.packages</code>, é reponsável por fazer o <em>download</em> e a <strong>instalação</strong> de um pacote de algum repositório (<a href="cran.r-project.org">CRAN</a>, por exemplo). Este último significa que você o inseriu em sua biblioteca de pacotes do <a href="http://r-project.org">R</a> contidas no seu sistema operacional. Contudo, se ao tentar executar alguma função do pacote no <em>console</em>, certamente, será recebido uma mensagem de erro, como verificado a seguir.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Instalando o pacote 'devtools'</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3"></a></span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># Instalando o pacote 'meupacoter'</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"bendeivide/meupacoter"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6"></a></span>
+<span id="cb13-7"><a href="#cb13-7"></a>Downloading GitHub repo bendeivide<span class="op">/</span>meupacoter<span class="op">@</span>HEAD</span>
+<span id="cb13-8"><a href="#cb13-8"></a>√  checking <span class="cf">for</span> file <span class="st">'C:\Users\MABENLA\AppData\Local\Temp\RtmpikrG6Z</span><span class="ch">\r</span><span class="st">emotes15b811c65a3</span><span class="ch">\b</span><span class="st">endeivide-meupacoter-7c9ec1f/DESCRIPTION'</span> (<span class="fl">1.8</span>s)</span>
+<span id="cb13-9"><a href="#cb13-9"></a><span class="op">-</span><span class="st">  </span>preparing <span class="st">'meupacoter'</span><span class="op">:</span><span class="st"> </span>(<span class="fl">2.8</span>s)</span>
+<span id="cb13-10"><a href="#cb13-10"></a>√  checking DESCRIPTION meta<span class="op">-</span>information ... </span>
+<span id="cb13-11"><a href="#cb13-11"></a><span class="op">-</span><span class="st">  </span>checking <span class="cf">for</span> LF line<span class="op">-</span>endings <span class="cf">in</span> source and make files and shell scripts</span>
+<span id="cb13-12"><a href="#cb13-12"></a><span class="op">-</span><span class="st">  </span>checking <span class="cf">for</span> empty or unneeded directories</span>
+<span id="cb13-13"><a href="#cb13-13"></a><span class="op">-</span><span class="st">  </span>building <span class="st">'meupacoter_0.2.0.9000.tar.gz'</span></span>
+<span id="cb13-14"><a href="#cb13-14"></a>   </span>
+<span id="cb13-15"><a href="#cb13-15"></a>Installing package into ‘C<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>MABENLA<span class="op">/</span>Documents<span class="op">/</span>R<span class="op">/</span>win<span class="op">-</span>library<span class="op">/</span><span class="fl">3.6</span>’</span>
+<span id="cb13-16"><a href="#cb13-16"></a>(as ‘lib’ is unspecified)</span>
+<span id="cb13-17"><a href="#cb13-17"></a><span class="op">*</span><span class="st"> </span>installing <span class="op">*</span>source<span class="op">*</span><span class="st"> </span>package <span class="st">'meupacoter'</span> ...</span>
+<span id="cb13-18"><a href="#cb13-18"></a><span class="op">**</span><span class="st"> </span>using staged installation</span>
+<span id="cb13-19"><a href="#cb13-19"></a><span class="op">**</span><span class="st"> </span>R</span>
+<span id="cb13-20"><a href="#cb13-20"></a><span class="op">**</span><span class="st"> </span>inst</span>
+<span id="cb13-21"><a href="#cb13-21"></a><span class="op">**</span><span class="st"> </span>byte<span class="op">-</span>compile and prepare package <span class="cf">for</span> lazy loading</span>
+<span id="cb13-22"><a href="#cb13-22"></a><span class="op">**</span><span class="st"> </span>help</span>
+<span id="cb13-23"><a href="#cb13-23"></a><span class="op">**</span><span class="er">*</span><span class="st"> </span>installing help indices</span>
+<span id="cb13-24"><a href="#cb13-24"></a>  converting help <span class="cf">for</span> package <span class="st">'meupacoter'</span></span>
+<span id="cb13-25"><a href="#cb13-25"></a>    finding HTML links ... done</span>
+<span id="cb13-26"><a href="#cb13-26"></a>    aritmetica                              html  </span>
+<span id="cb13-27"><a href="#cb13-27"></a><span class="op">**</span><span class="er">*</span><span class="st"> </span>copying figures</span>
+<span id="cb13-28"><a href="#cb13-28"></a><span class="op">**</span><span class="st"> </span>building package indices</span>
+<span id="cb13-29"><a href="#cb13-29"></a><span class="op">**</span><span class="st"> </span>installing vignettes</span>
+<span id="cb13-30"><a href="#cb13-30"></a><span class="op">**</span><span class="st"> </span>testing <span class="cf">if</span> installed package can be loaded from temporary location</span>
+<span id="cb13-31"><a href="#cb13-31"></a><span class="op">**</span><span class="er">*</span><span class="st"> </span>arch <span class="op">-</span><span class="st"> </span>i386</span>
+<span id="cb13-32"><a href="#cb13-32"></a><span class="op">**</span><span class="er">*</span><span class="st"> </span>arch <span class="op">-</span><span class="st"> </span>x64</span>
+<span id="cb13-33"><a href="#cb13-33"></a><span class="op">**</span><span class="st"> </span>testing <span class="cf">if</span> installed package can be loaded from final location</span>
+<span id="cb13-34"><a href="#cb13-34"></a><span class="op">**</span><span class="er">*</span><span class="st"> </span>arch <span class="op">-</span><span class="st"> </span>i386</span>
+<span id="cb13-35"><a href="#cb13-35"></a><span class="op">**</span><span class="er">*</span><span class="st"> </span>arch <span class="op">-</span><span class="st"> </span>x64</span>
+<span id="cb13-36"><a href="#cb13-36"></a><span class="op">**</span><span class="st"> </span>testing <span class="cf">if</span> installed package keeps a record of temporary installation path</span>
+<span id="cb13-37"><a href="#cb13-37"></a><span class="op">*</span><span class="st"> </span><span class="kw">DONE</span> (meupacoter)</span>
+<span id="cb13-38"><a href="#cb13-38"></a>    </span>
+<span id="cb13-39"><a href="#cb13-39"></a><span class="co"># tentando usar a função 'aritmetica' de meupacoter</span></span>
+<span id="cb13-40"><a href="#cb13-40"></a><span class="kw">aritmetica</span>(<span class="dt">a =</span> <span class="dv">8</span>, <span class="dt">b =</span> <span class="dv">4</span>, <span class="dt">op =</span> <span class="st">'soma'</span>)</span>
+<span id="cb13-41"><a href="#cb13-41"></a></span>
+<span id="cb13-42"><a href="#cb13-42"></a>Error <span class="cf">in</span> <span class="kw">aritmetica</span>(<span class="dt">a =</span> <span class="dv">8</span>, <span class="dt">b =</span> <span class="dv">4</span>, <span class="dt">op =</span> <span class="st">"soma"</span>) <span class="op">:</span><span class="st"> </span></span>
+<span id="cb13-43"><a href="#cb13-43"></a><span class="st">  </span>não foi possível encontrar a função <span class="st">"aritmetica"</span></span></code></pre></div>
+<p>Isso significa que as funções do pacote ainda não estão disponíveis. Quando usamos a função <code>library</code> ou <code>require</code> em um pacote acontece duas coisas sequenciadas, o <strong>carregamento</strong> e o <strong>anexo</strong> do pacote no <strong>caminho de busca</strong>. O <strong>caminho de busca</strong> é o um conjunto de ambientes hierarquizados dos quais todos os objetos nesses ambientes podem ser encontrados no ambiente de trabalho corrente (<em>workspace</em>), isto é, basta digitar no console o nome de um função contida em um pacote, que está anexado ao <strong>caminho de busca</strong>, que essa função estará disponível para ser utilizada. O <strong>caminho de busca</strong> pode ser encontrado pela função <code>search</code> do pacote <span class="math inline">\(\color{red}{base}\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Para saber quais são esses pacotes, use a linha de comando:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span>lib.loc <span class="op">=</span> <span class="va">.Library</span><span class="op">)</span>
+<span class="co">##</span>
+<span class="co">#&gt; base                 The R Base Package</span>
+<span class="co">#&gt; boot                 Bootstrap Functions (Originally by Angelo</span>
+<span class="co">#&gt;                      Canty for S)</span>
+<span class="co">#&gt; class                Functions for Classification</span>
+<span class="co">#&gt; cluster              "Finding Groups in Data": Cluster</span>
+<span class="co">#&gt;                      Analysis Extended Rousseeuw et al.</span>
+<span class="co">#&gt; codetools            Code Analysis Tools for R</span>
+<span class="co">#&gt; compiler             The R Compiler Package</span>
+<span class="co">#&gt; datasets             The R Datasets Package</span>
+<span class="co">#&gt; foreign              Read Data Stored by 'Minitab', 'S',</span>
+<span class="co">#&gt;                      'SAS', 'SPSS', 'Stata', 'Systat', 'Weka',</span>
+<span class="co">#&gt;                      'dBase', ...</span>
+<span class="co">#&gt; graphics             The R Graphics Package</span>
+<span class="co">#&gt; grDevices            The R Graphics Devices and Support for</span>
+<span class="co">#&gt;                      Colours and Fonts</span>
+<span class="co">#&gt; grid                 The Grid Graphics Package</span>
+<span class="co">#&gt; KernSmooth           Functions for Kernel Smoothing Supporting</span>
+<span class="co">#&gt;                      Wand &amp; Jones (1995)</span>
+<span class="co">#&gt; lattice              Trellis Graphics for R</span>
+<span class="co">#&gt; MASS                 Support Functions and Datasets for</span>
+<span class="co">#&gt;                      Venables and Ripley's MASS</span>
+<span class="co">#&gt; Matrix               Sparse and Dense Matrix Classes and</span>
+<span class="co">#&gt;                      Methods</span>
+<span class="co">#&gt; methods              Formal Methods and Classes</span>
+<span class="co">#&gt; mgcv                 Mixed GAM Computation Vehicle with</span>
+<span class="co">#&gt;                      Automatic Smoothness Estimation</span>
+<span class="co">#&gt; nlme                 Linear and Nonlinear Mixed Effects Models</span>
+<span class="co">#&gt; nnet                 Feed-Forward Neural Networks and</span>
+<span class="co">#&gt;                      Multinomial Log-Linear Models</span>
+<span class="co">#&gt; parallel             Support for Parallel computation in R</span>
+<span class="co">#&gt; rpart                Recursive Partitioning and Regression</span>
+<span class="co">#&gt;                      Trees</span>
+<span class="co">#&gt; spatial              Functions for Kriging and Point Pattern</span>
+<span class="co">#&gt;                      Analysis</span>
+<span class="co">#&gt; splines              Regression Spline Functions and Classes</span>
+<span class="co">#&gt; stats                The R Stats Package</span>
+<span class="co">#&gt; stats4               Statistical Functions using S4 Classes</span>
+<span class="co">#&gt; survival             Survival Analysis</span>
+<span class="co">#&gt; tcltk                Tcl/Tk Interface</span>
+<span class="co">#&gt; tools                Tools for Package Development</span>
+<span class="co">#&gt; translations         The R Translations Package</span>
+<span class="co">#&gt; utils                The R Utils Package</span></code></pre></div>
+<p>O <strong>caminho de busca</strong> no <a href="http://r-project.org">R</a> utilizado no momento em que é escrito esse material foi:</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Usando o pacote 'base'</span>
+<span class="fu">base</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;  [1] ".GlobalEnv"        "package:usethis"   "package:MCPtests" </span>
+<span class="co">#&gt;  [4] "package:rlang"     "tools:rstudio"     "package:stats"    </span>
+<span class="co">#&gt;  [7] "package:graphics"  "package:grDevices" "package:utils"    </span>
+<span class="co">#&gt; [10] "package:datasets"  "package:methods"   "Autoloads"        </span>
+<span class="co">#&gt; [13] "package:base"  </span>
+
+<span class="co"># Mais detalhado</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rlang"</span><span class="op">)</span>
+<span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/search_envs.html">search_envs</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;  [[1]] $ &lt;env: global&gt;</span>
+<span class="co">#&gt;  [[2]] $ &lt;env: package:usethis&gt;</span>
+<span class="co">#&gt;  [[3]] $ &lt;env: package:MCPtests&gt;</span>
+<span class="co">#&gt;  [[4]] $ &lt;env: package:rlang&gt;</span>
+<span class="co">#&gt;  [[5]] $ &lt;env: tools:rstudio&gt;</span>
+<span class="co">#&gt;  [[6]] $ &lt;env: package:stats&gt;</span>
+<span class="co">#&gt;  [[7]] $ &lt;env: package:graphics&gt;</span>
+<span class="co">#&gt;  [[8]] $ &lt;env: package:grDevices&gt;</span>
+<span class="co">#&gt;  [[9]] $ &lt;env: package:utils&gt;</span>
+<span class="co">#&gt; [[10]] $ &lt;env: package:datasets&gt;</span>
+<span class="co">#&gt; [[11]] $ &lt;env: package:methods&gt;</span>
+<span class="co">#&gt; [[12]] $ &lt;env: Autoloads&gt;</span>
+<span class="co">#&gt; [[13]] $ &lt;env: package:base&gt;</span></code></pre></div>
+<p>Isso significa que quando você digita o nome de uma função, primeiro o <a href="http://r-project.org">R</a> verifica se existe esse nome no ambiente global (<code>global</code> ou <code>R_GlobalEnv</code>), se não existir, será verificado no próximo ambiente, que no nosso caso é <code>package:usethis</code>, e assim sucessivamente.</p>
+<p>Um pacote só estará disponível no <strong>caminho de busca</strong> ser ele estiver <strong>anexado</strong>, não basta apenas <strong>carregar</strong> o pacote, como convencionalmente falamos. Porém, para esse pacote ter sido <strong>anexado</strong> ele foi primeiro <strong>carregado</strong>, e como já falado anteriormente, a função que faz isso sequencialmente é <code>library</code> ou <code>require</code>. De toda forma, em <a href="https://r-pkgs.org/namespace.html?q=NAMES#namespace">R Packages</a> diz-se que:</p>
+<ul>
+<li><p>O <strong>carregamento</strong> irá carregar o código, dados e quaisquer DLLs, registra os métodos S3 e S4, e executa a função <code><a href="https://rdrr.io/r/base/ns-hooks.html">.onLoad()</a></code>. Após isso, o pacote fica disponível na memória, mas não acessível no caminho de busca. Daí o usuário não terá como acessar os objetos do pacote diretamente, a menos que use <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>, isto é, <code>nome_pacote::nome</code>, que por sua vez, <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> realiza o carregamento do pacote, se ainda não estiver carregado, e posteriormente, acessa os objetos sem estarem anexados. É bom lembrar que <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> não acessa os objetos pelo ambiente <code>package:nome_pacote</code> no caminho de busca, até porque o pacote pode ainda nem ter sido anexado. É muito raro precisar de carregar um pacote explicitamente, <em>a menos que você precise saber internamente no seu pacote, se determinado pacote foi carregado</em><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>. Caso também deseje acessar funções internas não exportáveis do pacote, use <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">:::</a></code>;</p></li>
+<li><p><strong>Anexar</strong> um pacote significa colocá-lo no <strong>caminho de busca</strong>. Não é possível anexar um pacote sem primeiro tê-lo carregado, que no caso <code>library</code> ou <code>require</code> realiza esse procedimento.</p></li>
+</ul>
+<p>Para finalizar esse entendimento, vejamos um último exemplo para sanar qualquer tipo de dúvida</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">old</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span>; <span class="va">old</span>
+<span class="co">#&gt;  [1] ".GlobalEnv"        "package:pkgdown"   "package:usethis"  </span>
+<span class="co">#&gt;  [4] "package:MCPtests"  "package:rlang"     "tools:rstudio"    </span>
+<span class="co">#&gt;  [7] "package:stats"     "package:graphics"  "package:grDevices"</span>
+<span class="co">#&gt; [10] "package:utils"     "package:datasets"  "package:methods"  </span>
+<span class="co">#&gt; [13] "Autoloads"         "org:r-lib"         "package:base"     </span>
+<span class="fu">meupacoter</span><span class="fu">::</span><span class="fu"><a href="../reference/aritmetica.html">aritmetica</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">4</span>, op <span class="op">=</span> <span class="st">'soma'</span><span class="op">)</span>
+<span class="co">#&gt;[1] 12</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">old</span><span class="op">)</span>
+<span class="co">#&gt;character(0)</span>
+<span class="fu"><a href="../reference/aritmetica.html">aritmetica</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">4</span>, op <span class="op">=</span> <span class="st">'soma'</span><span class="op">)</span>
+<span class="co">#&gt; Error in aritmetica(8, 4, op = "soma") : </span>
+<span class="co">#&gt;   não foi possível encontrar a função "aritmetica"</span>
+
+<span class="co"># Se não tiver com o pacote instalado, use:</span>
+<span class="co"># devtools::install_github("bendeivide/meupacoter")</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://bendeivide.github.io/meupacoter">meupacoter</a></span><span class="op">)</span>
+<span class="fu"><a href="../reference/aritmetica.html">aritmetica</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">4</span>, op <span class="op">=</span> <span class="st">'soma'</span><span class="op">)</span>
+<span class="co">#&gt; [1] 12</span>
+<span class="fu"><a href="https://rdrr.io/r/base/sets.html">setdiff</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">old</span><span class="op">)</span>
+<span class="co">#&gt; [1] "package:meupacoter"</span>
+
+<span class="co"># Caminho de busca após o library(meupacoter)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;  [1] ".GlobalEnv"         "package:meupacoter" "package:pkgdown"   </span>
+<span class="co">#&gt;  [4] "package:usethis"    "package:MCPtests"   "package:rlang"     </span>
+<span class="co">#&gt;  [7] "tools:rstudio"      "package:stats"      "package:graphics"  </span>
+<span class="co">#&gt; [10] "package:grDevices"  "package:utils"      "package:datasets"  </span>
+<span class="co">#&gt; [13] "package:methods"    "Autoloads"          "org:r-lib"         </span>
+<span class="co">#&gt; [16] "package:base"  </span></code></pre></div>
+<p>Para entender um pouco mais sobre ambientes no <a href="http://r-project.org">R</a>, ver Seção <a href="environments.html">Ambientes em R</a>.</p>
+<p>De acordo com o que comentamos sobre o <strong>caminho de busca</strong>, poderíamos nos perguntar, se nós criássemos uma função, cujo o nome é idêntico a um pacote anexado ao <strong>caminho de busca</strong>, ou anexasse um outro pacote anterior que também teria uma função com o mesmo nome, o pacote de interesse não poderia sofrer algum problema de execução, resultado, ou qualquer outro problema que o interferisse? A resposta é não, e graças ao NAMESPACE. Um pacote tem dois ambientes:</p>
+<ul>
+<li>
+<strong>ambiente de pacote</strong>: é a interface externa do pacote, do qual o usuário <a href="http://r-project.org">R</a> pode encontrar pelo caminho de busca ou por <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>. Todo ambiente tem um parental, nesse caso, o ambiente parental de um ambiente de pacote é ordenado de acordo com o caminho de busca. E todo pacote anexado é o parental do ambiente global. Veja no exemplo a seguir, o que estamos querendo dizer. Por exemplo, existe uma mesma função <code>summarize</code> nos pacotes <a href="http://plyr.had.co.nz/">plyr</a> e <a href="https://cran.r-project.org/packages=Hmisc">Hmisc</a>. Dependendo de como você anexar a ordem dos pacotes, por exemplo,</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr">plyr</a></span><span class="op">)</span>
+<span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/fn_env.html">fn_env</a></span><span class="op">(</span><span class="va">summarize</span><span class="op">)</span>
+<span class="co">#&gt; &lt;environment: namespace:plyr&gt;</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://biostat.mc.vanderbilt.edu/Hmisc">Hmisc</a></span><span class="op">)</span>
+<span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/fn_env.html">fn_env</a></span><span class="op">(</span><span class="va">summarize</span><span class="op">)</span>
+<span class="co">#&gt; &lt;environment: namespace:Hmisc&gt;</span>
+
+<span class="co"># Caminho de busca</span>
+<span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;  [1] ".GlobalEnv"         "package:Hmisc"      "package:ggplot2"   </span>
+<span class="co">#&gt;  [4] "package:Formula"    "package:survival"   "package:lattice"   </span>
+<span class="co">#&gt;  [7] "package:plyr"       "package:meupacoter" "package:pkgdown"   </span>
+<span class="co">#&gt; [10] "package:usethis"    "package:MCPtests"   "package:rlang"     </span>
+<span class="co">#&gt; [13] "tools:rstudio"      "package:stats"      "package:graphics"  </span>
+<span class="co">#&gt; [16] "package:grDevices"  "package:utils"      "package:datasets"  </span>
+<span class="co">#&gt; [19] "package:methods"    "Autoloads"          "org:r-lib"         </span>
+<span class="co">#&gt; [22] "package:base"  </span></code></pre></div>
+<p>Isso significa que como o último pacote anexado foi o pacote <code>Hmisc</code>, então na hora de buscar esse objeto, o pacote primeiro pesquisado é o <code>Hmisc</code>. Como alternativa, poderia ser utilizado <code><a href="https://rdrr.io/pkg/plyr/man/summarise.html">plyr::summarize</a></code> ou <code><a href="https://rdrr.io/pkg/Hmisc/man/summarize.html">Hmisc::summarize</a></code> para resolver este problema. Mais ainda, e se no ambiente global houvesse um objeto com esse nome, ele iria sobrepor independente da ordem de anexar o pacote, porque ele sempre o primeiro ambiente no <strong>caminho de busca</strong>, veja:</p>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="co"># Primeiro criando o objeto</span>
+<span class="va">summarize</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Nada"</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr">plyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://biostat.mc.vanderbilt.edu/Hmisc">Hmisc</a></span><span class="op">)</span>
+
+<span class="co"># Verificando o ambiente de 'summarize'</span>
+<span class="fu">rlang</span><span class="fu">::</span><span class="fu"><a href="https://rlang.r-lib.org/reference/fn_env.html">fn_env</a></span><span class="op">(</span><span class="va">summarize</span><span class="op">)</span>
+<span class="co">#&gt; &lt;environment: R_GlobalEnv&gt;</span>
+
+<span class="co"># Caminho de busca</span>
+<span class="fu"><a href="https://rdrr.io/r/base/search.html">search</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt;  [1] ".GlobalEnv"         "package:Hmisc"      "package:plyr"      </span>
+<span class="co">#&gt;  [4] "package:rlang"      "package:ggplot2"    "package:Formula"   </span>
+<span class="co">#&gt;  [7] "package:survival"   "package:lattice"    "package:meupacoter"</span>
+<span class="co">#&gt; [10] "package:pkgdown"    "package:usethis"    "package:MCPtests"  </span>
+<span class="co">#&gt; [13] "tools:rstudio"      "package:stats"      "package:graphics"  </span>
+<span class="co">#&gt; [16] "package:grDevices"  "package:utils"      "package:datasets"  </span>
+<span class="co">#&gt; [19] "package:methods"    "Autoloads"          "package:base</span></code></pre></div>
+<ul>
+<li>
+<strong>ambiente de <em>namespace</em> </strong>: representa a interface interna no pacote. É o ambiente onde o pacote controla as suas funções. Cada ligação no ambiente de pacote também está no ambiente de <em>namespace</em>. Contudo, algumas funções ocorrem apenas no ambiente de namespace, e quem controla isso é o desenvolvedor do pacote, por meio do arquivo NAMESPACE.</li>
+</ul>
+<p>Quanto a hierarquização de ambientes, cada ambiente de <em>namespace</em> apresenta um mesmo grupo de ancestrais, que segue: * Ambiente de namespace <span class="math inline">\(&gt;\)</span> Ambiente de importações <span class="math inline">\(&gt;\)</span> Ambiente de <em>namespace</em> do pacote <span class="math inline">\(\color{red}{base}\)</span> <span class="math inline">\(&gt;\)</span> Ambiente Global.</p>
+<p>O ambiente de importações contém todas as ligações para todas as funções do pacotes, porém, importar implicitamente todas as funções do pacote <span class="math inline">\(\color{red}{base}\)</span> poderia ser demorado. Assim, existe um ambiente de <em>namespace</em> do pacote <span class="math inline">\(\color{red}{base}\)</span> que tem como ancestral o ambiente global. Dessa forma, se o pacote não encontrar as ligações necessárias no ambiente de importações, será procurado de forma usual. E isso não será uma boa escolha porque dependerá do anexamento de outros pacotes, e para evitar essa escolha o <code>R CMD check</code> avisará automaticamente sobre essa decisão. Veja a representação a seguir.</p>
+<p align="center">
+<img src="namespace.png" alt="" width="70%"></p>
+<p>Aqui, temos a função <code>sd</code> que calcula o desvio padrão de um conjuntos de dados, do pacote <span class="math inline">\(\color{red}{stats}\)</span>. Essa função é apresentada na linha de comando:</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">sd</span>
+<span class="co">#&gt; function (x, na.rm = FALSE) </span>
+<span class="co">#&gt; sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span>
+<span class="co">#&gt;     na.rm = na.rm))</span>
+<span class="co">#&gt; &lt;bytecode: 0x00000000091f13b0&gt;</span>
+<span class="co">#&gt; &lt;environment: namespace:stats&gt;</span>
+<span class="co">#&gt; function (x, na.rm = FALSE) </span>
+<span class="co">#&gt; sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span>
+<span class="co">#&gt;     na.rm = na.rm))</span>
+<span class="co">#&gt; &lt;bytecode: 0x0000001b97450678&gt;</span>
+<span class="co">#&gt; &lt;environment: namespace:stats&gt;</span></code></pre></div>
+<p>Perceba que essa função depende de outra função do pacote <span class="math inline">\(\color{red}{stats}\)</span>, <code>var</code> que calcula a variância de um conjunto de dados. Por alguma razão, nós criamos um objeto com o mesmo nome <code>var</code>, no ambiente global. Toda função capta as informações disponíveis no caminho de busca, no nosso caso o ambiente global, logo quando eu usasse a função <code>sd</code>, ela poderia ter algum conflito com a função <code>var</code> dentro do pacote, com o objeto criado <code>var</code> no ambiente global. Vejamos:</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Veja como uma funcao capta a informacao do ambiente global</span>
+<span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">2</span>
+<span class="va">aux</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span> <span class="op">{</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">aux</span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; [1] 2</span>
+  
+<span class="co"># Testando a funcao sd(x)</span>
+<span class="co">#------------------------</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span> <span class="co"># o resultado de sd(x) de ser 1!</span>
+<span class="co"># Criar uma variavel no ambiente global, 'var = "Nada"'. Isso,</span>
+<span class="co"># implica que se 'sd' usar essa informacao, devera retornar um</span>
+<span class="co"># erro, pq sd se baseia em um vetor numerico</span>
+<span class="va">var</span> <span class="op">&lt;-</span> <span class="st">"Nada"</span>
+
+<span class="co"># Testando sd(x)</span>
+<span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1</span></code></pre></div>
+<p>Observe pelo exemplo assim, que a função retorna <code>sd(x) = 1</code>. Ou seja, que fez o papel de escolha das ligações internas da função do pacote foi o ambiente namespace, ele garante que não haja conflito de funções entre funções de outros pacotes ou objetos.</p>
 </div>
 <div id="docs_rpkg" class="section level2">
 <h2 class="hasAnchor">
 <a href="#docs_rpkg" class="anchor"></a>Documentando as funções do pacote</h2>
+<div id="pacote-roxygen2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#pacote-roxygen2" class="anchor"></a>Pacote <code>roxygen2</code>
+</h3>
 </div>
-<div id="editando-o-arquivo-namespace" class="section level2">
-<h2 class="hasAnchor">
-<a href="#editando-o-arquivo-namespace" class="anchor"></a>Editando o arquivo <em>NAMESPACE</em>
-</h2>
+<div id="editando-os-arquivo-de-ajuda-do-pacote-e-o-namespace" class="section level3">
+<h3 class="hasAnchor">
+<a href="#editando-os-arquivo-de-ajuda-do-pacote-e-o-namespace" class="anchor"></a>Editando os arquivo de ajuda do pacote e o <em>NAMESPACE</em>
+</h3>
+</div>
 </div>
 <div id="resumo-do-que-vimos-nessa-seção" class="section level2">
 <h2 class="hasAnchor">
 <a href="#resumo-do-que-vimos-nessa-se%C3%A7%C3%A3o" class="anchor"></a>Resumo do que vimos nessa seção</h2>
+</div>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Todos os pacotes com essa configuração, significa que estes são instaladaos com a intalação do <a href="http://r-project.org">R</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Nesse caso, não se recomenda utilizar <code>library</code> ou <code>require</code> para essa finalidade. Para isso use <code>requireNamespace</code> ou <code>loadNamesoace</code>, ou insira os pacotes qe são dependentes nos campos <code>Depends</code>, <code>Imports</code>, ou em <code>Sugests</code><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
   </div>
 

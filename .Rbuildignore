@@ -4,6 +4,7 @@ comandos_importantes\.R
 ^README\.Rmd$
 ^_pkgdown\.yml$
 ^docs$
+^artes$
 ^pkgdown$
 ^logo$
 ^Index\.md$

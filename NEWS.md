@@ -1,4 +1,19 @@
+# meupacoter 0.3.0.9000
+
+* Todas essas mudanças estão sob o [Github](https://github.com/bendeivide/meupacoter):
+  * **Configurando os arquivos básicos de um pacote**:
+    * **Editando o arquivo *NAMESPACE* ** - Em construção
+  * navbar:
+    * Alterado o título: **Passos para construir um pacote** para **Como desenvolver**;
+  * Acrescentando em **Passos para construir um pacote**:
+    * Alterado **Passos adicionais** para **Passos e temas adicionais**:
+      * Acrescentado **Ambientes em R** - Desativado;
+      * Acrescentado **Programação defensiva** - Desativado;
+      
+    
+
 # meupacoter 0.2.0.9000
+
 * Todas essas mudanças estão sob o [Github](https://github.com/bendeivide/meupacoter):
   * Mudança em navbar:
   * Acrescentando em **Passos para construir um pacote**:

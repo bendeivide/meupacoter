@@ -27,12 +27,12 @@ Vejam alguns locais que o
 [meupacoter](https://bendeivide.github.io/meupacoter/) já foi
 apresentado:
 
-| Data       | Local                               | Tema da apresentação                                                                |
-| ---------- | ----------------------------------- | ----------------------------------------------------------------------------------- |
-| 08/12/2020 | UFJF - Juiz de Fora/MG (Brasil)     | Semana da Estatística                                                               |
-| 20/08/2020 | UFSJ - São João del-Rei/MG (Brasil) | [Seminário: Desenvolvimento de pacotes em R](https://ufsj.edu.br/demat/scm2020.php) |
-| 26/08/2013 | UFLA - Lavras/MG (Brasil)           | [Seminário: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)               |
-| 05/02/2013 | UFLA - Lavras/MG (Brasil)           | [Minicurso: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)               |
+| Data       | Local                               | Tema da apresentação                                                                                         |
+| ---------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| 08/12/2020 | UFJF - Juiz de Fora/MG (Brasil)     | [Semana da Estatística](https://www.sympla.com.br/minicurso-como-desenvolver-seu-primeiro-pacote-r__1073575) |
+| 20/08/2020 | UFSJ - São João del-Rei/MG (Brasil) | [Seminário: Desenvolvimento de pacotes em R](https://youtu.be/mGUY6Cxzr58)                                   |
+| 26/08/2013 | UFLA - Lavras/MG (Brasil)           | [Seminário: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)                                        |
+| 05/02/2013 | UFLA - Lavras/MG (Brasil)           | [Minicurso: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)                                        |
 
 ## Instalação
 

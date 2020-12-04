@@ -38,7 +38,7 @@ use_readme_rmd()
 use_news_md()
 
 ## Criando Vignettes
-use_vignette("check_pkg")
+use_vignette("environments")
 
 ## Versao do pacote
 usethis::use_version()
@@ -59,5 +59,6 @@ pkgdown::build_site()
 
 ## Depois de criado e para atualização
 pkgdown::build_site()
+
 
 

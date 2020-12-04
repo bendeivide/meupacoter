@@ -7,11 +7,12 @@ articles:
   construindo_pacote: construindo_pacote.html
   construindo_website: construindo_website.html
   datasetr: datasetr.html
+  environments: environments.html
   faq: faq.html
   interpack: interpack.html
   introd_pkg: introd_pkg.html
   subdir_add: subdir_add.html
-last_built: 2020-12-02T10:52Z
+last_built: 2020-12-04T13:07Z
 urls:
   reference: https://bendeivide.github.io/meupacoter//reference
   article: https://bendeivide.github.io/meupacoter//articles

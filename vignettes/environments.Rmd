@@ -1,0 +1,25 @@
+---
+title: "Ambientes em R"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Ambientes em R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Em construção...
+
+## O que é um ambiente em R?
+
+## Ambientes de pacote e o caminho de busca
+
+## Ambiente de Função
+
+## Namespaces
