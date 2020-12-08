@@ -77,11 +77,15 @@
     <li>
       <a href="../articles/check_pkg.html">Passo 3 - Checando o pacote</a>
     </li>
-    <li class="dropdown-header">Passo 4 - Submetendo o pacote ao CRAN</li>
+    <li>
+      <a href="../articles/submit.html">Passo 4 - Submetendo o pacote ao CRAN</a>
+    </li>
     <li class="dropdown-submenu">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passos e temas adicionais</a>
       <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Criar um repositório GitHub para o pacote</li>
+<li class="dropdown-header">Desenvolvimento de pacotes</li>
+        <li class="divider">
+        <li class="dropdown-header">Criar um repositório GitHub para o pacote</li>
         <li>
           <a href="../articles/construindo_website.html">Criar uma website para o pacote</a>
         </li>
@@ -89,17 +93,29 @@
         <li class="dropdown-header">Criando o arquivo README</li>
         <li class="dropdown-header">Criando o arquivo index</li>
         <li>
-          <a href="../articles/datasetr.html">Inserindo dados em um pacotes</a>
+          <a href="../articles/badges.html">Medidores de qualidade de um pacote</a>
+        </li>
+        <li>
+          <a href="../articles/datasetr.html">Inserindo dados em um pacote</a>
         </li>
         <li class="dropdown-header">Inserindo imagens na documentação do pacotes</li>
         <li>
-          <a href="../articles/interpack.html">Internacionação de pacotes</a>
+          <a href="../articles/interpack.html">Internacinalização de pacotes</a>
         </li>
         <li class="dropdown-header">Criação de GUI para o pacote</li>
-        <li class="dropdown-header">Integração com outras linguagens de programação</li>
+        <li>
+          <a href="../articles/other_languages.html">Integração com outras linguagens de programação</a>
+        </li>
         <li class="dropdown-header">Subdiretórios adicionais</li>
+        <li class="divider">
+        <li class="dropdown-header">R avançado</li>
+        <li class="divider">
         <li class="dropdown-header">Ambientes em R</li>
         <li class="dropdown-header">Programação defensiva</li>
+        <li>
+          <a href="../articles/class_object.html">Classe e Métodos de objetos</a>
+        </li>
+        <li class="dropdown-header">Paralelização de funções</li>
       </ul>
 </li>
   </ul>
@@ -119,7 +135,7 @@
   </a>
 </li>
 <li>
-  <a href="../articles/conf_files_pkg.html">
+  <a href="../articles/faq.html">
     <span class="fa fa-question-circle-o"></span>
      
     faq
@@ -186,8 +202,8 @@
 <li><a href="https://r-pkgs.org/index.html">R packages</a></li>
 <li><a href="https://adv-r.hadley.nz/">Advanced R</a></li>
 </ul>
-<p>Acreditamos que a linguagem <a href="http://r-project.org">R</a>, conseguiu caminhar com suas próprias pernas, devido a versatilidade e contribuição computacional estatística para ciência. Hoje as áreas de atuação da linguagem são aplicadas nas mais diversas áreas da ciência.</p>
-<p>Entretanto, cremos que a facilidade de utilização dessa linguagem, exitem dois marcos, um antes e outro depois de <a href="http://hadley.nz/">Hadley Wickham</a>, o Cientista Chefe do <a href="http://rstudio.com">RStudio</a>, que por sinal, os dois livros citados acima são deles. Entendemos, que alguns programadores haja rejeição rejeitem a utilização interfaces gráficas ao usuário <a href="http://r-project.org">R</a>, como o <a href="http://rstudio.com">RStudio</a>, as famosas <em>GUI</em>. Mas é notório que os recursos de alguns pacotes, inclusive desenvolvidos pelo próprio <a href="http://hadley.nz/">Hadley Wickham</a>, auxiliados com os recursos do <a href="http://rstudio.com">RStudio</a>, nos economiza um bom tempo de como programar ou desenvolver determinadas atividades. Dessa forma, podemos tornar o nosso tempo de trabalho mais eficiente.</p>
+<p>Acreditamos que a linguagem <a href="http://r-project.org">R</a>, conseguiu caminhar com suas próprias pernas, devido a versatilidade e contribuição computacional estatística para ciência. Hoje as áreas de atuação da linguagem são aplicadas nas mais diversas áreas do conhecimento.</p>
+<p>Entretanto, cremos que a facilidade de utilização dessa linguagem, exitem dois marcos, um antes e outro depois de <a href="http://hadley.nz/">Hadley Wickham</a>, o Cientista Chefe do <a href="http://rstudio.com">RStudio</a>, que por sinal, os dois livros citados acima ele faz parte. Entendemos, que alguns programadores não optem pela utilização de interfaces gráficas ao usuário <a href="http://r-project.org">R</a>, como o <a href="http://rstudio.com">RStudio</a>, as famosas <em>GUI</em>. Mas é notório que os recursos de alguns pacotes, inclusive desenvolvidos pelo próprio <a href="http://hadley.nz/">Hadley Wickham</a>, auxiliados com os recursos do <a href="http://rstudio.com">RStudio</a>, nos economiza um bom tempo de como programar ou desenvolver determinadas atividades. Dessa forma, podemos tornar o nosso tempo de trabalho mais eficiente.</p>
 <p>Um exemplo referente a esse assunto é a criação de uma <em>Website</em> para o pacote. Mesmo usuários da linguagem <a href="http://r-project.org">R</a> que não tem afinidades com o desenvolvimento de páginas <em>Web</em>, podem dessenvolver a sua com o auxílio de um pacote chamado <a href="pkgdown.r-lib.org">pkgdown</a>. Iremos observar que em um passe de mágica, usando o <a href="http://rstudio.com">RStudio</a>, poderemos não só criar uma página para o pacote, mas também disponíbilizá-lo em um repositório do <a href="https://github.com">GitHub</a>, por exemplo. Claro que, à medida que vamos necessitando de algo mais complexo, haverá um maior esforço em estudar um pouco mais sobre o assunto, para atingir o objetivo desejado. Mais a frente, falaremos sobre como desenvolver uma <em>Website</em> para o seu pacote.</p>
 <p>Por fim, há uma carência de materiais, em Português, que nos permita consultar sobre desenvolvimento de pacotes em <a href="http://r-project.org">R</a>, e consiga mostrar desde a parte introdutória até a avançada, assim como também a experiência de problemas solucionados que ainda geram dúvidas sobre esse assunto. Dessa forma, isso motivou a criação desse material. Esperamos, que você leitor, também possa fazer parte dessa contribuição, trazendo também as suas experiências, para que possamos acrescentar a esse material.</p>
 <div id="name_logo_pkg" class="section level2">
@@ -304,15 +320,6 @@ Depois comentar cada uma delas mostrando o seu objetivo
 <li>
 <a href="introd_pkg.html#goodpractice">Sempre comente seu código</a>, para que em futuras atualizações outros contribuídores do pacote tenham noção do que foi feito.</li>
 </ul>
-</div>
-<div id="uso-de-medidores-de-qualidade-badges-para-pacotes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#uso-de-medidores-de-qualidade-badges-para-pacotes" class="anchor"></a>Uso de medidores de qualidade (<em>badges</em>) para pacotes</h2>
-<p>Em construção… <!--
-covr
-travis
-coverage
---></p>
 </div>
 <div id="resumo-do-que-vimos-nessa-seção" class="section level2">
 <h2 class="hasAnchor">

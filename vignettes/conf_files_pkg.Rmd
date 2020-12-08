@@ -80,7 +80,7 @@ Como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_
 <img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%">
 </p>
 
-## Editando o arquivo *DESCRIPTION*
+## Editando o arquivo *DESCRIPTION*{#description}
 
 Quando nós [criamos um projeto de pacote](construindo_pacote.html#building_rpack) usando o [RStudio](https://rstudio.com/), um arquivo chamado *DESCRIPTION* é criado no diretório do projeto do pacote. Talvez um dos mais importantes arquivos do pacote, pois esse arquivo contém os metadados sobre as característica do pacote, como o seu nome, título, versão, autor, descrição, licença, dentre outras opções. 
 
@@ -242,8 +242,8 @@ Alguns campos adicionais são interessantes e deixamos na tabela abaixo  para co
 |Campos opcionais| Finalidade|
 |----------------|-----------|
 | `Data`         | Insere a data atualizada para submissão ao [CRAN](http://cran.r-project.org). Essa data é preferível deixar não ser colocada. Já tivemos rejeição de pacotes, simplesmente porque a data estava desatualizada. |
-| `Depends`      | Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Esses pacotes serão também instalados quando solicitar o pacote de interesse pela função `install.packages`. Para mais detalhes, ver Subseçções [Campo *Depends*](conf_files_pkg.html#campo-depends) e [Uso de pacotes dependentes em *Imports* ou *Depends*?](conf_files_pkg.html#subsec-depimp).  |
-| `Imports`      | Esse campo é utilizado para listar pacotes que são inseridos no [NAMESPACE](conf_files_pkg.html#sec-namespace). Isso significa que ao importarmos funções de outros pacotes que serão necessários ao nosso pacote, poderão ser utilizados sem precisarmos anexar estes pacotes de origem destas funções. Funções que usamos os operadores "::" ou ":::", também deverão ser listados aqui, ou nos campos `Suggests` ou `Enhances`. Para mais detalhes, ver Subseção [Uso de pacotes dependentes em *Imports* ou *Depends*?](conf_files_pkg.html#subsec-depimp). |
+| `Depends`      | Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Esses pacotes serão também instalados quando solicitar a instalação de seu pacote pela função `install.packages`. Ao carregar e anexar o seu pacote, usando `library` ou `require`, os pacotes em `Depends` também serão anexados, isto é, todas as funções do pacote nesse campo estará disponível no [caminho de busca](conf_files_pkg.html#subsec-namespace). Para mais detalhes, ver Subseçções [Campo *Depends*](conf_files_pkg.html#campo-depends) e [Uso de pacotes dependentes em *Imports* ou *Depends*?](conf_files_pkg.html#subsec-depimp).  |
+| `Imports`      | Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Contudo, ao carregar e anexar o seu pacote, os pacotes em `Imports` serão apenas carregados. Funções que usamos os operadores "::" ou ":::", também deverão ser listados aqui, ou nos campos `Suggests` ou `Enhances`. Para mais detalhes, ver Subseção [Uso de pacotes dependentes em *Imports* ou *Depends*?](conf_files_pkg.html#subsec-depimp). |
 | `Suggests`      | Esse campo usa a mesma sintaxe do campo `Depends` e lista os pacotes que não são necessariamente necessários. Geralmente são pacotes utilizados nos exemplos de documentação de ajuda do pacote (arquivos do subdiretório `man/~.Rd`), ou na descrição de um conjunto de dados inseridos no pacote; no auxílio dos tutoriais (*vignettes*), dentre outras situações, que não impede o bom funcionamento do pacote.      |
 | `Enhances`| Campo que lista os pacotes que forncem um aprimoramento do pacote em questão, por exemplo, forncendo métodos para as classes desses pacotes ou maneiras de manipular objetos.|
 | `SystemRequirements`       | Dependências externas ao sistema [R](http://r-project.org) devem ser listadas no campo `SystemRequirements`, sendo detalhados essa integração no arquivo *README*. Para mais detalhes veja a Subseção [Uso do campo *SystemRequirement*](conf_files_pkg.html#ext_files_r).        |
@@ -278,10 +278,15 @@ Vejamos mais algumas características sobre esse campo:
 * Os pacotes no campo `Depends` serão instalados usando o argumento `dependencies` na função `install.packages(pkgs = 'nome_pacote', dependencies =     TRUE)`, que `dependencies = TRUE` implica em instalar os pacotes do `Depends`, o dos campos  `Imports`, `LinkingTo`, `Suggests`;
 * O padrão do argumento `dependencies` da função `install.packages` é `NA`, que implica em instalar os pacotes dos campos `Depends`, `Imports` e `LinkingTo`. Se desejar instalar tudo, basta usar `install.packages(pkgs = 'nome_pacote', dependencies = c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances"))`.  Os pacotes no campo `Depends` serão carregados antes dos pacotes de interesse serem carregados, usando `library` ou `require`;
 * Cada pacote no campo `Depends` por ser seguido de um parêntes identificando a versão desejada, isto é, `Depends: MASS (>= 3.1)`. Contudo, ao inserir a versão, use apenas para os dois dígitos, evite inserir o dígito `<trecho>` (terceiro dígito);
-* Não faz sentido inserir nesse campo, pacotes da base do [R](http://r-project.org), pois estes são instalados na instalação do próprio programa. Nesse campo também pode ser possível especificar determinada dependência da versão do [R](http://r-project.org), por exemplo, `Depends: R (>= 3.6)`;
+* Nesse campo também pode ser possível especificar determinada dependência da versão do [R](http://r-project.org), por exemplo, `Depends: R (>= 3.6)`;
 * Pode ser repetido um pacote ou a versão R mais de uma vez, para limitar as versões aceitáveis;
 * Evite comentários nesse campo, pois tanto a biblioteca de pacotes quanto os recursos de verificação do pacote R, usam esse campo, e isso pode acabar gerando problema ao bom funcionamento da linguagem;
-* Na prática, o que se observa é que esse campo é utilizado para identificar a versão necessária do R para a utilização do pacote. Quando um pacote é necessário no pacote desenvolvido, o inserimos no NAMESPACE, e assim, as dependências internas do pacote dependentes de funções de outros pacotes, serão utilizadas sem que estes precisem ser carregados.
+
+#### Campo `Imports` {#campo-imports}
+
+Como mencionado na Tabela acima, os pacotes no campo `Imports` não são anexados no [caminho de busca](conf_files_pkg.html#subsec-namespace). Isso acaba sendo interessante, porque o pacote desenvolvido acaba gerando menos conflito com funções de outros pacotes. 
+
+Uma recomendação interessante, [R packages](https://r-pkgs.org/namespace.html?q=NAMES#imports), é que ao usar o campo `Imports`, o pacote dependente não precisa ser mencionado em *NAMESPACE* caso seja utilizado o operador `::` nas funções de seu pacote. Mais detalhes, ver [Relação entre os campos `Depends`, `Imports` e o *NAMESPACE*](conf_files_pkg.html#dep_imp_namespace).
 
 #### Uso de pacotes dependentes em `Imports` ou `Depends`? {#subsec-depimp}
 
@@ -291,10 +296,11 @@ Vejamos as regras gerais ([Writing R extensions, DESCRIPTION](https://cran.r-pro
 
 * Um pacote dependente deve ser listado em apenas um campos dos campos `Depends` ou `Imports`;
 * Pacotes listados no *NAMESPACE* usando `import` ou `importFrom` devem ser listados sempre no campo `Imports` e não em `Depends`;
-* Caso contrário, se não for listado no *NAMESPACE*, para o carregamento do pacote usando a função `library`, os pacotes dependentes devem adicionados no campo `Depends`;
-* Pacotes dependentes que utilizamos os seus conjuntos de dados em nosso pacote, devem ser listados no campo `Imports`
+* Caso seja necessário a utilização de todas as funções de pacotes dependentes, para o bom funcionamento do seu pacote usando a função `library` ou `require`, os pacotes dependentes devem adicionados no campo `Depends`;
+* Pacotes dependentes que utilizamos os seus conjuntos de dados em nosso pacote, devem ser listados no campo `Imports`.
+* Não faz sentido inserir em `Depends` ou `Imports` a dependência sobre o pacote $\color{red}{base}$, porque esse pacote, está sempre **carregado** e **anexado**, isto é, no **caminho de busca**.
 
-O campo 'Depends' atualmente deve ser usado raramente, apenas para a construção de pacotes em que desejamos que todas as funções dos pacotes dependentes estejam disponíveis para o usário, ao carregar o pacote desenvolvido, por questão de facilidade para o usuário. Caso contrário, o uso do campo `Imports` é mais coerente.
+O campo `Depends` atualmente deve ser usado raramente, apenas para a construção de pacotes em que desejamos que todas as funções dos pacotes dependentes estejam disponíveis para o usuário no [**caminho de busca**](conf_files_pkg.html#subsec-namespace), ao carregar o pacote desenvolvido, por questão de facilidade para o usuário. Caso contrário, o uso do campo `Imports` é mais coerente. 
 
 #### Uso do campo `SystemRequirements` {#ext_files_r}
 
@@ -426,7 +432,7 @@ Por fim, a utilização do campo `SystemRequirements` necessita uma explicação
 
 ## Entendendo o *NAMESPACE* {#subsec-namespace}
 
-Antes de iniciarmos a discussão sobre o que significa, qual o objetivo, e como utilizar o arquivo *NAMESPACE*, vamos entender inicialmente o que significa os termos **instalar**, **carregar** e **anexar** um pacote no R. A função `install.packages`, é reponsável por fazer o *download* e a **instalação** de um pacote de algum repositório ([CRAN](cran.r-project.org), por exemplo). Este último significa que você o inseriu em sua biblioteca de pacotes do [R](http://r-project.org)  contidas no seu sistema operacional. Contudo, se ao tentar executar alguma função do pacote no *console*, certamente, será recebido uma mensagem de erro, como verificado a seguir.
+Antes de iniciarmos a discussão sobre o que significa, qual o objetivo, e como utilizar o arquivo *NAMESPACE*, vamos entender inicialmente o que significa os termos **instalar**, **carregar** e **anexar** um pacote no R. A função `install.packages`, do pacote $\color{red}{utils}$^[Todos os pacotes com essa configuração, significa que estes são instaladaos com a intalação do [R](http://r-project.org)], é reponsável por fazer o *download* e a **instalação** de um pacote de algum repositório ([CRAN](cran.r-project.org), por exemplo). Este último significa que você o inseriu em sua biblioteca de pacotes do [R](http://r-project.org)  contidas no seu sistema operacional. Contudo, se ao tentar executar alguma função do pacote no *console*, certamente, será recebido uma mensagem de erro, como verificado a seguir.
 ```{r inst_meupacoter, eval=FALSE}
 # Instalando o pacote 'devtools'
 install.packages("devtools")
@@ -435,7 +441,7 @@ install.packages("devtools")
 devtools::install_github("bendeivide/meupacoter")
 
 Downloading GitHub repo bendeivide/meupacoter@HEAD
-√  checking for file 'C:\Users\MABENLA\AppData\Local\Temp\RtmpikrG6Z\remotes15b811c65a3\bendeivide-meupacoter-7c9ec1f/DESCRIPTION' (1.8s)
+√  checking for file 'C:\Users\MABENLA\...\DESCRIPTION' (1.8s)
 -  preparing 'meupacoter': (2.8s)
 √  checking DESCRIPTION meta-information ... 
 -  checking for LF line-endings in source and make files and shell scripts
@@ -473,7 +479,7 @@ Error in aritmetica(a = 8, b = 4, op = "soma") :
   não foi possível encontrar a função "aritmetica"
 ```
 
-Isso significa que as funções do pacote ainda não estão disponíveis. Quando usamos a função `library` ou `require` em um pacote acontece duas coisas sequenciadas, o **carregamento** e o **anexo** do pacote no **caminho de busca**. O **caminho de busca** é o um conjunto de ambientes hierarquizados dos quais todos os objetos nesses ambientes podem ser encontrados no ambiente de trabalho corrente (*workspace*), isto é, basta digitar no console o nome de um função contida em um pacote, que está anexado ao **caminho de busca**, que essa função estará disponível para ser utilizada. O **caminho de busca** pode ser encontrado pela função `search` do pacote $\color{red}{base}$^[Todos os pacotes com essa configuração, significa que estes são instaladaos com a intalação do [R](http://r-project.org)]. Para saber quais são esses pacotes, use a linha de comando:
+Isso significa que as funções do pacote ainda não estão disponíveis. Quando usamos a função `library` ou `require` em um pacote acontece duas coisas sequenciadas, o **carregamento** e o **anexo** do pacote no **caminho de busca**. O **caminho de busca** é o um conjunto de ambientes hierarquizados dos quais todos os objetos nesses ambientes podem ser encontrados no ambiente de trabalho corrente (*workspace*), isto é, basta digitar no console o nome de um função contida em um pacote, que está anexado ao **caminho de busca**, que essa função estará disponível para ser utilizada. O **caminho de busca** pode ser encontrado pela função `search` do pacote $\color{red}{base}$. Para saber quais são esses pacotes, use a linha de comando:
 ```{r r library_pack, eval=FALSE}
 library(lib.loc = .Library)
 ##
@@ -591,11 +597,9 @@ search()
 #> [16] "package:base"  
 ```
 
-Para entender um pouco mais sobre ambientes no [R](http://r-project.org), ver Seção [Ambientes em R](environments.html).
+Para entender um pouco mais sobre ambientes no [R](http://r-project.org), ver Seção [Ambientes em R](environments.html). De acordo com o que comentamos sobre o **caminho de busca**, poderíamos nos perguntar, se nós criássemos uma função, cujo o nome é idêntico a uma outra função de outro pacote anexado ao **caminho de busca**, ou anexasse um outro pacote anterior que também teria uma função com o mesmo nome, o pacote de interesse não poderia sofrer algum problema de execução, resultado, ou qualquer outro problema que o interferisse? A resposta é não, e graças ao *NAMESPACE*. Um pacote tem dois ambientes:
 
-De acordo com o que comentamos sobre o **caminho de busca**, poderíamos nos perguntar, se nós criássemos uma função, cujo o nome é idêntico a um pacote anexado ao **caminho de busca**, ou anexasse um outro pacote anterior que também teria uma função com o mesmo nome, o pacote de interesse não poderia sofrer algum problema de execução, resultado, ou qualquer outro problema que o interferisse? A resposta é não, e graças ao NAMESPACE. Um pacote tem dois ambientes:
-
-* **ambiente de pacote**: é a interface externa do pacote, do qual o usuário [R](http://r-project.org) pode encontrar pelo caminho de busca ou por `::`. Todo ambiente tem um parental, nesse caso, o ambiente parental de um ambiente de pacote é ordenado de acordo com o caminho de busca. E todo pacote anexado é o parental do ambiente global. Veja no exemplo a seguir, o que estamos querendo dizer. Por exemplo, existe uma mesma função `summarize` nos pacotes [plyr](http://plyr.had.co.nz/) e [Hmisc](https://cran.r-project.org/packages=Hmisc). Dependendo de como você anexar a ordem dos pacotes, por exemplo, 
+* **ambiente de pacote**: é a interface externa do pacote, do qual o usuário [R](http://r-project.org) pode encontrar pelo caminho de busca ou por `::`. Todo ambiente tem um parental, nesse caso, o ambiente parental de um ambiente de pacote é ordenado de acordo com o caminho de busca. E todo pacote anexado é o parental do ambiente global. Veja no exemplo a seguir, o que estamos querendo dizer. Por exemplo, existe uma mesma função `summarize` nos pacotes [plyr](http://plyr.had.co.nz/) e [Hmisc](https://cran.r-project.org/packages=Hmisc). Dependendo de como você anexar a ordem dos pacotes, por exemplo, a função `summarize` pode ter vindo de um ou do outro pacote.
 ```{r packenv, eval=FALSE}
 library(plyr)
 rlang::fn_env(summarize)
@@ -616,7 +620,7 @@ search()
 #> [19] "package:methods"    "Autoloads"          "org:r-lib"         
 #> [22] "package:base"  
 ```
-Isso significa que como o último pacote anexado foi o pacote `Hmisc`, então na hora de buscar esse objeto, o pacote primeiro pesquisado é o `Hmisc`. Como alternativa, poderia ser utilizado `plyr::summarize` ou `Hmisc::summarize` para resolver este problema. Mais ainda, e se no ambiente global houvesse um objeto com esse nome, ele iria sobrepor independente da ordem de anexar o pacote, porque ele sempre o primeiro ambiente no **caminho de busca**, veja:
+Isso significa que o último pacote anexado foi o pacote `Hmisc`, então na hora de buscar a função `summarize`, o pacote primeiro pesquisado é o `Hmisc`. Como alternativa, poderia ser utilizado `plyr::summarize` ou `Hmisc::summarize` para resolver este problema. Mais ainda, e se no ambiente global houvesse um objeto com esse nome, ele iria sobrepor independente da ordem de anexar o pacote, porque ele sempre é o primeiro ambiente no **caminho de busca**, veja:
 ```{r packenv2, eval=FALSE}
 
 # Primeiro criando o objeto
@@ -642,11 +646,11 @@ search()
 ```
 
 
-
-* **ambiente de *namespace* **: representa a interface interna no pacote. É o ambiente onde o pacote controla as suas funções. Cada ligação no ambiente de pacote também está no ambiente de *namespace*. Contudo, algumas funções ocorrem apenas no ambiente de namespace, e quem controla isso é o desenvolvedor do pacote, por meio do arquivo NAMESPACE.
+* **ambiente de *namespace* **: representa a interface interna no pacote. É o ambiente onde o pacote controla as suas funções. Cada ligação no ambiente de pacote também está no ambiente de *namespace*. Contudo, algumas funções ocorrem apenas no ambiente de namespace, e quem controla isso é o desenvolvedor do pacote, por meio do arquivo *NAMESPACE*.
 
 Quanto a hierarquização de ambientes, cada ambiente de *namespace* apresenta um mesmo grupo de ancestrais, que segue:
- * Ambiente de namespace $>$ Ambiente de importações $>$ Ambiente de *namespace* do pacote $\color{red}{base}$ $>$ Ambiente Global.
+
+* Ambiente de namespace $>$ Ambiente de importações $>$ Ambiente de *namespace* do pacote $\color{red}{base}$ $>$ Ambiente Global.
 
 O ambiente de importações contém todas as ligações para todas as funções do pacotes, porém, importar implicitamente todas as funções do pacote $\color{red}{base}$ poderia ser demorado. Assim, existe um ambiente de *namespace* do pacote $\color{red}{base}$ que tem como ancestral o ambiente global. Dessa forma, se o pacote não encontrar as ligações necessárias no ambiente de importações, será procurado de forma usual. E isso não será uma boa escolha porque dependerá do anexamento de outros pacotes, e para evitar essa escolha o `R CMD check` avisará automaticamente sobre essa decisão. Veja a representação a seguir. 
 
@@ -663,7 +667,7 @@ sd
 #> <bytecode: 0x0000001b97450678>
 #> <environment: namespace:stats>
 ```
-Perceba que essa função depende de outra função do pacote $\color{red}{stats}$, `var` que calcula a variância de um conjunto de dados. Por alguma razão, nós criamos um objeto com o mesmo nome `var`, no ambiente global. Toda função capta as informações disponíveis no caminho de busca, no nosso caso o ambiente global, logo quando eu usasse a função `sd`, ela poderia ter algum conflito com a função `var` dentro do pacote, com o objeto criado `var` no ambiente global. Vejamos:
+Perceba que essa função depende de outra função do pacote $\color{red}{stats}$, `var` que calcula a variância de um conjunto de dados. Por alguma razão, nós criamos um objeto com o mesmo nome `var`, no ambiente global. Toda função capta as informações disponíveis no caminho de busca, logo quando eu usasse a função `sd`, ela poderia ter algum conflito com a função `var` dentro do pacote, porque quando a função olhasse para o caminho de busca e procurasse por `var` este não iria ser o objeto desejado, com o objeto criado `var` no ambiente global. Vejamos
 ```{r var, eval=FALSE}
 # Veja como uma funcao capta a informacao do ambiente global
 y <- 2
@@ -684,13 +688,155 @@ var <- "Nada"
 # Testando sd(x)
 sd(x)
 #> [1] 1
+
+# Agora veja uma outa situacao:
+x <- c(1, 2, 3)
+
+# Funcao 'var' que criamos, que nao calcula variancia de dados
+var <- function (x) return("Nada")
+
+# Funcao que depende de 'var' do pacote stats, e calcula a variancia 
+aux <- function(x) {
+  vari <- var(x)
+  return(vari)
+}
+# O resultado mostra, que a funcao aux como esta no ambiente global, ela não tem um namespace porque nao esta em pacote algum.
+# No caminho de busca, o ambiente do pacote 'stats' estara na posicao 3, isso significa que a funcao aux ao buscar por 'var', encontrar primeiro no ambiente global, que nao seria o objeto desejado.
+aux
+#> [1] "Nada"
 ```
-Observe pelo exemplo assim, que a função retorna `sd(x) = 1`. Ou seja, que fez o papel de escolha das ligações internas da função do pacote foi o ambiente namespace, ele garante que não haja conflito de funções entre funções de outros pacotes ou objetos.
+Observe pelo exemplo acima, que a função retorna `sd(x) = 1`. Ou seja, quem fez o papel de escolha das ligações internas da função do pacote foi o ambiente *namespace*, ele garante que não haja conflito de funções entre funções de outros pacotes ou objetos.
+
+Portanto, o arquivo *NAMESPACE* controlado pelo desenvolvedor do pacote, irá determinar quais as funções do pacote que serão exportadas para o usuário utilizar e quais as funções importadas de outros pacotes que serão inseridas no pacote desenvolvido, e ainda as que não serão exportadas, são as funções internas. Quando [criamos um pacote pelo R](construindo_pacote.html#building_rpack) um arquivo *NAMESPACE* é criado no diretório do projeto do pacote com uma única expressão:
+```{}
+exportPattern("^[^\\.]")
+```
+Isso significa que o pacote exportará todas as suas funções criadas, exceto as que se iniciarem por ponto. Contudo, esse padrão não é recomendado porque quanto mais funções exportadas, maiores são as chances de haver conflito com outras funções de outros pacotes.
+
+O arquivo *NAMESPACE* não escrito na linguagem [R](http://r-project.org), embora tenha muita semelhança, e sim, diretivas de *namespace* que descrevem as importações e exportações de funções. Existem oito diretivas ([R packages](https://r-pkgs.org/namespace.html?q=NAMES#namespace-NAMESPACE)), das quais quatro descrevem as exportações:
+
+* `export()`: funções de exportação (incluindo o método S3 e S4);
+* `exportPattern()`: exporta todas as funçõe;
+* `exportClasses()`, `exportMethods`: exporta classes e métodos S4;
+* `S3method()`: exporta o método S3,
+
+e quatro descrevem as importações:
+
+* `import()`: importa todas as funções de um pacote;
+* `importFrom`: importa funções selecionadas;
+*  `importClassesFrom()`, `importMethodsFrom()`: importa classes e métodos S4;
+* `useDynlib()`: importar uma função em linguagem *C*. Ver [Integração com outras linguagens de programação](other_languages.html).
+
+Para configurar o *NAMESPACE* recomendamos utilizar o pacote [roxygen2](https://roxygen2.r-lib.org/), na Seção [Documentando as funções do pacote](conf_files_pkg.html#docs_rpkg). Veremos na Seção [Inserindo dados em um pacote](datasetr.html), que os arquivos de conjunto de dados que poderemos inserir nos pacotes, para utilizar em nossos exemplos, não precisam do mecanismo de *namespace* usual, e portanto não precisam ser exportados.
+
+
+
+### Relação entre os campos `Depends`, `Imports` e o *NAMESPACE*{#dep_imp_namespace}
+
+Algo que se torna confuso, acho que o nome dos campos `Depends` e `Imports` no arquivo [*DESCRIPTION*](conf_files_pkg.html#description) ajudam nisso, é que esses campos não importam funções para o ambiente *namespace*. A função deles é garantir que ao instalar o seu pacote, as suas dependências de pacotes também sejam instaladas.
+
+A importação de funções de outros pacotes para o seu pacote, isto é para o ambiente *namespace* do seu pacote, é exclusividade do arquivo *NAMESPACE*. Contudo, se usarmos o operador `::` dentro das funções do seu pacote, isto é, fizemos um chamamento implícito sobre as funções dos pacotes dependentes, não será necessário mencionar no *NAMESPACE*. Vejamos os exemplos, 
+
+* Usando a importação via `importFrom` no *NAMESPACE*:
+
+  * Arquivo *DESCRIPTION*
+  ```{}
+  ...
+  Imports stats
+  ```
+  * Arquivo *NAMESPACE*
+  ```{}
+  ...
+  importFrom("stats","qtukey")
+  ```
+  * *R/funcao.R*
+  ```{r funcao, eval=FALSE}
+  facao_do_pacote <- function(...){
+    # corpo da funcao
+    qtukey(...)
+  }
+  ```
+* Usando o operador `::`:
+    * Arquivo *DESCRIPTION*
+  ```{}
+  ...
+  Imports stats
+  ```
+  * Arquivo *NAMESPACE*
+  ```{}
+  ...
+  ```
+  * *R/funcao.R*
+  ```{r funcao2, eval=FALSE}
+  facao_do_pacote <- function(...){
+    # corpo da funcao
+    stats::qtukey(...)
+  }
+  ```
+
+Usar o operador `::` pode se tornar mais trabalhoso de escrever as funções, porém, muito mais fácil deixar documentado para futuras atualizações, uma vez que saberemos a origem das funções por esse procedimento. Contudo, se for utilizado repetidas vezes uma mesma função, é preferível a importação via `importFrom()` do que `::`, uma vez que o segundo tipo adiciona $5~\mu s$ de tempo de avaliação da função ([R packages](https://r-pkgs.org/namespace.html?q=NAMES#import-r)). 
+Além de importação de funções, também é possível a importação de operadores, tais como, `importFrom("magrittr", "%>%")`. 
+
+Por fim, uma regra todo pacote mencionado no *NAMESPACE* deve está em `Depends` ou `Imports`, no arquivo *DESCRIPTION*. Mas o inverso não é verdade, e foi mostrado anteriormente. Mais detalhes de como importar funções usando o *NAMESPACE*, ver Seção [Documentando as funções do pacote](conf_files_pkg.html#docs_rpkg).
+
+
+### Importação e exportação de funções 
+
+Na [seção anterior](conf_files_pkg.html#dep_imp_namespace), tivemos uma ideia de como importar funções. Mais detalhes, poderá ser visto na Subseção [editando os arquivo de ajuda do pacote e o *NAMESPACE*](conf_files_pkg.html#edit-help-namespace).
+
+A exportação de função se refere as funções desenvolvidas no pacote que desejamos exportá-la, isto é, torná-la disponível para o usuário. Dessa forma, usaremos o arquivo *NAMESPACE* para tal fim. Usaremos a diretiva `export("nome_funcao")`, explicitando o nome da função, a qual queremos exportar. As demais diretivas foram mencionadas na Seção [Entendendo o *Namespace*](conf_files_pkg.html#dep_imp_namespace). [Toda função exportada deve ser documentada](conf_files_pkg.html#docs_rpkg), isto é, criarmos os arquivos de ajuda, */man/<arquivo>.Rd*.
+
+Como já mencionamos, quando desejamos compartilhar um pacote sobre o [CRAN](cran.r-project.org), não recomendamos o uso da diretiva `exportPattern("^[^\\.]")`, pelos conflitos que possam existir entre pacotes, ao exportar todas as funções, ainda mais se seu pacote tiver muitas funções.
+
+Algumas outras funções podem auxiliar as funções principais do pacote dos quais pensamos exportá-las. Dessa forma, não faz sentido essas funções auxiliares serem exportadas. Por exemplo, o pacote [SMR](http://cran.r-project.org/package=SMR) foi objetivado para calcular a função densidade, função distribuição, função quantil e gerador de números aleatórios da estatística *midrange* de uma população normal. Dessa forma, só havia sentido exportarmos as funções `dSMR`, `pSMR`, `qSMR` e `rSMR`. Porém, usamos muitas funções auxiliares para essas funções principais, porém, como em algumas expressões chegávamos a integrais duplas ou triplas, nada trival para expressá-la analiticamente. Partimos assim, para aproximações numéricas, usando quadraturas gaussianas, mais especificamente a quadratura Gauss-Legendre. Uma forma de encontrar essas funções internas que não são exportadas é buscá-la no arquivo fonte, *<nome_pacote>.tar.gz*, no [CRAN](http://cran.r-project.org), ou usar o operador `:::` usando linha de comando:
+```{r gauss-legendre, eval=FALSE}
+SMR:::GaussLegendre
+#> function (size) 
+#> {
+#>     size <- as.integer(size)
+#>     if (size < 0) 
+#>         stop("Must be a non-negative number of nodes!")
+#>     if (size == 0) 
+#>         return(list(x = numeric(0), w = numeric(0)))
+#>     i <- 1:size
+#>     j <- 1:(size - 1)
+#>     mu0 <- 2
+#>     b <- j/(4 * j^2 - 1)^0.5
+#>     A <- rep(0, size * size)
+#>     A[(size + 1) * (j - 1) + 2] <- b
+#>     A[(size + 1) * j] <- b
+#>     dim(A) <- c(size, size)
+#>     sd <- eigen(A, symmetric = TRUE)
+#>     w <- rev(as.vector(sd$vectors[1, ]))
+#>     w <- mu0 * w^2
+#>     x <- rev(sd$values)
+#>     return(list(nodes = x, weights = w))
+#> }
+#> <bytecode: 0x0000001b9eb6a4b8>
+#> <environment: namespace:SMR>
+```
+Observe por esse exemplo que o objetivo do pacote não é apresentar uma função de aproximação numérica. Dessa forma, não se faz necessário exportar a função `GaussLegendre`. Para essas funções não serem exportadas, basta não serem mencionadas no *NAMESPACE*. Usando o pacote [roxygen2]([roxygen2](https://roxygen2.r-lib.org/)), basta não comentar o *scripts* dessas funções. Veremos como fazer isso na Subseção [Editando os arquivo de ajuda do pacote e o *NAMESPACE*](conf_files_pkg.html#edit-help-namespace).
+
+
 
 ## Documentando as funções do pacote {#docs_rpkg}
 
-### Pacote `roxygen2`
+Vamos utilizar os recursos do pacote [roxygen2](https://roxygen2.r-lib.org/) para documentar o pacote e configurar o *NAMESPACE*. A vantagem é que essa documentação e configuração é toda feita no próprio *script* do pacote, isto é, nos arquivos do subdiretório *R/*. Uma vez instalado o pacote [roxygen2](https://roxygen2.r-lib.org/), no [RStudio](http://rstudio.com) configure-o:
 
-### Editando os arquivo de ajuda do pacote e o *NAMESPACE*
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Nw8ZBlmy3Yw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+
+### Pacote [roxygen2](https://roxygen2.r-lib.org/)
+
+
+
+
+
+### Editando os arquivo de ajuda do pacote e o *NAMESPACE* {#edit-help-namespace}
 
 ## Resumo do que vimos nessa seção
+
+Em construção...

@@ -1,0 +1,18 @@
+---
+title: "Submetendo o pacote ao CRAN"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{submit}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ou20KCmxSZ0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>

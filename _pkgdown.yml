@@ -28,9 +28,11 @@ navbar:
        - text: Passo 3 - Checando o pacote
          href: articles/check_pkg.html
        - text: Passo 4 - Submetendo o pacote ao CRAN
-         href: ~
+         href: articles/submit.html
        - text: Passos e temas adicionais
          menu:
+         - text: Desenvolvimento de pacotes
+         - text: "------------------"
          - text: Criar um repositório GitHub para o pacote
            href: ~
          - text: Criar uma website para o pacote
@@ -41,21 +43,30 @@ navbar:
            href: ~
          - text: Criando o arquivo index
            href: ~
-         - text: Inserindo dados em um pacotes
+         - text: Medidores de qualidade de um pacote
+           href: articles/badges.html
+         - text: Inserindo dados em um pacote
            href: articles/datasetr.html
          - text: Inserindo imagens na documentação do pacotes
            href: ~
-         - text: Internacionação de pacotes
+         - text: Internacinalização de pacotes
            href: articles/interpack.html
          - text: Criação de GUI para o pacote
            href: ~
          - text: Integração com outras linguagens de programação
-           href: ~
+           href: articles/other_languages.html
          - text: Subdiretórios adicionais
            href: ~
+         - text: "------------------"
+         - text: R avançado
+         - text: "------------------"
          - text: Ambientes em R
            href: ~
          - text: Programação defensiva
+           href: ~
+         - text: Classe e Métodos de objetos
+           href: articles/class_object.html
+         - text: Paralelização de funções
            href: ~
 
     - icon: fa-newspaper-o
@@ -66,7 +77,7 @@ navbar:
       href: reference/index.html
     - text: "faq"
       icon: fa-question-circle-o
-      href: articles/conf_files_pkg.html
+      href: articles/faq.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/bendeivide/meupacoter

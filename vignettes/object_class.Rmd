@@ -1,0 +1,27 @@
+---
+title: "Classe e Métodos de objetos"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{object_class}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Em construção...
+
+## Método S3
+
+Em construção ...
+
+## Método S4
+
+Em construção...
+
+## Método R6

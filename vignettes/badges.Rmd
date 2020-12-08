@@ -1,0 +1,22 @@
+---
+title: "Medidores de qualidade de um pacote"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{badges}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+Em construção...
+<!--
+covr
+travis
+coverage
+-->

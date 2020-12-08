@@ -77,11 +77,15 @@
     <li>
       <a href="../articles/check_pkg.html">Passo 3 - Checando o pacote</a>
     </li>
-    <li class="dropdown-header">Passo 4 - Submetendo o pacote ao CRAN</li>
+    <li>
+      <a href="../articles/submit.html">Passo 4 - Submetendo o pacote ao CRAN</a>
+    </li>
     <li class="dropdown-submenu">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passos e temas adicionais</a>
       <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Criar um repositório GitHub para o pacote</li>
+<li class="dropdown-header">Desenvolvimento de pacotes</li>
+        <li class="divider">
+        <li class="dropdown-header">Criar um repositório GitHub para o pacote</li>
         <li>
           <a href="../articles/construindo_website.html">Criar uma website para o pacote</a>
         </li>
@@ -89,17 +93,29 @@
         <li class="dropdown-header">Criando o arquivo README</li>
         <li class="dropdown-header">Criando o arquivo index</li>
         <li>
-          <a href="../articles/datasetr.html">Inserindo dados em um pacotes</a>
+          <a href="../articles/badges.html">Medidores de qualidade de um pacote</a>
+        </li>
+        <li>
+          <a href="../articles/datasetr.html">Inserindo dados em um pacote</a>
         </li>
         <li class="dropdown-header">Inserindo imagens na documentação do pacotes</li>
         <li>
-          <a href="../articles/interpack.html">Internacionação de pacotes</a>
+          <a href="../articles/interpack.html">Internacinalização de pacotes</a>
         </li>
         <li class="dropdown-header">Criação de GUI para o pacote</li>
-        <li class="dropdown-header">Integração com outras linguagens de programação</li>
+        <li>
+          <a href="../articles/other_languages.html">Integração com outras linguagens de programação</a>
+        </li>
         <li class="dropdown-header">Subdiretórios adicionais</li>
+        <li class="divider">
+        <li class="dropdown-header">R avançado</li>
+        <li class="divider">
         <li class="dropdown-header">Ambientes em R</li>
         <li class="dropdown-header">Programação defensiva</li>
+        <li>
+          <a href="../articles/class_object.html">Classe e Métodos de objetos</a>
+        </li>
+        <li class="dropdown-header">Paralelização de funções</li>
       </ul>
 </li>
   </ul>
@@ -119,7 +135,7 @@
   </a>
 </li>
 <li>
-  <a href="../articles/conf_files_pkg.html">
+  <a href="../articles/faq.html">
     <span class="fa fa-question-circle-o"></span>
      
     faq
@@ -182,7 +198,7 @@
     
 <p>Nessa seção, veremos como construir um pacote R usando o <a href="https://rstudio.com/">RStudio</a>. Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando todos para esse momento.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"devtools"</span>, <span class="st">"usethis"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgdown"</span>, <span class="st">"tinytex"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"devtools"</span>, <span class="st">"usethis"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgdown"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">pkgs</span><span class="op">)</span></code></pre></div>
 <p>Descriminaremos a importância de cada pacote na tabela a seguir. Para essa primeira versão, deixaremos claro que o desenvolvimento de pacotes será usado de acordo com as configurações do sistema operacional Windows. Assim, precisaremos instalar uma outra ferramenta que é o <a href="https://cran.r-project.org/bin/windows/Rtools/">rtools</a>.</p>
 <p align="center">
@@ -431,6 +447,7 @@
 </iframe>
 </p>
 <p>Passos no <a href="https://rstudio.com/">RStudio</a>: <code>File</code> &gt; <code>New Project...</code> &gt; <code>New Directory</code> &gt; <code>R package</code>. Insira o nome do pacote e armazene o projeto em um diretório desejado. Nesse momento, poderíamos já ter adicionado um repositório <a href="http://github.com">GitHub</a> ao pacote. Deixaremos essa parte para as seções seguintes.</p>
+<p>Se desejar criar por linha de comando, use <code><a href="https://usethis.r-lib.org/reference/create_package.html">usethis::create_package</a></code>.</p>
 </div>
   </div>
 

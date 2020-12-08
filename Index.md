@@ -27,12 +27,12 @@ Vejam alguns locais que o
 [meupacoter](https://github.com/bendeivide/meupacoter/) já foi
 apresentado:
 
-| Data          | Local                               | Tema da apresentação                                                                                         |
-| ------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| 08-09/12/2020 | UFJF - Juiz de Fora/MG (Brasil)     | [Semana da Estatística](https://www.sympla.com.br/minicurso-como-desenvolver-seu-primeiro-pacote-r__1073575) |
-| 20/08/2020    | UFSJ - São João del-Rei/MG (Brasil) | [Seminário: Desenvolvimento de pacotes em R](https://youtu.be/mGUY6Cxzr58)                                   |
-| 26/08/2013    | UFLA - Lavras/MG (Brasil)           | [Seminário: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)                                        |
-| 05/02/2013    | UFLA - Lavras/MG (Brasil)           | [Minicurso: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)                                        |
+| Data          | Local                               | Tema                                                                                                                                     | Apresentação                                                                                                      |
+| ------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| 08-09/12/2020 | UFJF - Juiz de Fora/MG (Brasil)     | [Minicurso: Como desenvolver seu primeiro pacote R](https://www.sympla.com.br/minicurso-como-desenvolver-seu-primeiro-pacote-r__1073575) | [rbuilgingpack-ufjf.pdf](https://drive.google.com/file/d/1hsq_i7CJNravP3fEAXzipdnP2Q-nArt3/view?usp=sharing)\[1\] |
+| 20/08/2020    | UFSJ - São João del-Rei/MG (Brasil) | [Seminário: Desenvolvimento de pacotes em R](https://youtu.be/mGUY6Cxzr58)                                                               |                                                                                                                   |
+| 26/08/2013    | UFLA - Lavras/MG (Brasil)           | [Seminário: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)                                                                    |                                                                                                                   |
+| 05/02/2013    | UFLA - Lavras/MG (Brasil)           | [Minicurso: Desenvolvimento de pacotes em R](http://www.des.ufla.br/)                                                                    |                                                                                                                   |
 
 ## <i class="fas fa-arrow-alt-circle-down"></i> Instalação
 
@@ -87,3 +87,6 @@ não disponíveis.
 <img src="man/figures/livroGUI2.png" alt="" width="30%">
 
 </p>
+
+1.  Para executar os vídeos desse arquivo, deve ser visualizado pelo
+    Adobe Reader, e ter o plugin do Adobe Flash player instalado

@@ -20,9 +20,9 @@ Todo esse material é baseado em três referências, que recomendamos a todos:
 * [R packages](https://r-pkgs.org/index.html)
 * [Advanced R](https://adv-r.hadley.nz/)
 
-Acreditamos que a linguagem [R](http://r-project.org), conseguiu caminhar com suas próprias pernas, devido a versatilidade e contribuição computacional estatística para ciência. Hoje as áreas de atuação da linguagem são aplicadas nas mais diversas áreas da ciência. 
+Acreditamos que a linguagem [R](http://r-project.org), conseguiu caminhar com suas próprias pernas, devido a versatilidade e contribuição computacional estatística para ciência. Hoje as áreas de atuação da linguagem são aplicadas nas mais diversas áreas do conhecimento. 
 
-Entretanto, cremos que a facilidade de utilização dessa linguagem, exitem dois marcos, um antes e outro depois de [Hadley Wickham](http://hadley.nz/), o Cientista Chefe do [RStudio](http://rstudio.com), que por sinal, os dois livros citados acima são deles. Entendemos, que alguns programadores haja rejeição rejeitem a utilização interfaces gráficas ao usuário [R](http://r-project.org), como o [RStudio](http://rstudio.com), as famosas *GUI*. Mas é notório que os recursos de alguns pacotes, inclusive desenvolvidos pelo próprio [Hadley Wickham](http://hadley.nz/), auxiliados com os recursos do [RStudio](http://rstudio.com), nos economiza um bom tempo de como programar ou desenvolver determinadas atividades. Dessa forma, podemos tornar o nosso tempo de trabalho mais eficiente. 
+Entretanto, cremos que a facilidade de utilização dessa linguagem, exitem dois marcos, um antes e outro depois de [Hadley Wickham](http://hadley.nz/), o Cientista Chefe do [RStudio](http://rstudio.com), que por sinal, os dois livros citados acima ele faz parte. Entendemos, que alguns programadores não optem pela utilização de interfaces gráficas ao usuário [R](http://r-project.org), como o [RStudio](http://rstudio.com), as famosas *GUI*. Mas é notório que os recursos de alguns pacotes, inclusive desenvolvidos pelo próprio [Hadley Wickham](http://hadley.nz/), auxiliados com os recursos do [RStudio](http://rstudio.com), nos economiza um bom tempo de como programar ou desenvolver determinadas atividades. Dessa forma, podemos tornar o nosso tempo de trabalho mais eficiente. 
 
 Um exemplo referente a esse assunto é a criação de uma *Website* para o pacote. Mesmo usuários da linguagem [R](http://r-project.org) que não tem afinidades com o desenvolvimento de páginas *Web*, podem dessenvolver a sua com o auxílio de um pacote chamado [pkgdown](pkgdown.r-lib.org). Iremos observar que em um passe de mágica, usando o [RStudio](http://rstudio.com), poderemos não só criar uma página para o pacote, mas também disponíbilizá-lo em um repositório do [GitHub](https://github.com), por exemplo. Claro que, à medida que vamos necessitando de algo mais complexo, haverá um maior esforço em estudar um pouco mais sobre o assunto, para atingir o objetivo desejado. Mais a frente, falaremos sobre como desenvolver uma *Website* para o seu pacote.
 
@@ -161,17 +161,6 @@ Depois comentar cada uma delas mostrando o seu objetivo
 * internacionalize seu pacote;
 * [Sempre comente seu código](introd_pkg.html#goodpractice), para que em futuras atualizações outros contribuídores do pacote tenham noção do que foi feito.
 
-
-
-
-## Uso de medidores de qualidade (*badges*) para pacotes
-
-Em construção...
-<!--
-covr
-travis
-coverage
--->
 
 ## Resumo do que vimos nessa seção
 

@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 Nessa seção, veremos como construir um pacote R usando o [RStudio](https://rstudio.com/). Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando todos para esse momento.
 
 ```{r pkg_construir, eval=FALSE}
-pkgs <- c("devtools", "usethis", "roxygen2", "pkgdown", "tinytex")
+pkgs <- c("devtools", "usethis", "roxygen2", "pkgdown")
 install.packages(pkgs)
 ```
 
@@ -126,4 +126,5 @@ Para construir o esqueleto básico de um pacote, usando o [RStudio](https://rstu
 
 Passos no [RStudio](https://rstudio.com/): `File` >  `New Project...` > `New Directory` > `R package`. Insira o nome do pacote e armazene o projeto em um diretório desejado. Nesse momento, poderíamos já ter adicionado um repositório [GitHub](http://github.com) ao pacote. Deixaremos essa parte para as seções seguintes.
 
+Se desejar criar por linha de comando, use `usethis::create_package`.
 

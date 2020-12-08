@@ -2,6 +2,7 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
+  badges: badges.html
   check_pkg: check_pkg.html
   conf_files_pkg: conf_files_pkg.html
   construindo_pacote: construindo_pacote.html
@@ -11,8 +12,11 @@ articles:
   faq: faq.html
   interpack: interpack.html
   introd_pkg: introd_pkg.html
+  object_class: object_class.html
+  other_languages: other_languages.html
   subdir_add: subdir_add.html
-last_built: 2020-12-04T13:07Z
+  submit: submit.html
+last_built: 2020-12-08T01:27Z
 urls:
   reference: https://bendeivide.github.io/meupacoter//reference
   article: https://bendeivide.github.io/meupacoter//articles

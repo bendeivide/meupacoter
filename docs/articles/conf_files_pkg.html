@@ -77,11 +77,15 @@
     <li>
       <a href="../articles/check_pkg.html">Passo 3 - Checando o pacote</a>
     </li>
-    <li class="dropdown-header">Passo 4 - Submetendo o pacote ao CRAN</li>
+    <li>
+      <a href="../articles/submit.html">Passo 4 - Submetendo o pacote ao CRAN</a>
+    </li>
     <li class="dropdown-submenu">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Passos e temas adicionais</a>
       <ul class="dropdown-menu" role="menu">
-<li class="dropdown-header">Criar um repositório GitHub para o pacote</li>
+<li class="dropdown-header">Desenvolvimento de pacotes</li>
+        <li class="divider">
+        <li class="dropdown-header">Criar um repositório GitHub para o pacote</li>
         <li>
           <a href="../articles/construindo_website.html">Criar uma website para o pacote</a>
         </li>
@@ -89,17 +93,29 @@
         <li class="dropdown-header">Criando o arquivo README</li>
         <li class="dropdown-header">Criando o arquivo index</li>
         <li>
-          <a href="../articles/datasetr.html">Inserindo dados em um pacotes</a>
+          <a href="../articles/badges.html">Medidores de qualidade de um pacote</a>
+        </li>
+        <li>
+          <a href="../articles/datasetr.html">Inserindo dados em um pacote</a>
         </li>
         <li class="dropdown-header">Inserindo imagens na documentação do pacotes</li>
         <li>
-          <a href="../articles/interpack.html">Internacionação de pacotes</a>
+          <a href="../articles/interpack.html">Internacinalização de pacotes</a>
         </li>
         <li class="dropdown-header">Criação de GUI para o pacote</li>
-        <li class="dropdown-header">Integração com outras linguagens de programação</li>
+        <li>
+          <a href="../articles/other_languages.html">Integração com outras linguagens de programação</a>
+        </li>
         <li class="dropdown-header">Subdiretórios adicionais</li>
+        <li class="divider">
+        <li class="dropdown-header">R avançado</li>
+        <li class="divider">
         <li class="dropdown-header">Ambientes em R</li>
         <li class="dropdown-header">Programação defensiva</li>
+        <li>
+          <a href="../articles/class_object.html">Classe e Métodos de objetos</a>
+        </li>
+        <li class="dropdown-header">Paralelização de funções</li>
       </ul>
 </li>
   </ul>
@@ -119,7 +135,7 @@
   </a>
 </li>
 <li>
-  <a href="../articles/conf_files_pkg.html">
+  <a href="../articles/faq.html">
     <span class="fa fa-question-circle-o"></span>
      
     faq
@@ -238,9 +254,9 @@
 <p align="center">
 <img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%"></p>
 </div>
-<div id="editando-o-arquivo-description" class="section level2">
+<div id="description" class="section level2">
 <h2 class="hasAnchor">
-<a href="#editando-o-arquivo-description" class="anchor"></a>Editando o arquivo <em>DESCRIPTION</em>
+<a href="#description" class="anchor"></a>Editando o arquivo <em>DESCRIPTION</em>
 </h2>
 <p>Quando nós <a href="construindo_pacote.html#building_rpack">criamos um projeto de pacote</a> usando o <a href="https://rstudio.com/">RStudio</a>, um arquivo chamado <em>DESCRIPTION</em> é criado no diretório do projeto do pacote. Talvez um dos mais importantes arquivos do pacote, pois esse arquivo contém os metadados sobre as característica do pacote, como o seu nome, título, versão, autor, descrição, licença, dentre outras opções.</p>
 <p>A estrutura básica é que cada linha se inicia com o nome do campo seguido de “:”, posteriormente, se insere a atribuída a esse campo. Segundo o manual <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#The-DESCRIPTION-file">Writing R extensions</a>, os campos <code>Package</code>, <code>Version</code>, <code>Licence</code>, <code>Description</code>, <code>Title</code>, <code>Author</code> e <code>Mantainer</code> são obrigatórios . Todos os outros campos são opcionais. Todo o <em>DESCRIPTION</em> deve ser escrito em ASCII, isto é, caracteres sendo letras e números. Para utilizar caracteres diferentes, deve ser acrescentado o campo <code>Encoding</code> e informar o tipo de codificação. No pacote <a href="https://bendeivide.github.io/meupacoter/">meupacoter</a>, por exemplo, foi utilizado <code>Encoding: UTF-8</code>.</p>
@@ -406,11 +422,11 @@ License: Qual a licença que você usa</code></pre>
 </tr>
 <tr class="even">
 <td><code>Depends</code></td>
-<td>Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Esses pacotes serão também instalados quando solicitar o pacote de interesse pela função <code>install.packages</code>. Para mais detalhes, ver Subseçções <a href="conf_files_pkg.html#campo-depends">Campo <em>Depends</em></a> e <a href="conf_files_pkg.html#subsec-depimp">Uso de pacotes dependentes em <em>Imports</em> ou <em>Depends</em>?</a>.</td>
+<td>Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Esses pacotes serão também instalados quando solicitar a instalação de seu pacote pela função <code>install.packages</code>. Ao carregar e anexar o seu pacote, usando <code>library</code> ou <code>require</code>, os pacotes em <code>Depends</code> também serão anexados, isto é, todas as funções do pacote nesse campo estará disponível no <a href="conf_files_pkg.html#subsec-namespace">caminho de busca</a>. Para mais detalhes, ver Subseçções <a href="conf_files_pkg.html#campo-depends">Campo <em>Depends</em></a> e <a href="conf_files_pkg.html#subsec-depimp">Uso de pacotes dependentes em <em>Imports</em> ou <em>Depends</em>?</a>.</td>
 </tr>
 <tr class="odd">
 <td><code>Imports</code></td>
-<td>Esse campo é utilizado para listar pacotes que são inseridos no <a href="conf_files_pkg.html#sec-namespace">NAMESPACE</a>. Isso significa que ao importarmos funções de outros pacotes que serão necessários ao nosso pacote, poderão ser utilizados sem precisarmos anexar estes pacotes de origem destas funções. Funções que usamos os operadores “::” ou “:::”, também deverão ser listados aqui, ou nos campos <code>Suggests</code> ou <code>Enhances</code>. Para mais detalhes, ver Subseção <a href="conf_files_pkg.html#subsec-depimp">Uso de pacotes dependentes em <em>Imports</em> ou <em>Depends</em>?</a>.</td>
+<td>Campo utilizado para fornecer uma lista de pacotes, separados por vírgula, que o seu pacote depende. Contudo, ao carregar e anexar o seu pacote, os pacotes em <code>Imports</code> serão apenas carregados. Funções que usamos os operadores “::” ou “:::”, também deverão ser listados aqui, ou nos campos <code>Suggests</code> ou <code>Enhances</code>. Para mais detalhes, ver Subseção <a href="conf_files_pkg.html#subsec-depimp">Uso de pacotes dependentes em <em>Imports</em> ou <em>Depends</em>?</a>.</td>
 </tr>
 <tr class="even">
 <td><code>Suggests</code></td>
@@ -516,11 +532,17 @@ License: Qual a licença que você usa</code></pre>
 <li>Os pacotes no campo <code>Depends</code> serão instalados usando o argumento <code>dependencies</code> na função <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages(pkgs = 'nome_pacote', dependencies =     TRUE)</a></code>, que <code>dependencies = TRUE</code> implica em instalar os pacotes do <code>Depends</code>, o dos campos <code>Imports</code>, <code>LinkingTo</code>, <code>Suggests</code>;</li>
 <li>O padrão do argumento <code>dependencies</code> da função <code>install.packages</code> é <code>NA</code>, que implica em instalar os pacotes dos campos <code>Depends</code>, <code>Imports</code> e <code>LinkingTo</code>. Se desejar instalar tudo, basta usar <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages(pkgs = 'nome_pacote', dependencies = c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances"))</a></code>. Os pacotes no campo <code>Depends</code> serão carregados antes dos pacotes de interesse serem carregados, usando <code>library</code> ou <code>require</code>;</li>
 <li>Cada pacote no campo <code>Depends</code> por ser seguido de um parêntes identificando a versão desejada, isto é, <code>Depends: MASS (&gt;= 3.1)</code>. Contudo, ao inserir a versão, use apenas para os dois dígitos, evite inserir o dígito <code>&lt;trecho&gt;</code> (terceiro dígito);</li>
-<li>Não faz sentido inserir nesse campo, pacotes da base do <a href="http://r-project.org">R</a>, pois estes são instalados na instalação do próprio programa. Nesse campo também pode ser possível especificar determinada dependência da versão do <a href="http://r-project.org">R</a>, por exemplo, <code>Depends: R (&gt;= 3.6)</code>;</li>
+<li>Nesse campo também pode ser possível especificar determinada dependência da versão do <a href="http://r-project.org">R</a>, por exemplo, <code>Depends: R (&gt;= 3.6)</code>;</li>
 <li>Pode ser repetido um pacote ou a versão R mais de uma vez, para limitar as versões aceitáveis;</li>
 <li>Evite comentários nesse campo, pois tanto a biblioteca de pacotes quanto os recursos de verificação do pacote R, usam esse campo, e isso pode acabar gerando problema ao bom funcionamento da linguagem;</li>
-<li>Na prática, o que se observa é que esse campo é utilizado para identificar a versão necessária do R para a utilização do pacote. Quando um pacote é necessário no pacote desenvolvido, o inserimos no NAMESPACE, e assim, as dependências internas do pacote dependentes de funções de outros pacotes, serão utilizadas sem que estes precisem ser carregados.</li>
 </ul>
+</div>
+<div id="campo-imports" class="section level4">
+<h4 class="hasAnchor">
+<a href="#campo-imports" class="anchor"></a>Campo <code>Imports</code>
+</h4>
+<p>Como mencionado na Tabela acima, os pacotes no campo <code>Imports</code> não são anexados no <a href="conf_files_pkg.html#subsec-namespace">caminho de busca</a>. Isso acaba sendo interessante, porque o pacote desenvolvido acaba gerando menos conflito com funções de outros pacotes.</p>
+<p>Uma recomendação interessante, <a href="https://r-pkgs.org/namespace.html?q=NAMES#imports">R packages</a>, é que ao usar o campo <code>Imports</code>, o pacote dependente não precisa ser mencionado em <em>NAMESPACE</em> caso seja utilizado o operador <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> nas funções de seu pacote. Mais detalhes, ver <a href="conf_files_pkg.html#dep_imp_namespace">Relação entre os campos <code>Depends</code>, <code>Imports</code> e o <em>NAMESPACE</em></a>.</p>
 </div>
 <div id="subsec-depimp" class="section level4">
 <h4 class="hasAnchor">
@@ -530,11 +552,11 @@ License: Qual a licença que você usa</code></pre>
 <ul>
 <li>Um pacote dependente deve ser listado em apenas um campos dos campos <code>Depends</code> ou <code>Imports</code>;</li>
 <li>Pacotes listados no <em>NAMESPACE</em> usando <code>import</code> ou <code>importFrom</code> devem ser listados sempre no campo <code>Imports</code> e não em <code>Depends</code>;</li>
-<li>Caso contrário, se não for listado no <em>NAMESPACE</em>, para o carregamento do pacote usando a função <code>library</code>, os pacotes dependentes devem adicionados no campo <code>Depends</code>;</li>
-<li>Pacotes dependentes que utilizamos os seus conjuntos de dados em nosso pacote, devem ser listados no campo <code>Imports</code>
-</li>
+<li>Caso seja necessário a utilização de todas as funções de pacotes dependentes, para o bom funcionamento do seu pacote usando a função <code>library</code> ou <code>require</code>, os pacotes dependentes devem adicionados no campo <code>Depends</code>;</li>
+<li>Pacotes dependentes que utilizamos os seus conjuntos de dados em nosso pacote, devem ser listados no campo <code>Imports</code>.</li>
+<li>Não faz sentido inserir em <code>Depends</code> ou <code>Imports</code> a dependência sobre o pacote <span class="math inline">\(\color{red}{base}\)</span>, porque esse pacote, está sempre <strong>carregado</strong> e <strong>anexado</strong>, isto é, no <strong>caminho de busca</strong>.</li>
 </ul>
-<p>O campo ‘Depends’ atualmente deve ser usado raramente, apenas para a construção de pacotes em que desejamos que todas as funções dos pacotes dependentes estejam disponíveis para o usário, ao carregar o pacote desenvolvido, por questão de facilidade para o usuário. Caso contrário, o uso do campo <code>Imports</code> é mais coerente.</p>
+<p>O campo <code>Depends</code> atualmente deve ser usado raramente, apenas para a construção de pacotes em que desejamos que todas as funções dos pacotes dependentes estejam disponíveis para o usuário no <a href="conf_files_pkg.html#subsec-namespace"><strong>caminho de busca</strong></a>, ao carregar o pacote desenvolvido, por questão de facilidade para o usuário. Caso contrário, o uso do campo <code>Imports</code> é mais coerente.</p>
 </div>
 <div id="ext_files_r" class="section level4">
 <h4 class="hasAnchor">
@@ -668,7 +690,7 @@ VignetteBuilder: knitr</code></pre>
 <h2 class="hasAnchor">
 <a href="#subsec-namespace" class="anchor"></a>Entendendo o <em>NAMESPACE</em>
 </h2>
-<p>Antes de iniciarmos a discussão sobre o que significa, qual o objetivo, e como utilizar o arquivo <em>NAMESPACE</em>, vamos entender inicialmente o que significa os termos <strong>instalar</strong>, <strong>carregar</strong> e <strong>anexar</strong> um pacote no R. A função <code>install.packages</code>, é reponsável por fazer o <em>download</em> e a <strong>instalação</strong> de um pacote de algum repositório (<a href="cran.r-project.org">CRAN</a>, por exemplo). Este último significa que você o inseriu em sua biblioteca de pacotes do <a href="http://r-project.org">R</a> contidas no seu sistema operacional. Contudo, se ao tentar executar alguma função do pacote no <em>console</em>, certamente, será recebido uma mensagem de erro, como verificado a seguir.</p>
+<p>Antes de iniciarmos a discussão sobre o que significa, qual o objetivo, e como utilizar o arquivo <em>NAMESPACE</em>, vamos entender inicialmente o que significa os termos <strong>instalar</strong>, <strong>carregar</strong> e <strong>anexar</strong> um pacote no R. A função <code>install.packages</code>, do pacote <span class="math inline">\(\color{red}{utils}\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, é reponsável por fazer o <em>download</em> e a <strong>instalação</strong> de um pacote de algum repositório (<a href="cran.r-project.org">CRAN</a>, por exemplo). Este último significa que você o inseriu em sua biblioteca de pacotes do <a href="http://r-project.org">R</a> contidas no seu sistema operacional. Contudo, se ao tentar executar alguma função do pacote no <em>console</em>, certamente, será recebido uma mensagem de erro, como verificado a seguir.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Instalando o pacote 'devtools'</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="kw">install.packages</span>(<span class="st">"devtools"</span>)</span>
 <span id="cb13-3"><a href="#cb13-3"></a></span>
@@ -676,7 +698,7 @@ VignetteBuilder: knitr</code></pre>
 <span id="cb13-5"><a href="#cb13-5"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"bendeivide/meupacoter"</span>)</span>
 <span id="cb13-6"><a href="#cb13-6"></a></span>
 <span id="cb13-7"><a href="#cb13-7"></a>Downloading GitHub repo bendeivide<span class="op">/</span>meupacoter<span class="op">@</span>HEAD</span>
-<span id="cb13-8"><a href="#cb13-8"></a>√  checking <span class="cf">for</span> file <span class="st">'C:\Users\MABENLA\AppData\Local\Temp\RtmpikrG6Z</span><span class="ch">\r</span><span class="st">emotes15b811c65a3</span><span class="ch">\b</span><span class="st">endeivide-meupacoter-7c9ec1f/DESCRIPTION'</span> (<span class="fl">1.8</span>s)</span>
+<span id="cb13-8"><a href="#cb13-8"></a>√  checking <span class="cf">for</span> file <span class="st">'C:\Users\MABENLA\...\DESCRIPTION'</span> (<span class="fl">1.8</span>s)</span>
 <span id="cb13-9"><a href="#cb13-9"></a><span class="op">-</span><span class="st">  </span>preparing <span class="st">'meupacoter'</span><span class="op">:</span><span class="st"> </span>(<span class="fl">2.8</span>s)</span>
 <span id="cb13-10"><a href="#cb13-10"></a>√  checking DESCRIPTION meta<span class="op">-</span>information ... </span>
 <span id="cb13-11"><a href="#cb13-11"></a><span class="op">-</span><span class="st">  </span>checking <span class="cf">for</span> LF line<span class="op">-</span>endings <span class="cf">in</span> source and make files and shell scripts</span>
@@ -712,7 +734,7 @@ VignetteBuilder: knitr</code></pre>
 <span id="cb13-41"><a href="#cb13-41"></a></span>
 <span id="cb13-42"><a href="#cb13-42"></a>Error <span class="cf">in</span> <span class="kw">aritmetica</span>(<span class="dt">a =</span> <span class="dv">8</span>, <span class="dt">b =</span> <span class="dv">4</span>, <span class="dt">op =</span> <span class="st">"soma"</span>) <span class="op">:</span><span class="st"> </span></span>
 <span id="cb13-43"><a href="#cb13-43"></a><span class="st">  </span>não foi possível encontrar a função <span class="st">"aritmetica"</span></span></code></pre></div>
-<p>Isso significa que as funções do pacote ainda não estão disponíveis. Quando usamos a função <code>library</code> ou <code>require</code> em um pacote acontece duas coisas sequenciadas, o <strong>carregamento</strong> e o <strong>anexo</strong> do pacote no <strong>caminho de busca</strong>. O <strong>caminho de busca</strong> é o um conjunto de ambientes hierarquizados dos quais todos os objetos nesses ambientes podem ser encontrados no ambiente de trabalho corrente (<em>workspace</em>), isto é, basta digitar no console o nome de um função contida em um pacote, que está anexado ao <strong>caminho de busca</strong>, que essa função estará disponível para ser utilizada. O <strong>caminho de busca</strong> pode ser encontrado pela função <code>search</code> do pacote <span class="math inline">\(\color{red}{base}\)</span><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. Para saber quais são esses pacotes, use a linha de comando:</p>
+<p>Isso significa que as funções do pacote ainda não estão disponíveis. Quando usamos a função <code>library</code> ou <code>require</code> em um pacote acontece duas coisas sequenciadas, o <strong>carregamento</strong> e o <strong>anexo</strong> do pacote no <strong>caminho de busca</strong>. O <strong>caminho de busca</strong> é o um conjunto de ambientes hierarquizados dos quais todos os objetos nesses ambientes podem ser encontrados no ambiente de trabalho corrente (<em>workspace</em>), isto é, basta digitar no console o nome de um função contida em um pacote, que está anexado ao <strong>caminho de busca</strong>, que essa função estará disponível para ser utilizada. O <strong>caminho de busca</strong> pode ser encontrado pela função <code>search</code> do pacote <span class="math inline">\(\color{red}{base}\)</span>. Para saber quais são esses pacotes, use a linha de comando:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span>lib.loc <span class="op">=</span> <span class="va">.Library</span><span class="op">)</span>
 <span class="co">##</span>
@@ -823,11 +845,10 @@ VignetteBuilder: knitr</code></pre>
 <span class="co">#&gt; [10] "package:grDevices"  "package:utils"      "package:datasets"  </span>
 <span class="co">#&gt; [13] "package:methods"    "Autoloads"          "org:r-lib"         </span>
 <span class="co">#&gt; [16] "package:base"  </span></code></pre></div>
-<p>Para entender um pouco mais sobre ambientes no <a href="http://r-project.org">R</a>, ver Seção <a href="environments.html">Ambientes em R</a>.</p>
-<p>De acordo com o que comentamos sobre o <strong>caminho de busca</strong>, poderíamos nos perguntar, se nós criássemos uma função, cujo o nome é idêntico a um pacote anexado ao <strong>caminho de busca</strong>, ou anexasse um outro pacote anterior que também teria uma função com o mesmo nome, o pacote de interesse não poderia sofrer algum problema de execução, resultado, ou qualquer outro problema que o interferisse? A resposta é não, e graças ao NAMESPACE. Um pacote tem dois ambientes:</p>
+<p>Para entender um pouco mais sobre ambientes no <a href="http://r-project.org">R</a>, ver Seção <a href="environments.html">Ambientes em R</a>. De acordo com o que comentamos sobre o <strong>caminho de busca</strong>, poderíamos nos perguntar, se nós criássemos uma função, cujo o nome é idêntico a uma outra função de outro pacote anexado ao <strong>caminho de busca</strong>, ou anexasse um outro pacote anterior que também teria uma função com o mesmo nome, o pacote de interesse não poderia sofrer algum problema de execução, resultado, ou qualquer outro problema que o interferisse? A resposta é não, e graças ao <em>NAMESPACE</em>. Um pacote tem dois ambientes:</p>
 <ul>
 <li>
-<strong>ambiente de pacote</strong>: é a interface externa do pacote, do qual o usuário <a href="http://r-project.org">R</a> pode encontrar pelo caminho de busca ou por <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>. Todo ambiente tem um parental, nesse caso, o ambiente parental de um ambiente de pacote é ordenado de acordo com o caminho de busca. E todo pacote anexado é o parental do ambiente global. Veja no exemplo a seguir, o que estamos querendo dizer. Por exemplo, existe uma mesma função <code>summarize</code> nos pacotes <a href="http://plyr.had.co.nz/">plyr</a> e <a href="https://cran.r-project.org/packages=Hmisc">Hmisc</a>. Dependendo de como você anexar a ordem dos pacotes, por exemplo,</li>
+<strong>ambiente de pacote</strong>: é a interface externa do pacote, do qual o usuário <a href="http://r-project.org">R</a> pode encontrar pelo caminho de busca ou por <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>. Todo ambiente tem um parental, nesse caso, o ambiente parental de um ambiente de pacote é ordenado de acordo com o caminho de busca. E todo pacote anexado é o parental do ambiente global. Veja no exemplo a seguir, o que estamos querendo dizer. Por exemplo, existe uma mesma função <code>summarize</code> nos pacotes <a href="http://plyr.had.co.nz/">plyr</a> e <a href="https://cran.r-project.org/packages=Hmisc">Hmisc</a>. Dependendo de como você anexar a ordem dos pacotes, por exemplo, a função <code>summarize</code> pode ter vindo de um ou do outro pacote.</li>
 </ul>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr">plyr</a></span><span class="op">)</span>
@@ -848,7 +869,7 @@ VignetteBuilder: knitr</code></pre>
 <span class="co">#&gt; [16] "package:grDevices"  "package:utils"      "package:datasets"  </span>
 <span class="co">#&gt; [19] "package:methods"    "Autoloads"          "org:r-lib"         </span>
 <span class="co">#&gt; [22] "package:base"  </span></code></pre></div>
-<p>Isso significa que como o último pacote anexado foi o pacote <code>Hmisc</code>, então na hora de buscar esse objeto, o pacote primeiro pesquisado é o <code>Hmisc</code>. Como alternativa, poderia ser utilizado <code><a href="https://rdrr.io/pkg/plyr/man/summarise.html">plyr::summarize</a></code> ou <code><a href="https://rdrr.io/pkg/Hmisc/man/summarize.html">Hmisc::summarize</a></code> para resolver este problema. Mais ainda, e se no ambiente global houvesse um objeto com esse nome, ele iria sobrepor independente da ordem de anexar o pacote, porque ele sempre o primeiro ambiente no <strong>caminho de busca</strong>, veja:</p>
+<p>Isso significa que o último pacote anexado foi o pacote <code>Hmisc</code>, então na hora de buscar a função <code>summarize</code>, o pacote primeiro pesquisado é o <code>Hmisc</code>. Como alternativa, poderia ser utilizado <code><a href="https://rdrr.io/pkg/plyr/man/summarise.html">plyr::summarize</a></code> ou <code><a href="https://rdrr.io/pkg/Hmisc/man/summarize.html">Hmisc::summarize</a></code> para resolver este problema. Mais ainda, e se no ambiente global houvesse um objeto com esse nome, ele iria sobrepor independente da ordem de anexar o pacote, porque ele sempre é o primeiro ambiente no <strong>caminho de busca</strong>, veja:</p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R">
 <span class="co"># Primeiro criando o objeto</span>
@@ -873,9 +894,12 @@ VignetteBuilder: knitr</code></pre>
 <span class="co">#&gt; [19] "package:methods"    "Autoloads"          "package:base</span></code></pre></div>
 <ul>
 <li>
-<strong>ambiente de <em>namespace</em> </strong>: representa a interface interna no pacote. É o ambiente onde o pacote controla as suas funções. Cada ligação no ambiente de pacote também está no ambiente de <em>namespace</em>. Contudo, algumas funções ocorrem apenas no ambiente de namespace, e quem controla isso é o desenvolvedor do pacote, por meio do arquivo NAMESPACE.</li>
+<strong>ambiente de <em>namespace</em> </strong>: representa a interface interna no pacote. É o ambiente onde o pacote controla as suas funções. Cada ligação no ambiente de pacote também está no ambiente de <em>namespace</em>. Contudo, algumas funções ocorrem apenas no ambiente de namespace, e quem controla isso é o desenvolvedor do pacote, por meio do arquivo <em>NAMESPACE</em>.</li>
 </ul>
-<p>Quanto a hierarquização de ambientes, cada ambiente de <em>namespace</em> apresenta um mesmo grupo de ancestrais, que segue: * Ambiente de namespace <span class="math inline">\(&gt;\)</span> Ambiente de importações <span class="math inline">\(&gt;\)</span> Ambiente de <em>namespace</em> do pacote <span class="math inline">\(\color{red}{base}\)</span> <span class="math inline">\(&gt;\)</span> Ambiente Global.</p>
+<p>Quanto a hierarquização de ambientes, cada ambiente de <em>namespace</em> apresenta um mesmo grupo de ancestrais, que segue:</p>
+<ul>
+<li>Ambiente de namespace <span class="math inline">\(&gt;\)</span> Ambiente de importações <span class="math inline">\(&gt;\)</span> Ambiente de <em>namespace</em> do pacote <span class="math inline">\(\color{red}{base}\)</span> <span class="math inline">\(&gt;\)</span> Ambiente Global.</li>
+</ul>
 <p>O ambiente de importações contém todas as ligações para todas as funções do pacotes, porém, importar implicitamente todas as funções do pacote <span class="math inline">\(\color{red}{base}\)</span> poderia ser demorado. Assim, existe um ambiente de <em>namespace</em> do pacote <span class="math inline">\(\color{red}{base}\)</span> que tem como ancestral o ambiente global. Dessa forma, se o pacote não encontrar as ligações necessárias no ambiente de importações, será procurado de forma usual. E isso não será uma boa escolha porque dependerá do anexamento de outros pacotes, e para evitar essa escolha o <code>R CMD check</code> avisará automaticamente sobre essa decisão. Veja a representação a seguir.</p>
 <p align="center">
 <img src="namespace.png" alt="" width="70%"></p>
@@ -885,14 +909,14 @@ VignetteBuilder: knitr</code></pre>
 <span class="co">#&gt; function (x, na.rm = FALSE) </span>
 <span class="co">#&gt; sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span>
 <span class="co">#&gt;     na.rm = na.rm))</span>
-<span class="co">#&gt; &lt;bytecode: 0x00000000091f13b0&gt;</span>
+<span class="co">#&gt; &lt;bytecode: 0x000000000968f6a0&gt;</span>
 <span class="co">#&gt; &lt;environment: namespace:stats&gt;</span>
 <span class="co">#&gt; function (x, na.rm = FALSE) </span>
 <span class="co">#&gt; sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span>
 <span class="co">#&gt;     na.rm = na.rm))</span>
 <span class="co">#&gt; &lt;bytecode: 0x0000001b97450678&gt;</span>
 <span class="co">#&gt; &lt;environment: namespace:stats&gt;</span></code></pre></div>
-<p>Perceba que essa função depende de outra função do pacote <span class="math inline">\(\color{red}{stats}\)</span>, <code>var</code> que calcula a variância de um conjunto de dados. Por alguma razão, nós criamos um objeto com o mesmo nome <code>var</code>, no ambiente global. Toda função capta as informações disponíveis no caminho de busca, no nosso caso o ambiente global, logo quando eu usasse a função <code>sd</code>, ela poderia ter algum conflito com a função <code>var</code> dentro do pacote, com o objeto criado <code>var</code> no ambiente global. Vejamos:</p>
+<p>Perceba que essa função depende de outra função do pacote <span class="math inline">\(\color{red}{stats}\)</span>, <code>var</code> que calcula a variância de um conjunto de dados. Por alguma razão, nós criamos um objeto com o mesmo nome <code>var</code>, no ambiente global. Toda função capta as informações disponíveis no caminho de busca, logo quando eu usasse a função <code>sd</code>, ela poderia ter algum conflito com a função <code>var</code> dentro do pacote, porque quando a função olhasse para o caminho de busca e procurasse por <code>var</code> este não iria ser o objeto desejado, com o objeto criado <code>var</code> no ambiente global. Vejamos</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Veja como uma funcao capta a informacao do ambiente global</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">2</span>
@@ -912,26 +936,164 @@ VignetteBuilder: knitr</code></pre>
 
 <span class="co"># Testando sd(x)</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
-<span class="co">#&gt; [1] 1</span></code></pre></div>
-<p>Observe pelo exemplo assim, que a função retorna <code>sd(x) = 1</code>. Ou seja, que fez o papel de escolha das ligações internas da função do pacote foi o ambiente namespace, ele garante que não haja conflito de funções entre funções de outros pacotes ou objetos.</p>
+<span class="co">#&gt; [1] 1</span>
+
+<span class="co"># Agora veja uma outa situacao:</span>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>
+
+<span class="co"># Funcao 'var' que criamos, que nao calcula variancia de dados</span>
+<span class="va">var</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">"Nada"</span><span class="op">)</span>
+
+<span class="co"># Funcao que depende de 'var' do pacote stats, e calcula a variancia </span>
+<span class="va">aux</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">vari</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">vari</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="co"># O resultado mostra, que a funcao aux como esta no ambiente global, ela não tem um namespace porque nao esta em pacote algum.</span>
+<span class="co"># No caminho de busca, o ambiente do pacote 'stats' estara na posicao 3, isso significa que a funcao aux ao buscar por 'var', encontrar primeiro no ambiente global, que nao seria o objeto desejado.</span>
+<span class="va">aux</span>
+<span class="co">#&gt; [1] "Nada"</span></code></pre></div>
+<p>Observe pelo exemplo acima, que a função retorna <code>sd(x) = 1</code>. Ou seja, quem fez o papel de escolha das ligações internas da função do pacote foi o ambiente <em>namespace</em>, ele garante que não haja conflito de funções entre funções de outros pacotes ou objetos.</p>
+<p>Portanto, o arquivo <em>NAMESPACE</em> controlado pelo desenvolvedor do pacote, irá determinar quais as funções do pacote que serão exportadas para o usuário utilizar e quais as funções importadas de outros pacotes que serão inseridas no pacote desenvolvido, e ainda as que não serão exportadas, são as funções internas. Quando <a href="construindo_pacote.html#building_rpack">criamos um pacote pelo R</a> um arquivo <em>NAMESPACE</em> é criado no diretório do projeto do pacote com uma única expressão:</p>
+<pre><code>exportPattern("^[^\\.]")</code></pre>
+<p>Isso significa que o pacote exportará todas as suas funções criadas, exceto as que se iniciarem por ponto. Contudo, esse padrão não é recomendado porque quanto mais funções exportadas, maiores são as chances de haver conflito com outras funções de outros pacotes.</p>
+<p>O arquivo <em>NAMESPACE</em> não escrito na linguagem <a href="http://r-project.org">R</a>, embora tenha muita semelhança, e sim, diretivas de <em>namespace</em> que descrevem as importações e exportações de funções. Existem oito diretivas (<a href="https://r-pkgs.org/namespace.html?q=NAMES#namespace-NAMESPACE">R packages</a>), das quais quatro descrevem as exportações:</p>
+<ul>
+<li>
+<code>export()</code>: funções de exportação (incluindo o método S3 e S4);</li>
+<li>
+<code>exportPattern()</code>: exporta todas as funçõe;</li>
+<li>
+<code>exportClasses()</code>, <code>exportMethods</code>: exporta classes e métodos S4;</li>
+<li>
+<code>S3method()</code>: exporta o método S3,</li>
+</ul>
+<p>e quatro descrevem as importações:</p>
+<ul>
+<li>
+<code>import()</code>: importa todas as funções de um pacote;</li>
+<li>
+<code>importFrom</code>: importa funções selecionadas;</li>
+<li>
+<code>importClassesFrom()</code>, <code>importMethodsFrom()</code>: importa classes e métodos S4;</li>
+<li>
+<code>useDynlib()</code>: importar uma função em linguagem <em>C</em>. Ver <a href="other_languages.html">Integração com outras linguagens de programação</a>.</li>
+</ul>
+<p>Para configurar o <em>NAMESPACE</em> recomendamos utilizar o pacote <a href="https://roxygen2.r-lib.org/">roxygen2</a>, na Seção <a href="conf_files_pkg.html#docs_rpkg">Documentando as funções do pacote</a>. Veremos na Seção <a href="datasetr.html">Inserindo dados em um pacote</a>, que os arquivos de conjunto de dados que poderemos inserir nos pacotes, para utilizar em nossos exemplos, não precisam do mecanismo de <em>namespace</em> usual, e portanto não precisam ser exportados.</p>
+<div id="dep_imp_namespace" class="section level3">
+<h3 class="hasAnchor">
+<a href="#dep_imp_namespace" class="anchor"></a>Relação entre os campos <code>Depends</code>, <code>Imports</code> e o <em>NAMESPACE</em>
+</h3>
+<p>Algo que se torna confuso, acho que o nome dos campos <code>Depends</code> e <code>Imports</code> no arquivo <a href="conf_files_pkg.html#description"><em>DESCRIPTION</em></a> ajudam nisso, é que esses campos não importam funções para o ambiente <em>namespace</em>. A função deles é garantir que ao instalar o seu pacote, as suas dependências de pacotes também sejam instaladas.</p>
+<p>A importação de funções de outros pacotes para o seu pacote, isto é para o ambiente <em>namespace</em> do seu pacote, é exclusividade do arquivo <em>NAMESPACE</em>. Contudo, se usarmos o operador <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> dentro das funções do seu pacote, isto é, fizemos um chamamento implícito sobre as funções dos pacotes dependentes, não será necessário mencionar no <em>NAMESPACE</em>. Vejamos os exemplos,</p>
+<ul>
+<li>
+<p>Usando a importação via <code>importFrom</code> no <em>NAMESPACE</em>:</p>
+<ul>
+<li>Arquivo <em>DESCRIPTION</em>
+</li>
+</ul>
+<pre><code>...
+Imports stats</code></pre>
+<ul>
+<li>Arquivo <em>NAMESPACE</em>
+</li>
+</ul>
+<pre><code>...
+importFrom("stats","qtukey")</code></pre>
+<ul>
+<li><em>R/funcao.R</em></li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">facao_do_pacote</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">{</span>
+  <span class="co"># corpo da funcao</span>
+  <span class="fu"><a href="https://rdrr.io/r/stats/Tukey.html">qtukey</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+</li>
+<li>
+<p>Usando o operador <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>:</p>
+<ul>
+<li>Arquivo <em>DESCRIPTION</em>
+</li>
+</ul>
+<pre><code>...
+Imports stats</code></pre>
+<ul>
+<li>Arquivo <em>NAMESPACE</em>
+</li>
+</ul>
+<pre><code>...</code></pre>
+<ul>
+<li><em>R/funcao.R</em></li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">facao_do_pacote</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">...</span><span class="op">)</span><span class="op">{</span>
+  <span class="co"># corpo da funcao</span>
+  <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Tukey.html">qtukey</a></span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
+<span class="op">}</span></code></pre></div>
+</li>
+</ul>
+<p>Usar o operador <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code> pode se tornar mais trabalhoso de escrever as funções, porém, muito mais fácil deixar documentado para futuras atualizações, uma vez que saberemos a origem das funções por esse procedimento. Contudo, se for utilizado repetidas vezes uma mesma função, é preferível a importação via <code>importFrom()</code> do que <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">::</a></code>, uma vez que o segundo tipo adiciona <span class="math inline">\(5~\mu s\)</span> de tempo de avaliação da função (<a href="https://r-pkgs.org/namespace.html?q=NAMES#import-r">R packages</a>). Além de importação de funções, também é possível a importação de operadores, tais como, <code>importFrom("magrittr", "%&gt;%")</code>.</p>
+<p>Por fim, uma regra todo pacote mencionado no <em>NAMESPACE</em> deve está em <code>Depends</code> ou <code>Imports</code>, no arquivo <em>DESCRIPTION</em>. Mas o inverso não é verdade, e foi mostrado anteriormente. Mais detalhes de como importar funções usando o <em>NAMESPACE</em>, ver Seção <a href="conf_files_pkg.html#docs_rpkg">Documentando as funções do pacote</a>.</p>
+</div>
+<div id="importação-e-exportação-de-funções" class="section level3">
+<h3 class="hasAnchor">
+<a href="#importa%C3%A7%C3%A3o-e-exporta%C3%A7%C3%A3o-de-fun%C3%A7%C3%B5es" class="anchor"></a>Importação e exportação de funções</h3>
+<p>Na <a href="conf_files_pkg.html#dep_imp_namespace">seção anterior</a>, tivemos uma ideia de como importar funções. Mais detalhes, poderá ser visto na Subseção <a href="conf_files_pkg.html#edit-help-namespace">editando os arquivo de ajuda do pacote e o <em>NAMESPACE</em></a>.</p>
+<p>A exportação de função se refere as funções desenvolvidas no pacote que desejamos exportá-la, isto é, torná-la disponível para o usuário. Dessa forma, usaremos o arquivo <em>NAMESPACE</em> para tal fim. Usaremos a diretiva <code>export("nome_funcao")</code>, explicitando o nome da função, a qual queremos exportar. As demais diretivas foram mencionadas na Seção <a href="conf_files_pkg.html#dep_imp_namespace">Entendendo o <em>Namespace</em></a>. <a href="conf_files_pkg.html#docs_rpkg">Toda função exportada deve ser documentada</a>, isto é, criarmos os arquivos de ajuda, <em>/man/<arquivo>.Rd</arquivo></em>.</p>
+<p>Como já mencionamos, quando desejamos compartilhar um pacote sobre o <a href="cran.r-project.org">CRAN</a>, não recomendamos o uso da diretiva <code>exportPattern("^[^\\.]")</code>, pelos conflitos que possam existir entre pacotes, ao exportar todas as funções, ainda mais se seu pacote tiver muitas funções.</p>
+<p>Algumas outras funções podem auxiliar as funções principais do pacote dos quais pensamos exportá-las. Dessa forma, não faz sentido essas funções auxiliares serem exportadas. Por exemplo, o pacote <a href="http://cran.r-project.org/package=SMR">SMR</a> foi objetivado para calcular a função densidade, função distribuição, função quantil e gerador de números aleatórios da estatística <em>midrange</em> de uma população normal. Dessa forma, só havia sentido exportarmos as funções <code>dSMR</code>, <code>pSMR</code>, <code>qSMR</code> e <code>rSMR</code>. Porém, usamos muitas funções auxiliares para essas funções principais, porém, como em algumas expressões chegávamos a integrais duplas ou triplas, nada trival para expressá-la analiticamente. Partimos assim, para aproximações numéricas, usando quadraturas gaussianas, mais especificamente a quadratura Gauss-Legendre. Uma forma de encontrar essas funções internas que não são exportadas é buscá-la no arquivo fonte, <em><nome_pacote>.tar.gz</nome_pacote></em>, no <a href="http://cran.r-project.org">CRAN</a>, ou usar o operador <code><a href="https://rdrr.io/r/base/ns-dblcolon.html">:::</a></code> usando linha de comando:</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">SMR</span><span class="fu">:::</span><span class="va">GaussLegendre</span>
+<span class="co">#&gt; function (size) </span>
+<span class="co">#&gt; {</span>
+<span class="co">#&gt;     size &lt;- as.integer(size)</span>
+<span class="co">#&gt;     if (size &lt; 0) </span>
+<span class="co">#&gt;         stop("Must be a non-negative number of nodes!")</span>
+<span class="co">#&gt;     if (size == 0) </span>
+<span class="co">#&gt;         return(list(x = numeric(0), w = numeric(0)))</span>
+<span class="co">#&gt;     i &lt;- 1:size</span>
+<span class="co">#&gt;     j &lt;- 1:(size - 1)</span>
+<span class="co">#&gt;     mu0 &lt;- 2</span>
+<span class="co">#&gt;     b &lt;- j/(4 * j^2 - 1)^0.5</span>
+<span class="co">#&gt;     A &lt;- rep(0, size * size)</span>
+<span class="co">#&gt;     A[(size + 1) * (j - 1) + 2] &lt;- b</span>
+<span class="co">#&gt;     A[(size + 1) * j] &lt;- b</span>
+<span class="co">#&gt;     dim(A) &lt;- c(size, size)</span>
+<span class="co">#&gt;     sd &lt;- eigen(A, symmetric = TRUE)</span>
+<span class="co">#&gt;     w &lt;- rev(as.vector(sd$vectors[1, ]))</span>
+<span class="co">#&gt;     w &lt;- mu0 * w^2</span>
+<span class="co">#&gt;     x &lt;- rev(sd$values)</span>
+<span class="co">#&gt;     return(list(nodes = x, weights = w))</span>
+<span class="co">#&gt; }</span>
+<span class="co">#&gt; &lt;bytecode: 0x0000001b9eb6a4b8&gt;</span>
+<span class="co">#&gt; &lt;environment: namespace:SMR&gt;</span></code></pre></div>
+<p>Observe por esse exemplo que o objetivo do pacote não é apresentar uma função de aproximação numérica. Dessa forma, não se faz necessário exportar a função <code>GaussLegendre</code>. Para essas funções não serem exportadas, basta não serem mencionadas no <em>NAMESPACE</em>. Usando o pacote <a href="%5Broxygen2%5D(https://roxygen2.r-lib.org/)">roxygen2</a>, basta não comentar o <em>scripts</em> dessas funções. Veremos como fazer isso na Subseção <a href="conf_files_pkg.html#edit-help-namespace">Editando os arquivo de ajuda do pacote e o <em>NAMESPACE</em></a>.</p>
+</div>
 </div>
 <div id="docs_rpkg" class="section level2">
 <h2 class="hasAnchor">
 <a href="#docs_rpkg" class="anchor"></a>Documentando as funções do pacote</h2>
+<p>Vamos utilizar os recursos do pacote <a href="https://roxygen2.r-lib.org/">roxygen2</a> para documentar o pacote e configurar o <em>NAMESPACE</em>. A vantagem é que essa documentação e configuração é toda feita no próprio <em>script</em> do pacote, isto é, nos arquivos do subdiretório <em>R/</em>. Uma vez instalado o pacote <a href="https://roxygen2.r-lib.org/">roxygen2</a>, no <a href="http://rstudio.com">RStudio</a> configure-o:</p>
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Nw8ZBlmy3Yw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</p>
 <div id="pacote-roxygen2" class="section level3">
 <h3 class="hasAnchor">
-<a href="#pacote-roxygen2" class="anchor"></a>Pacote <code>roxygen2</code>
+<a href="#pacote-roxygen2" class="anchor"></a>Pacote <a href="https://roxygen2.r-lib.org/">roxygen2</a>
 </h3>
 </div>
-<div id="editando-os-arquivo-de-ajuda-do-pacote-e-o-namespace" class="section level3">
+<div id="edit-help-namespace" class="section level3">
 <h3 class="hasAnchor">
-<a href="#editando-os-arquivo-de-ajuda-do-pacote-e-o-namespace" class="anchor"></a>Editando os arquivo de ajuda do pacote e o <em>NAMESPACE</em>
+<a href="#edit-help-namespace" class="anchor"></a>Editando os arquivo de ajuda do pacote e o <em>NAMESPACE</em>
 </h3>
 </div>
 </div>
 <div id="resumo-do-que-vimos-nessa-seção" class="section level2">
 <h2 class="hasAnchor">
 <a href="#resumo-do-que-vimos-nessa-se%C3%A7%C3%A3o" class="anchor"></a>Resumo do que vimos nessa seção</h2>
+<p>Em construção…</p>
 </div>
 <div class="footnotes">
 <hr>
