@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 Nessa seção, veremos como construir um pacote R usando o [RStudio](https://rstudio.com/). Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando todos para esse momento.
 
 ```{r pkg_construir, eval=FALSE}
-pkgs <- c("devtools", "usethis", "roxygen2", "pkgdown")
+pkgs <- c("knitr", "devtools", "usethis", "roxygen2", "pkgdown", "pkgbuild")
 install.packages(pkgs)
 ```
 
@@ -67,11 +67,11 @@ Descriminaremos a importância de cada pacote na tabela a seguir. Para essa prim
 
 Por fim, precisamos fazer o download para o [$\LaTeX$](http://miktex.org/download), para desenvolvermos a documentação do pacote. Caso não deseje fazer essa instalação, uma alternativa é instalar o pacote [tinytex](http://cran.r-project.org/package=tinytex).
 ```{r tinytex, eval=FALSE}
-install.packages("tinytex")
+utils::install.packages("tinytex")
 ```
 Lembre-se que se já tiver o [$\LaTeX$](http://miktex.org/download) instalado não é necessário instalar [tinytex](http://cran.r-project.org/package=tinytex), e até não recomendado instalar para não gerar conflito com a versão que já tem instalada.
 
-Para carregar esses pacotes use a linha de código a seguir.
+Para carregar e anexar esses pacotes, use as linhas de código a seguir.
 
 ```{r pkg_carregar, eval=FALSE}
 ### Funcao carregar
@@ -110,9 +110,10 @@ Os arquivos e diretórios básicos são:
   - Licença;
   - Pacotes dependentes;
   - Pacotes sugeridos;
-- *NAMESPACE*: Esse arquivo informa quais as funções do seu pacote que serão exportadas, visíveis aos usuários do pacote.
-- *R/*: Esse diretório armazena as rotinas ".R" do seu pacote.
-- *man/*: esse diretório armazena os arquivos de ajuda do pacote. Descreve e exemplifica as funções do pacote.
+Alguns desses campos citados acima, não são obrigatórios. Veremos mais a frente.
+- *NAMESPACE*: Esse arquivo informa quais as funções do seu pacote que serão exportadas, visíveis aos usuários do pacote, e quais funções de outros pacotes importaremos, quando for a necessidade.
+- *R/*: Esse diretório armazena as rotinas ".R" do seu pacote. Dizemos que é o cérebro do pacote, quando a linguagem está toda escrita em [R](http://r-project.org).
+- *man/*: Esse diretório armazena os arquivos de ajuda do pacote. Descreve como as funções de um pacote devem ser utilizadas, apresentando inclusive exemplos.
 
 
 ## Construindo o pacote R pelo RStudio {#building_rpack}
@@ -126,5 +127,8 @@ Para construir o esqueleto básico de um pacote, usando o [RStudio](https://rstu
 
 Passos no [RStudio](https://rstudio.com/): `File` >  `New Project...` > `New Directory` > `R package`. Insira o nome do pacote e armazene o projeto em um diretório desejado. Nesse momento, poderíamos já ter adicionado um repositório [GitHub](http://github.com) ao pacote. Deixaremos essa parte para as seções seguintes.
 
-Se desejar criar por linha de comando, use `usethis::create_package`.
+Se desejar criar um pacote por linha de comando, use `usethis::create_package`. E se ainda não desejar utilizar o R, acesse [Desenvolvimentos de pacote em R](https://benalana.blogspot.com/2020/08/desenvolvimento-de-pacotes-em-r.html), e baixe as apostilas disponíveis.
 
+## Resumo do que vimos nessa seção
+
+Em construção...

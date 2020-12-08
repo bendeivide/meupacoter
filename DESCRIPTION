@@ -1,7 +1,7 @@
 Package: meupacoter
 Type: Package
 Title: Como desenvolver meu primeiro pacote R
-Version: 0.3.0.9000
+Version: 0.0.0.9000
 Author: Ben Deivide
 Maintainer: Ben Deivide <ben.deivide@gmail.com>
 Description: Este pacote auxiliará os iniciantes na linguagem R, a
@@ -16,4 +16,3 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-

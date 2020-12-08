@@ -11,7 +11,7 @@ O objetivo do pacote
 [meupacoter](https://bendeivide.github.io/meupacoter/) é ensinar a como
 desenvolver pacotes R usando o [RStudio](http://rstudio.com).
 Mostraremos muitas ferramentas úteis para o desenvolvimento de pacotes,
-como desenvolver insterfaces gráficas ao usuário, a internacionalização
+como desenvolver inrterfaces gráficas ao usuário, a internacionalização
 de pacotes para outros idiomas, criação de websites, criação de
 vignettes, e muito mais.
 
@@ -24,8 +24,8 @@ pacote ficou disponível no [repositório
 Github](http:://github.com/bendeivide/meupacoter/).
 
 Vejam alguns locais que o
-[meupacoter](https://github.com/bendeivide/meupacoter/) já foi
-apresentado:
+[meupacoter](https://github.com/bendeivide/meupacoter/) já foi ou está
+sendo apresentado:
 
 | Data          | Local                               | Tema                                                                                                                                     | Apresentação                                                                                                      |
 | ------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -78,13 +78,15 @@ Nossos pacotes sobre o [CRAN](https://CRAN.R-project.org):
 O estudo em desenvolvimento de pacotes R tem nos gerado esforços para
 repassarmos essas experiências. Isso porque em algumas situações, a
 solução de alguns problemas não foram encontrados facilmente. Diante
-disso, apresentamos alguns projetos de livros em desenvolvimento, ainda
-não disponíveis.
+disso, apresentamos alguns projetos de livros em desenvolvimento, com
+versões prévias em desenvolvimento, em versão de projeto realmente.
 
 <p align="center">
 
-<img src="man/figures/dper.png" alt="" width="30%">
-<img src="man/figures/livroGUI2.png" alt="" width="30%">
+<a href="https://drive.google.com/file/d/1hrpvP80MMjK5YYn9oCujf22SSWlG-EOo/view?usp=sharing">
+<img src="man/figures/dper.png" alt="" width="30%"> </a>     
+<a href="https://drive.google.com/file/d/1hsV1ifW3xbG6u8KQwFt7m_2dQWwwNf1u/view?usp=sharing">
+<img src="man/figures/livroGUI2.png" alt="" width="30%"> </a>
 
 </p>
 
