@@ -91,7 +91,9 @@ A estrutura básica de um pacote pode ser apresentado a seguir.
 
 
 <p align="center">
+<a href="https://github.com/bendeivide/meupacoter/tree/main/projetos/proj-inicial/meupacoter">
 <img src="esqueleto.png" alt="Esqueleto de um pacote R" width="30%">
+</a>
 </p>
 
 <!--
