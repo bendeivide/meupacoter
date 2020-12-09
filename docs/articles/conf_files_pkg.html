@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">meupacoter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
 
@@ -252,7 +252,8 @@
 <a href="#atualizando-as-fun%C3%A7%C3%B5es-do-pacote" class="anchor"></a>Atualizando as funções do pacote</h2>
 <p>Como já falado na Seção <a href="construindo_pacote.html">Construindo o esqueleto de um pacote R</a>, o subdiretório <em>R/</em> é o local para armazenar as rotinas do pacote. Dessa forma, vamos fazer as atualizações retirando os arquivos <em>.R</em> criados pelo <a href="https://rstudio.com/">RStudio</a>, e inserindo as rotinas do pacote (<a href="https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R">aritmetica.R</a> e <a href="https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R">auxiliar.R</a>). Lembre-se das <a href="introd_pkg.html#goodpractice">boas práticas de como escrever um código R</a>.</p>
 <p align="center">
-<img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%"></p>
+<a href="https://github.com/bendeivide/meupacoter/tree/main/projetos/proj-atualizado/meupacoter"> <img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%"></a>
+</p>
 </div>
 <div id="description" class="section level2">
 <h2 class="hasAnchor">
@@ -909,7 +910,7 @@ VignetteBuilder: knitr</code></pre>
 <span class="co">#&gt; function (x, na.rm = FALSE) </span>
 <span class="co">#&gt; sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span>
 <span class="co">#&gt;     na.rm = na.rm))</span>
-<span class="co">#&gt; &lt;bytecode: 0x000000000968f6a0&gt;</span>
+<span class="co">#&gt; &lt;bytecode: 0x0000000008e828a0&gt;</span>
 <span class="co">#&gt; &lt;environment: namespace:stats&gt;</span>
 <span class="co">#&gt; function (x, na.rm = FALSE) </span>
 <span class="co">#&gt; sqrt(var(if (is.vector(x) || is.factor(x)) x else as.double(x), </span>

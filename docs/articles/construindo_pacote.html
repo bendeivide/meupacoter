@@ -44,7 +44,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">meupacoter</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
       </span>
     </div>
 
@@ -198,7 +198,7 @@
     
 <p>Nessa seção, veremos como construir um pacote R usando o <a href="https://rstudio.com/">RStudio</a>. Iremos solicitar a instalação de alguns pacotes, mesmo não utilizando todos para esse momento.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"devtools"</span>, <span class="st">"usethis"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgdown"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">pkgs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"knitr"</span>, <span class="st">"devtools"</span>, <span class="st">"usethis"</span>, <span class="st">"roxygen2"</span>, <span class="st">"pkgdown"</span>, <span class="st">"pkgbuild"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="va">pkgs</span><span class="op">)</span></code></pre></div>
 <p>Descriminaremos a importância de cada pacote na tabela a seguir. Para essa primeira versão, deixaremos claro que o desenvolvimento de pacotes será usado de acordo com as configurações do sistema operacional Windows. Assim, precisaremos instalar uma outra ferramenta que é o <a href="https://cran.r-project.org/bin/windows/Rtools/">rtools</a>.</p>
 <p align="center">
@@ -394,9 +394,9 @@
 </table>
 <p>Por fim, precisamos fazer o download para o <a href="http://miktex.org/download"><span class="math inline">\(\LaTeX\)</span></a>, para desenvolvermos a documentação do pacote. Caso não deseje fazer essa instalação, uma alternativa é instalar o pacote <a href="http://cran.r-project.org/package=tinytex">tinytex</a>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tinytex"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tinytex"</span><span class="op">)</span></code></pre></div>
 <p>Lembre-se que se já tiver o <a href="http://miktex.org/download"><span class="math inline">\(\LaTeX\)</span></a> instalado não é necessário instalar <a href="http://cran.r-project.org/package=tinytex">tinytex</a>, e até não recomendado instalar para não gerar conflito com a versão que já tem instalada.</p>
-<p>Para carregar esses pacotes use a linha de código a seguir.</p>
+<p>Para carregar e anexar esses pacotes, use as linhas de código a seguir.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co">### Funcao carregar</span>
 <span class="va">carregar</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">package</span><span class="op">)</span><span class="op">{</span>
@@ -411,7 +411,8 @@
 <a href="#sec-esqueleto" class="anchor"></a>Esqueleto básico de um pacote R</h2>
 <p>A estrutura básica de um pacote pode ser apresentado a seguir.</p>
 <p align="center">
-<img src="esqueleto.png" alt="Esqueleto de um pacote R" width="30%"></p>
+<a href="https://github.com/bendeivide/meupacoter/tree/main/projetos/proj-inicial/meupacoter"> <img src="esqueleto.png" alt="Esqueleto de um pacote R" width="30%"></a>
+</p>
 <!--
 ![](esqueleto.png)
 -->
@@ -427,15 +428,15 @@
 <li>Descrição do pacote;</li>
 <li>Licença;</li>
 <li>Pacotes dependentes;</li>
-<li>Pacotes sugeridos;</li>
+<li>Pacotes sugeridos; Alguns desses campos citados acima, não são obrigatórios. Veremos mais a frente.</li>
 </ul>
 </li>
 <li>
-<em>NAMESPACE</em>: Esse arquivo informa quais as funções do seu pacote que serão exportadas, visíveis aos usuários do pacote.</li>
+<em>NAMESPACE</em>: Esse arquivo informa quais as funções do seu pacote que serão exportadas, visíveis aos usuários do pacote, e quais funções de outros pacotes importaremos, quando for a necessidade.</li>
 <li>
-<em>R/</em>: Esse diretório armazena as rotinas “.R” do seu pacote.</li>
+<em>R/</em>: Esse diretório armazena as rotinas “.R” do seu pacote. Dizemos que é o cérebro do pacote, quando a linguagem está toda escrita em <a href="http://r-project.org">R</a>.</li>
 <li>
-<em>man/</em>: esse diretório armazena os arquivos de ajuda do pacote. Descreve e exemplifica as funções do pacote.</li>
+<em>man/</em>: Esse diretório armazena os arquivos de ajuda do pacote. Descreve como as funções de um pacote devem ser utilizadas, apresentando inclusive exemplos.</li>
 </ul>
 </div>
 <div id="building_rpack" class="section level2">
@@ -447,7 +448,12 @@
 </iframe>
 </p>
 <p>Passos no <a href="https://rstudio.com/">RStudio</a>: <code>File</code> &gt; <code>New Project...</code> &gt; <code>New Directory</code> &gt; <code>R package</code>. Insira o nome do pacote e armazene o projeto em um diretório desejado. Nesse momento, poderíamos já ter adicionado um repositório <a href="http://github.com">GitHub</a> ao pacote. Deixaremos essa parte para as seções seguintes.</p>
-<p>Se desejar criar por linha de comando, use <code><a href="https://usethis.r-lib.org/reference/create_package.html">usethis::create_package</a></code>.</p>
+<p>Se desejar criar um pacote por linha de comando, use <code><a href="https://usethis.r-lib.org/reference/create_package.html">usethis::create_package</a></code>. E se ainda não desejar utilizar o R, acesse <a href="https://benalana.blogspot.com/2020/08/desenvolvimento-de-pacotes-em-r.html">Desenvolvimentos de pacote em R</a>, e baixe as apostilas disponíveis.</p>
+</div>
+<div id="resumo-do-que-vimos-nessa-seção" class="section level2">
+<h2 class="hasAnchor">
+<a href="#resumo-do-que-vimos-nessa-se%C3%A7%C3%A3o" class="anchor"></a>Resumo do que vimos nessa seção</h2>
+<p>Em construção…</p>
 </div>
   </div>
 
