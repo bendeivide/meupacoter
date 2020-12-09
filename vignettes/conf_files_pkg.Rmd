@@ -77,7 +77,9 @@ No nosso caso, apenas a função `aritmetica` será exportável. Perceba, que o 
 Como já falado na Seção [Construindo o esqueleto de um pacote R](construindo_pacote.html), o subdiretório *R/* é o local para armazenar as rotinas do pacote. Dessa forma, vamos fazer as atualizações retirando os arquivos *.R* criados pelo [RStudio](https://rstudio.com/), e inserindo as rotinas do pacote  ([aritmetica.R](https://github.com/bendeivide/meupacote/blob/main/R/aritmetica.R) e [auxiliar.R](https://github.com/bendeivide/meupacote/blob/main/R/auxiliar.R)). Lembre-se das [boas práticas de como escrever um código R](introd_pkg.html#goodpractice).
 
 <p align="center">
+<a href="https://github.com/bendeivide/meupacoter/tree/main/projetos/proj-atualizado/meupacoter">
 <img src="esqueleto2.png" alt="Esqueleto de um pacote R" width="30%">
+</a>
 </p>
 
 ## Editando o arquivo *DESCRIPTION*{#description}
