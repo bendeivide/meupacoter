@@ -10,13 +10,14 @@ articles:
   datasetr: datasetr.html
   environments: environments.html
   faq: faq.html
+  github: github.html
   interpack: interpack.html
   introd_pkg: introd_pkg.html
   object_class: object_class.html
   other_languages: other_languages.html
   subdir_add: subdir_add.html
   submit: submit.html
-last_built: 2020-12-09T01:42Z
+last_built: 2020-12-15T12:34Z
 urls:
   reference: https://bendeivide.github.io/meupacoter//reference
   article: https://bendeivide.github.io/meupacoter//articles

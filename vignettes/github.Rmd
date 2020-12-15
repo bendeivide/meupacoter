@@ -1,0 +1,21 @@
+---
+title: "Repositório GitHub via RStudio"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Repositório GitHub via RStudio}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Inserindo o pacote via GitHub e criando um projeto website
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fz-doESpVRg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>

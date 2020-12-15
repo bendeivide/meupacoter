@@ -34,7 +34,7 @@ navbar:
          - text: Desenvolvimento de pacotes
          - text: "------------------"
          - text: Criar um repositório GitHub para o pacote
-           href: ~
+           href: articles/github.html
          - text: Criar uma website para o pacote
            href: articles/construindo_website.html
          - text: Criar tutoriais do pacote (vignettes)

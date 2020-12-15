@@ -38,7 +38,7 @@ use_readme_rmd()
 use_news_md()
 
 ## Criando Vignettes
-use_vignette("submit")
+use_vignette("github")
 
 ## Versao do pacote
 usethis::use_version()
